@@ -1,0 +1,11 @@
+.mainContainer {
+    width: 20vh;
+    background: #231203;
+    color: #ffeedc;
+    border-radius: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 1vh;
+}

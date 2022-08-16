@@ -39,3 +39,35 @@ button{
     margin-top: 90vh;
     font-size: 1rem;
 }
+
+.days-container{
+    margin-top: 2vh;
+    display: flex;
+    flex-direction: row;
+    width: 80vw;
+    overflow:auto;
+    text-align: left;
+    /*scroll-snap-type: x mandatory;*/
+
+}
+
+/* Works on Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: blue orange;
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+    background: orange;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: blue;
+    border-radius: 20px;
+    border: 3px solid orange;
+}
