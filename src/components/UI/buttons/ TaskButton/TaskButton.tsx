@@ -1,8 +1,8 @@
 import React from 'react';
-import style from './EntryButton.module.css'
 import MyBtn from "../MyBtn";
+import style from './TaskButton.module.css'
 
-const EntryButton = ({children, ...props}:any) => {
+const TaskButton = ({children, ...props}:any) => {
     return (
         <MyBtn {...props} className={style.btn}>
             {children}
@@ -10,4 +10,4 @@ const EntryButton = ({children, ...props}:any) => {
     );
 };
 
-export default EntryButton;
+export default TaskButton;

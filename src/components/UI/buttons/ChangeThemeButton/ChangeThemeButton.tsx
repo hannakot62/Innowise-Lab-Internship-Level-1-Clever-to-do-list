@@ -1,10 +1,11 @@
 import React from 'react';
 import style from './ChangeThemeButton.module.css'
+import MyBtn from "../MyBtn";
 const ChangeThemeButton = ({children, ...props}:any) => {
     return (
-        <button {...props} className={style.ChangeThemeButton}>
+        <MyBtn {...props} className={style.ChangeThemeButton}>
             {children}
-        </button>
+        </MyBtn>
     );
 };
 

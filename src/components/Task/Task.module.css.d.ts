@@ -6,3 +6,4 @@ export const taskBody:string;
 export const subContainer:string;
 export const buttonsContainer:string;
 export const description:string;
+export const title:string;

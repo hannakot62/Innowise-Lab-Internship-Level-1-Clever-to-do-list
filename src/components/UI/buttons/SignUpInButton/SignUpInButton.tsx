@@ -1,11 +1,12 @@
 import React from 'react';
 import style from "./SignUpInButton.module.css";
+import MyBtn from "../MyBtn";
 
 const SignUpInButton = ({children, ...props}:any) => {
     return (
-        <button {...props} className={style.sBtn}>
+        <MyBtn {...props} className={style.sBtn}>
             {children}
-        </button>
+        </MyBtn>
     );
 };
 
