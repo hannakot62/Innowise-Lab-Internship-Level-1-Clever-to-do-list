@@ -5,13 +5,15 @@ import './App.css';
 import EntryPage from "./pages/EntryPage";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
+import Main from "./pages/Main";
 
 function App() {
     return (
         <div className="App">
             {/*<EntryPage/>*/}
-            <SignIn/>
+            {/*<SignIn/>*/}
             {/*<SignUp/>*/}
+            <Main/>
             {/*<BrowserRouter>*/}
 
             {/*</BrowserRouter>*/}
