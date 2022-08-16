@@ -1,0 +1,14 @@
+.sBtn{
+    padding: 0.5rem 3rem;
+    color: #231203;
+    font-size: 1rem;
+    border-radius: 3rem;
+    background: #ffc891;
+    border: 0.1rem solid #231203;
+    cursor: pointer;
+    margin: 0 1rem 1.5rem 1rem;
+}
+.sBtn:hover {
+    background: #ff962d;
+    transition: ease 0.3s;
+}

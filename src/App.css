@@ -1,0 +1,41 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Raleway', sans-serif;
+    background: #fff4e9;
+    color: #231203;
+}
+button{
+    font-family: 'Raleway', sans-serif;
+}
+
+.entry-container{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+
+}
+.buttons-input-container{
+    display: flex;
+    flex-direction: column;
+    background: #e0eefe;
+    border-radius: 2rem;
+    border: 0.1rem solid #231203;
+}
+.buttons-input-container:first-child{
+    padding-top: 1.5rem;
+}
+
+.author{
+    margin:0;
+    padding: 0;
+    justify-self: center;
+    align-self: center;
+    margin-top: 90vh;
+    font-size: 1rem;
+}

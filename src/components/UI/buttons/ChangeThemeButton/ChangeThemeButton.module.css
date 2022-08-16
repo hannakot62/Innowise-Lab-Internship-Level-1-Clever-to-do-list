@@ -1,0 +1,12 @@
+.ChangeThemeButton{
+    color: #10006e;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    margin-top: 0.3rem;
+    font-size: 1rem;
+}
+.ChangeThemeButton:hover{
+    text-shadow:0 0 7px #221b50;
+    transition: ease 0.3s;
+}
