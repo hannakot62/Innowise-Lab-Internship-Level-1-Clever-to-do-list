@@ -8,6 +8,11 @@ import SignUp from "./pages/SignUp";
 import Main from "./pages/Main";
 import NewTask from "./pages/NewTask";
 import EditTask from "./pages/EditTask";
+import Lottie from "lottie-web";
+// @ts-ignore
+import icon from "./logo/todo.png";
+// @ts-ignore
+todoIcon.href = icon;
 
 export const myRoutes = [
   { path: "/hello", component: EntryPage },

@@ -6,6 +6,10 @@ border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 0.2rem solid #ff7f00;
+    border: 0.2rem solid #231203;
     color: #231203;
+
+    -webkit-box-shadow: 0 0 31px 12px rgba(64, 51, 30, 0.46);
+    -moz-box-shadow: 0 0 31px 12px rgba(64, 51, 30, 0.46);
+    box-shadow: 0 0 31px 12px rgba(64, 51, 30, 0.46);
 }

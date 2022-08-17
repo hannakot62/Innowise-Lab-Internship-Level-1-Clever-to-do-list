@@ -2,6 +2,7 @@ import React from "react";
 import EntryButton from "../components/UI/buttons/EntryButton/EntryButton";
 import ChangeThemeButton from "../components/UI/buttons/ChangeThemeButton/ChangeThemeButton";
 import { Link } from "react-router-dom";
+import Lottie from "lottie-web";
 
 const EntryPage = () => {
   return (
