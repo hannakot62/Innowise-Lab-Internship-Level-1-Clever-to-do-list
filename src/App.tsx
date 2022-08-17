@@ -1,24 +1,26 @@
-import React from 'react';
-import './App.css';
-// import {BrowserRouter} from "react-router-dom";
-// import EntryButton from "./components/UI/buttons/EntryButton/EntryButton";
+import React from "react";
+import "./App.css";
+
 import EntryPage from "./pages/EntryPage";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import Main from "./pages/Main";
+import { BrowserRouter } from "react-router-dom";
+import AppRouter from "./components/AppRouter";
 
 function App() {
-    return (
-        <div className="App">
-            {/*<EntryPage/>*/}
-            {/*<SignIn/>*/}
-            {/*<SignUp/>*/}
-            <Main/>
-            {/*<BrowserRouter>*/}
+  return (
+    <div className="App">
+      {/*<EntryPage/>*/}
+      {/*<SignIn/>*/}
+      {/*<SignUp/>*/}
+      {/*<Main/>*/}
 
-            {/*</BrowserRouter>*/}
-        </div>
-    );
+      <BrowserRouter>
+        <AppRouter />
+      </BrowserRouter>
+    </div>
+  );
 }
 
 export default App;
