@@ -47,14 +47,13 @@ button{
     width: 80vw;
     overflow:auto;
     text-align: left;
-    /*scroll-snap-type: x mandatory;*/
 
 }
 
 /* Works on Firefox */
 * {
     scrollbar-width: thin;
-    scrollbar-color: blue orange;
+    scrollbar-color:transparent;
 }
 
 /* Works on Chrome, Edge, and Safari */
@@ -63,11 +62,11 @@ button{
 }
 
 *::-webkit-scrollbar-track {
-    background: orange;
+    background: transparent;
 }
 
 *::-webkit-scrollbar-thumb {
-    background-color: blue;
+    background-color: transparent;
     border-radius: 20px;
-    border: 3px solid orange;
+    border: 3px solid transparent;
 }

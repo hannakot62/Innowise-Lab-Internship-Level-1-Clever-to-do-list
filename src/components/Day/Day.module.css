@@ -1,5 +1,6 @@
 .mainContainer {
     width: 20vh;
+    height: 20vh;
     background: #231203;
     color: #ffeedc;
     border-radius: 2rem;
@@ -8,4 +9,11 @@
     justify-content: center;
     align-items: center;
     margin: 1vh;
+}
+.today{
+    margin: 0;
+    height: 5vh;
+}
+.selected{
+    background: red;
 }
