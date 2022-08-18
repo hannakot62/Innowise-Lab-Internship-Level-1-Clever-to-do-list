@@ -10,14 +10,14 @@
 .roundDone {
     width: 2vh;
     height: 2vh;
-    background: green;
+    background: #ffd0a1;
     border-radius: 50%;
     margin: 0 0.5vw;
 }
 .roundUndone{
     width: 2vh;
     height: 2vh;
-    background: red;
+    background: #231203;
     border-radius: 50%;
     margin: 0 0.5vw;
 

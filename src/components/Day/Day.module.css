@@ -1,8 +1,9 @@
 .mainContainer {
     width: 20vh;
     height: 20vh;
-    background: #231203;
-    color: #ffeedc;
+    color: #231203;
+    border: 0.2rem solid #231203;
+    background: #ffeedc;
     border-radius: 2rem;
     display: flex;
     flex-direction: column;
@@ -15,5 +16,22 @@
     height: 5vh;
 }
 .selected{
-    background: red;
+    width: 20vh;
+    height: 20vh;
+    background: #231203;
+    color: #ffeedc;
+    border-radius: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 1vh;
+    border: 0.2rem solid #231203;
+}
+.mainContainer:hover{
+    cursor: pointer;
+
+}
+.selected:hover{
+    cursor: pointer;
 }

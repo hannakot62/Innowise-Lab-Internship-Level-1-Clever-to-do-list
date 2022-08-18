@@ -3,7 +3,7 @@ import style from "./Day.module.css";
 import TaskRounds from "../TaskRounds/TaskRounds";
 
 interface OwnProps {
-  slctd: boolean;
+  slctd: number;
   day: number;
   tasksDoneQuantity: number;
   tasksUndoneQuantity: number;
@@ -18,34 +18,29 @@ const Day: FunctionComponent<OwnProps> = ({
   unselectAll,
 }) => {
   let currentDate = new Date();
-  const [selected, setSelected] = useState(slctd);
-  const ref = useRef(null);
+  const [selected, setSelected] = useState(slctd === currentDate.getDate());
+
   useEffect(() => {
-    if (day === currentDate.getDate()) {
-      setSelected(true);
-    }
-  }, [selected, day, currentDate]);
-  useEffect(() => {
-    setSelected(slctd);
+    setSelected(slctd === day);
   }, [slctd]);
-  useEffect(() => {
-    if (!selected) {
-      console.log("askgajhdahdsjsdg");
-      console.log(ref.current);
-      // ref.current;
-    }
-  }, [selected]);
+
   function handleClick(e: any) {
-    unselectAll();
+    unselectAll(day);
     setSelected(true);
     e.currentTarget.classList.add(style.selected);
   }
+
   return (
     <span>
-      <div ref={ref} className={style.mainContainer} onClick={handleClick}>
+      <div
+        className={selected ? style.selected : style.mainContainer}
+        onClick={handleClick}
+      >
         <h1>{day}</h1>
         {day === currentDate.getDate() ? (
           <h4 className={style.today}>today</h4>
+        ) : selected ? (
+          <div style={{ height: "5vh" }}></div>
         ) : (
           <TaskRounds
             tasksDoneQuantity={tasksDoneQuantity}

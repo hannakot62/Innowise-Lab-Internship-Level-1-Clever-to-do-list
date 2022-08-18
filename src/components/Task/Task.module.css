@@ -14,7 +14,7 @@
 .myCheckbox+label {
     display: inline-flex;
     align-items: center;
-    user-select: none;
+   user-select: none;
     cursor: pointer;
 
 }
@@ -40,7 +40,7 @@
 }
 
 /* стили при наведении курсора на checkbox */
-.cmyCheckbox:not(:disabled):not(:checked)+label:hover::before {
+.myCheckbox:not(:disabled):not(:checked)+label:hover::before {
     border-color: #ff962d;
 }
 /* стили для активного состояния чекбокса (при нажатии на него) */

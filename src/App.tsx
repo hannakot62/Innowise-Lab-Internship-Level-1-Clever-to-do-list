@@ -11,8 +11,6 @@ import AppRouter from "./components/AppRouter";
 function App() {
   return (
     <div className="App">
-      <div id="animationContainer"></div>
-
       {/*<EntryPage/>*/}
       {/*<SignIn/>*/}
       {/*<SignUp/>*/}
