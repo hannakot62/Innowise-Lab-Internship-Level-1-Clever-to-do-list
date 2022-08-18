@@ -126,3 +126,7 @@
     margin: 0;
 }
 }
+
+.done{
+    text-decoration: line-through;
+}

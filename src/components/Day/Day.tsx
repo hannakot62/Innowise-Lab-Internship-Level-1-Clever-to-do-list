@@ -39,12 +39,11 @@ const Day: FunctionComponent<OwnProps> = ({
         <h1>{day}</h1>
         {day === currentDate.getDate() ? (
           <h4 className={style.today}>today</h4>
-        ) : selected ? (
-          <div style={{ height: "5vh" }}></div>
         ) : (
           <TaskRounds
             tasksDoneQuantity={tasksDoneQuantity}
             tasksUndoneQuantity={tasksUndoneQuantity}
+            selected={selected}
           />
         )}
       </div>

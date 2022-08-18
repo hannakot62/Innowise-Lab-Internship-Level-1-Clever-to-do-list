@@ -1,6 +1,8 @@
 import React from "react";
 import MyBtn from "../components/UI/buttons/MyBtn";
 import TaskConfigButtons from "../components/UI/buttons/TaskConfigButtons/TaskConfigButtons";
+import { Link } from "react-router-dom";
+import Plus from "../components/UI/pics/Plus";
 
 const NewTask = () => {
   return (
@@ -18,8 +20,18 @@ const NewTask = () => {
         <input className={"input-time"} type={"time"} />
       </div>
       <div className={"buttons-task-config-container"}>
-        <TaskConfigButtons>Cancel</TaskConfigButtons>
-        <TaskConfigButtons>Add</TaskConfigButtons>
+        <TaskConfigButtons>
+          {" "}
+          <Link className={"link"} to="/todos">
+            Cancel
+          </Link>
+        </TaskConfigButtons>
+        <TaskConfigButtons>
+          {" "}
+          <Link className={"link"} to="/todos">
+            Add{" "}
+          </Link>
+        </TaskConfigButtons>
       </div>
     </div>
   );

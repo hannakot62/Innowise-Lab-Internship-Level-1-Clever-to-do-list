@@ -6,7 +6,9 @@ import { daysInCurrentMonth } from "../logic/dateOperations";
 import Sun from "../components/UI/pics/Sun";
 import Moon from "../components/UI/pics/Moon";
 import Plus from "../components/UI/pics/Plus";
-
+import MyBtn from "../components/UI/buttons/MyBtn";
+import SignOutStyle from "../components/UI/buttons/ChangeThemeButton/ChangeThemeButton.module.css";
+import { Link } from "react-router-dom";
 const Main = (props: any) => {
   const [selectedDay, setSelectedDay] = useState(new Date().getDate());
   const [daystopush, setDaystopush] = useState();
@@ -87,6 +89,9 @@ const Main = (props: any) => {
 
   return (
     <div className={"main-page-container"}>
+      {/*<MyBtn id="sign-out-btn" className={SignOutStyle.ChangeThemeButton}>*/}
+      {/*  Sign Out*/}
+      {/*</MyBtn>*/}
       <div className={"days-container"}>{daysToPush}</div>
       <h1 style={{ width: "100%", alignSelf: "left" }}>Tasks:</h1>
       <div className={"buttons-task-container"}>
@@ -101,12 +106,18 @@ const Main = (props: any) => {
           <Moon />
         </MainBottomButtons>
         <MainBottomButtons>
-          <Plus />
+          {" "}
+          <Link className={"link"} to="/newtask">
+            <Plus />
+          </Link>
         </MainBottomButtons>
       </div>
-      <Task id={1} />
-      <Task id={2} />
-      <Task id={3} />
+      <div className={"tasks"}>
+        {/*<h1>chill</h1>*/}
+        <Task id={1} />
+        <Task id={2} />
+        <Task id={3} />
+      </div>
     </div>
   );
 };
