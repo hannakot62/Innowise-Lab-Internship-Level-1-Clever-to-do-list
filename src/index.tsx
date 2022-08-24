@@ -11,6 +11,9 @@ import EditTask from "./pages/EditTask";
 import Lottie from "lottie-web";
 // @ts-ignore
 import icon from "./logo/todo.png";
+import { Provider } from "react-redux";
+import { store } from "./store";
+import "./firebase";
 // @ts-ignore
 todoIcon.href = icon;
 
@@ -30,6 +33,8 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>
 );
