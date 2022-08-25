@@ -8,10 +8,17 @@ import Moon from "../components/UI/pics/Moon";
 import Plus from "../components/UI/pics/Plus";
 import MyBtn from "../components/UI/buttons/MyBtn";
 import SignOutStyle from "../components/UI/buttons/ChangeThemeButton/ChangeThemeButton.module.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../hooks/useAuth";
+import { useDispatch, useSelector } from "react-redux";
+import DoorOpen from "../components/UI/pics/DoorOpen";
+import { removeUser } from "../store/slices/userSlice";
 const Main = (props: any) => {
   const [selectedDay, setSelectedDay] = useState(new Date().getDate());
   const [daystopush, setDaystopush] = useState();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const isAuth = !!useSelector((state: any) => state.user.id);
   const [days, setDays] = useState([
     {
       slctd: selectedDay,
@@ -39,7 +46,7 @@ const Main = (props: any) => {
     },
     {
       slctd: selectedDay,
-      day: 20,
+      day: 25,
       tasksDoneQuantity: 0,
       tasksUndoneQuantity: 0,
     },
@@ -87,11 +94,21 @@ const Main = (props: any) => {
   }, [days]);
   let daaays = daysInCurrentMonth();
 
-  return (
+  function handleSignOut() {
+    dispatch(removeUser());
+    navigate("/hello");
+  }
+
+  return isAuth ? (
     <div className={"main-page-container"}>
-      {/*<MyBtn id="sign-out-btn" className={SignOutStyle.ChangeThemeButton}>*/}
-      {/*  Sign Out*/}
-      {/*</MyBtn>*/}
+      <MyBtn
+        id="sign-out-btn"
+        className={SignOutStyle.ChangeThemeButton}
+        onClick={handleSignOut}
+      >
+        Sign Out
+        <DoorOpen />
+      </MyBtn>
       <div className={"days-container"}>{daysToPush}</div>
       <h1 style={{ width: "100%", alignSelf: "left" }}>Tasks:</h1>
       <div className={"buttons-task-container"}>
@@ -119,6 +136,8 @@ const Main = (props: any) => {
         <Task id={3} />
       </div>
     </div>
+  ) : (
+    <h1>What are you looking for? :)</h1>
   );
 };
 

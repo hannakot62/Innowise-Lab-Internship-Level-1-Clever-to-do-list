@@ -3,26 +3,43 @@ import EntryButton from "../components/UI/buttons/EntryButton/EntryButton";
 import ChangeThemeButton from "../components/UI/buttons/ChangeThemeButton/ChangeThemeButton";
 import EntryInput from "../components/UI/inputs/EntryInput/EntryInput";
 import SignUpInButton from "../components/UI/buttons/SignUpInButton/SignUpInButton";
-import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import { setUser } from "../store/slices/userSlice";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import Notification from "../components/UI/notification/Notification";
+import { removeError, setError } from "../store/slices/errorSlice";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const err = useSelector((state: any) => state.error.error);
 
   const handleLogin = (email: string, password: string) => {
     const auth = getAuth();
-    console.log(auth);
     signInWithEmailAndPassword(auth, email, password)
-      .then(console.table)
-      .catch(console.error);
+      .then(({ user }) => {
+        dispatch(
+          setUser({
+            email: user.email,
+            id: user.uid,
+          })
+        );
+        navigate("/todos");
+      })
+      .catch((error) => {
+        dispatch(setError(error.message));
+        setTimeout(() => {
+          dispatch(removeError());
+        }, 2000);
+      });
   };
 
   return (
-    <div>
+    <div className={"main"}>
+      <Notification e={err} hidden={err === ""} />
       <div className={"entry-container"}>
         <div className={"buttons-input-container"}>
           <EntryInput
@@ -39,10 +56,7 @@ const SignIn = () => {
           ></EntryInput>
           <EntryButton>Continue with Google</EntryButton>
           <SignUpInButton onClick={() => handleLogin(email, password)}>
-            {" "}
-            <Link className={"link"} to="/todos">
-              Sign In!
-            </Link>
+            Sign In!
           </SignUpInButton>
         </div>
         <ChangeThemeButton>Change Theme</ChangeThemeButton>
