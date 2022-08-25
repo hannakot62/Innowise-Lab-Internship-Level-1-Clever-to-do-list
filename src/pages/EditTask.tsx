@@ -1,10 +1,12 @@
 import React from "react";
 import TaskConfigButtons from "../components/UI/buttons/TaskConfigButtons/TaskConfigButtons";
 import { Link } from "react-router-dom";
-import Plus from "../components/UI/pics/Plus";
+import { useSelector } from "react-redux";
 
 const EditTask = () => {
-  return (
+  const isAuth = !!useSelector((state: any) => state.user.id);
+
+  return isAuth ? (
     <div className={"task-config-container"}>
       <h1 className={"new-edit-task"}>Edit Task</h1>
       <input className={"title"} type={"text"} placeholder={"Title"} />
@@ -33,6 +35,10 @@ const EditTask = () => {
         </TaskConfigButtons>
       </div>
     </div>
+  ) : (
+    <h1>
+      First you need to <Link to={"/"}>sign in</Link>
+    </h1>
   );
 };
 

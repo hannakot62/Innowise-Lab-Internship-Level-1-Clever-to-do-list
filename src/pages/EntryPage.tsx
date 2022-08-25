@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useLayoutEffect } from "react";
 import EntryButton from "../components/UI/buttons/EntryButton/EntryButton";
 import ChangeThemeButton from "../components/UI/buttons/ChangeThemeButton/ChangeThemeButton";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Lottie from "lottie-web";
 import { useSelector } from "react-redux";
+import { getUserFromLS } from "../store/slices/userSlice";
 
 const EntryPage = () => {
   return (

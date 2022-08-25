@@ -96,7 +96,7 @@ const Main = (props: any) => {
 
   function handleSignOut() {
     dispatch(removeUser());
-    navigate("/hello");
+    navigate("/");
   }
 
   return isAuth ? (

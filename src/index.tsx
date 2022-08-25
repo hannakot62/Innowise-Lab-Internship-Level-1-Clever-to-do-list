@@ -18,7 +18,6 @@ import "./firebase";
 todoIcon.href = icon;
 
 export const myRoutes = [
-  { path: "/hello", component: EntryPage },
   { path: "/signin", component: SignIn },
   { path: "/signup", component: SignUp },
   { path: "/todos", component: Main },
