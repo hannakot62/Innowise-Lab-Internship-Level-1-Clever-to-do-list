@@ -12,51 +12,22 @@ import { useDispatch, useSelector } from "react-redux";
 import DoorOpen from "../components/UI/pics/DoorOpen";
 import { removeUser } from "../store/slices/userSlice";
 import TasksList from "../components/TasksList/TasksList";
+import { useDays } from "../hooks/useDays";
 
 const Main = () => {
   const [selectedDay, setSelectedDay] = useState(new Date().getDate());
+  console.log("selected day in main ", selectedDay);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  // @ts-ignore
-  const theme = useSelector((state) => state.theme.theme);
+  const theme = useSelector((state: any) => state.theme.theme);
   const isAuth = !!useSelector((state: any) => state.user.id);
-  const [days, setDays] = useState([
-    {
-      slctd: selectedDay,
-      day: 2,
-      tasksDoneQuantity: 1,
-      tasksUndoneQuantity: 0,
-    },
-    {
-      slctd: selectedDay,
-      day: 17,
-      tasksDoneQuantity: 2,
-      tasksUndoneQuantity: 0,
-    },
-    {
-      slctd: selectedDay,
-      day: 18,
-      tasksDoneQuantity: 1,
-      tasksUndoneQuantity: 0,
-    },
-    {
-      slctd: selectedDay,
-      day: 19,
-      tasksDoneQuantity: 3,
-      tasksUndoneQuantity: 9,
-    },
-    {
-      slctd: selectedDay,
-      day: 25,
-      tasksDoneQuantity: 0,
-      tasksUndoneQuantity: 0,
-    },
-  ]);
+  // const daysToRender = useDays(); //надо вернуть дні і забрать все таскі для текуўего юзера
+  const [days, setDays] = useState(useDays());
   function unselectAll(selectedDay: number) {
     let a: any = [];
     days.forEach((i) => {
       a.push({
-        slctd: selectedDay,
+        selected: selectedDay,
         day: i.day,
         tasksDoneQuantity: i.tasksDoneQuantity,
         tasksUndoneQuantity: i.tasksUndoneQuantity,
@@ -70,7 +41,7 @@ const Main = () => {
     daysToPush.push(
       <Day
         key={i.day}
-        slctd={i.slctd}
+        slctd={i.selected}
         day={i.day}
         tasksDoneQuantity={i.tasksDoneQuantity}
         tasksUndoneQuantity={i.tasksUndoneQuantity}
@@ -84,7 +55,7 @@ const Main = () => {
       daysToPush.push(
         <Day
           key={i.day}
-          slctd={i.slctd}
+          slctd={i.selected}
           day={i.day}
           tasksDoneQuantity={i.tasksDoneQuantity}
           tasksUndoneQuantity={i.tasksUndoneQuantity}
@@ -93,7 +64,6 @@ const Main = () => {
       );
     });
   }, [days]);
-  let daaays = daysInCurrentMonth();
 
   function handleSignOut() {
     dispatch(removeUser());

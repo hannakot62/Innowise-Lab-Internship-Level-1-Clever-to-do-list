@@ -1,7 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  tasks: [],
+  tasks: [
+    { day: 26, done: true },
+    { day: 25, done: true },
+    { day: 28, done: true },
+    { day: 26, done: false },
+  ],
 };
 const tasksSlice = createSlice({
   name: "tasks",
@@ -20,6 +25,8 @@ const tasksSlice = createSlice({
       // @ts-ignore
       state.tasks[taskIndex].done = !state.tasks[taskIndex].done;
     },
+    taskAdded() {},
+    taskEdited() {},
   },
 });
 

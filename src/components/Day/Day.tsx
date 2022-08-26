@@ -2,7 +2,7 @@ import React, { FunctionComponent, useEffect, useRef, useState } from "react";
 import style from "./Day.module.css";
 import TaskRounds from "../TaskRounds/TaskRounds";
 
-interface OwnProps {
+interface Day {
   slctd: number;
   day: number;
   tasksDoneQuantity: number;
@@ -10,7 +10,7 @@ interface OwnProps {
   unselectAll: Function;
 }
 
-const Day: FunctionComponent<OwnProps> = ({
+const Day: FunctionComponent<Day> = ({
   slctd,
   day,
   tasksDoneQuantity,
@@ -19,7 +19,7 @@ const Day: FunctionComponent<OwnProps> = ({
 }) => {
   let currentDate = new Date();
   const [selected, setSelected] = useState(slctd === currentDate.getDate());
-
+  console.log("day: ", day, ", selected: ", slctd);
   useEffect(() => {
     setSelected(slctd === day);
   }, [slctd]);
