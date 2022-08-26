@@ -13,6 +13,13 @@ const tasksSlice = createSlice({
     removeTasks(state) {
       state.tasks = [];
     },
+    taskDoneUndone(state, action) {
+      let taskIndex = state.tasks.findIndex(
+        (task: any) => task.id === action.payload
+      );
+      // @ts-ignore
+      state.tasks[taskIndex].done = !state.tasks[taskIndex].done;
+    },
   },
 });
 
