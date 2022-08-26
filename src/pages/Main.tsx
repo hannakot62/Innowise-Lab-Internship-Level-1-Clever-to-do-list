@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Task from "../components/Task/Task";
 import Day from "../components/Day/Day";
 import MainBottomButtons from "../components/UI/buttons/MainBottomButtons/MainBottomButtons";
 import { daysInCurrentMonth } from "../logic/dateOperations";
@@ -9,13 +8,13 @@ import Plus from "../components/UI/pics/Plus";
 import MyBtn from "../components/UI/buttons/MyBtn";
 import SignOutStyle from "../components/UI/buttons/ChangeThemeButton/ChangeThemeButton.module.css";
 import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from "../hooks/useAuth";
 import { useDispatch, useSelector } from "react-redux";
 import DoorOpen from "../components/UI/pics/DoorOpen";
 import { removeUser } from "../store/slices/userSlice";
-const Main = (props: any) => {
+import TasksList from "../components/TasksList/TasksList";
+
+const Main = () => {
   const [selectedDay, setSelectedDay] = useState(new Date().getDate());
-  const [daystopush, setDaystopush] = useState();
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const isAuth = !!useSelector((state: any) => state.user.id);
@@ -129,12 +128,7 @@ const Main = (props: any) => {
           </Link>
         </MainBottomButtons>
       </div>
-      <div className={"tasks"}>
-        {/*<h1>chill</h1>*/}
-        <Task id={1} />
-        <Task id={2} />
-        <Task id={3} />
-      </div>
+      <TasksList selectedDay={selectedDay} />
     </div>
   ) : (
     <h1>What are you looking for? :)</h1>
