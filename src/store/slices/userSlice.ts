@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { json } from "stream/consumers";
 
 const initialState = {
   email: getUserFromLS() ? getUserFromLS().email : null,
