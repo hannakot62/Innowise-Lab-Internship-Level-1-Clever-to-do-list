@@ -156,3 +156,7 @@ margin: 0;
     justify-content: center;
     align-items: center;
 }
+
+.tasks-header{
+    width: 100%;
+}

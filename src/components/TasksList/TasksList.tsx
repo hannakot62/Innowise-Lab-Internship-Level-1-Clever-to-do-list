@@ -3,7 +3,7 @@ import Task from "../Task/Task";
 import style from "./TasksList.module.css";
 
 const TasksList = ({ selectedDay }: { selectedDay: number }) => {
-  //надо забрать таскі
+  //надо забрать таскі, их кол-во, посчитать сделаные и нет
   return (
     <div className={style.tasks}>
       {/*<h1>chill</h1>*/}

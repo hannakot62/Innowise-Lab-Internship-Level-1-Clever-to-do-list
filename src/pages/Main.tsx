@@ -17,6 +17,8 @@ const Main = () => {
   const [selectedDay, setSelectedDay] = useState(new Date().getDate());
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  // @ts-ignore
+  const theme = useSelector((state) => state.theme.theme);
   const isAuth = !!useSelector((state: any) => state.user.id);
   const [days, setDays] = useState([
     {
@@ -108,21 +110,15 @@ const Main = () => {
         Sign Out
         <DoorOpen />
       </MyBtn>
+
       <div className={"days-container"}>{daysToPush}</div>
-      <h1 style={{ width: "100%", alignSelf: "left" }}>Tasks:</h1>
+      <h1 className={"tasks-header"}>Tasks:</h1>
       <div className={"buttons-task-container"}>
-        <MainBottomButtons
-          style={{
-            background: "#231203",
-            color: "#fff4e9",
-            border: "0.2rem solid #231203",
-          }}
-        >
-          {/*<Sun/>*/}
-          <Moon />
+        <MainBottomButtons theme={1}>
+          {theme === "light" ? <Moon /> : <Sun />}
         </MainBottomButtons>
+
         <MainBottomButtons>
-          {" "}
           <Link className={"link"} to="/newtask">
             <Plus />
           </Link>

@@ -20,3 +20,9 @@ border-radius: 50%;
     height: 8vh;
     cursor: pointer;
 }
+
+.changeTheme{
+   background: #231203;
+   color: #fff4e9;
+   border: 0.2rem solid #231203;
+}
