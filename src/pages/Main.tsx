@@ -16,7 +16,6 @@ import { useDays } from "../hooks/useDays";
 
 const Main = () => {
   const [selectedDay, setSelectedDay] = useState(new Date().getDate());
-  console.log("selected day in main ", selectedDay);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const theme = useSelector((state: any) => state.theme.theme);
@@ -69,7 +68,7 @@ const Main = () => {
     dispatch(removeUser());
     navigate("/");
   }
-
+  console.table(days);
   return isAuth ? (
     <div className={"main-page-container"}>
       <MyBtn

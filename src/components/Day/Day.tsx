@@ -19,7 +19,6 @@ const Day: FunctionComponent<Day> = ({
 }) => {
   let currentDate = new Date();
   const [selected, setSelected] = useState(slctd === currentDate.getDate());
-  console.log("day: ", day, ", selected: ", slctd);
   useEffect(() => {
     setSelected(slctd === day);
   }, [slctd]);

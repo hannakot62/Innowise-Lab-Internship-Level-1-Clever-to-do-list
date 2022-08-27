@@ -11,7 +11,6 @@ export function useDays() {
   let days: Array<Day> = [];
   //не чітать, а подгрузіть таскі по юзер id
   const allTasks = useSelector((state: any) => state.tasks.tasks);
-  console.log(allTasks);
   const daysInCurrentMonthQuantity = daysInCurrentMonth();
   const currentDay = new Date().getDate();
   for (
@@ -22,8 +21,13 @@ export function useDays() {
     //насчет дня конечно не точно
     let tasksForDay = allTasks.filter((task: any) => task.day === iterDay);
     console.log(tasksForDay);
-    let done = tasksForDay ? +tasksForDay.find((task: any) => task.done) : 0;
-    let undone = tasksForDay ? +tasksForDay.find((task: any) => !task.done) : 0;
+    // console.log(+tasksForDay[0].done);
+    let done = tasksForDay.length
+      ? tasksForDay.filter((task: any) => task.done).length
+      : 0;
+    let undone = tasksForDay.length
+      ? tasksForDay.filter((task: any) => !task.done).length
+      : 0;
     days.push({
       selected: currentDay,
       day: iterDay,
@@ -31,6 +35,5 @@ export function useDays() {
       tasksUndoneQuantity: undone,
     });
   }
-  console.table(days);
   return days;
 }
