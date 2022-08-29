@@ -44,7 +44,6 @@ const Main = () => {
 
   let daysToPush: any = [];
   days.map((i) => {
-    console.log(Date.now());
     daysToPush.push(
       <Day
         key={i.day}
@@ -57,7 +56,6 @@ const Main = () => {
     );
   });
   useEffect(() => {
-    console.log(Date.now());
     days.map((i: any) => {
       daysToPush.push(
         <Day

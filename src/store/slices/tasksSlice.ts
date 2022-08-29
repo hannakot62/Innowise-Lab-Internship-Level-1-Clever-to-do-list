@@ -16,16 +16,17 @@ const tasksSlice = createSlice({
     },
     taskDoneUndone(state, action) {
       let taskIndex = state.tasks.findIndex(
-        (task: any) => task.id === action.payload.id
+        (task: any) => task.id === action.payload
       );
       // @ts-ignore
       state.tasks[taskIndex].done = !state.tasks[taskIndex].done;
       //TODO: плюс надо менять в бд
     },
     taskAdded() {},
-    taskEdited() {},
+    editTask(state, action) {},
   },
 });
 
-export const { setTasks, removeTasks, taskDoneUndone } = tasksSlice.actions;
+export const { setTasks, removeTasks, taskDoneUndone, editTask } =
+  tasksSlice.actions;
 export default tasksSlice.reducer;

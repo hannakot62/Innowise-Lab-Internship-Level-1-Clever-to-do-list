@@ -36,6 +36,7 @@ export function useDays() {
     where("userEmail", "==", email)
     // where("date", "<=", currentDayStart)
   );
+  const tasks = useSelector((state: any) => state.tasks.tasks);
 
   useEffect(() => {
     const getTasks = async () => {
@@ -43,7 +44,7 @@ export function useDays() {
       let tasksTemp: Array<Task> = [];
       tasksDocuments.forEach((doc) => {
         tasksTemp.push({
-          id: doc.data().id,
+          id: doc.id,
           userEmail: doc.data().userEmail,
           date: new Date(doc.data().date.seconds * 1000).toLocaleDateString(),
           time: new Date(doc.data().date.seconds * 1000).toLocaleTimeString(),
@@ -54,10 +55,10 @@ export function useDays() {
       });
       dispatch(setTasks(tasksTemp));
     };
+
     //TODO: добавить лоадер??? обработка ошибок???
     getTasks();
   }, []);
-
   const daysInCurrentMonthQuantity = daysInCurrentMonth();
   const currentDay = new Date().getDate();
   const myTasks = useSelector((state: any) => state.tasks.tasks);

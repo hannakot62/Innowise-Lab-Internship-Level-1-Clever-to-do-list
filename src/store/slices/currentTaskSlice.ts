@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  currentTask: -1,
+  currentTask: "",
 };
 const currentTaskSlice = createSlice({
   name: "currentTask",
@@ -11,7 +11,7 @@ const currentTaskSlice = createSlice({
       state.currentTask = action.payload;
     },
     removeCurrentTask(state) {
-      state.currentTask = -1;
+      state.currentTask = "";
     },
   },
 });
