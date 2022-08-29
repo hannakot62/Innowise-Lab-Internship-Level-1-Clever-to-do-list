@@ -1,20 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  tasks: [
-    { day: 27, done: true },
-    { day: 29, done: true },
-    { day: 29, done: false },
-    { day: 28, done: true },
-    { day: 27, done: false },
-  ],
+  tasks: [],
 };
 const tasksSlice = createSlice({
   name: "tasks",
   initialState,
   reducers: {
     setTasks(state, action) {
-      state.tasks = action.payload.tasks;
+      state.tasks = action.payload;
+      console.log(state.tasks);
     },
     removeTasks(state) {
       state.tasks = [];

@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import Day from "../components/Day/Day";
 import MainBottomButtons from "../components/UI/buttons/MainBottomButtons/MainBottomButtons";
-import { daysInCurrentMonth } from "../logic/dateOperations";
 import Sun from "../components/UI/pics/Sun";
 import Moon from "../components/UI/pics/Moon";
 import Plus from "../components/UI/pics/Plus";
@@ -13,6 +12,7 @@ import DoorOpen from "../components/UI/pics/DoorOpen";
 import { removeUser } from "../store/slices/userSlice";
 import TasksList from "../components/TasksList/TasksList";
 import { useDays } from "../hooks/useDays";
+import { DayInterface } from "../hooks/useDays";
 
 const Main = () => {
   const [selectedDay, setSelectedDay] = useState(new Date().getDate());
@@ -20,10 +20,14 @@ const Main = () => {
   const dispatch = useDispatch();
   const theme = useSelector((state: any) => state.theme.theme);
   const isAuth = !!useSelector((state: any) => state.user.id);
-  // const daysToRender = useDays(); //надо вернуть дні і забрать все таскі для текуўего юзера
+  const email = useSelector((state: any) => state.user.email);
+
   const [days, setDays] = useState(useDays());
+  console.log("дні в мейне");
+  console.table(days);
+
   function unselectAll(selectedDay: number) {
-    let a: any = [];
+    let a: Array<DayInterface> = [];
     days.forEach((i) => {
       a.push({
         selected: selectedDay,
@@ -35,8 +39,9 @@ const Main = () => {
     setSelectedDay(selectedDay);
     setDays(a);
   }
+
   let daysToPush: any = [];
-  days.map((i: any) => {
+  days.map((i) => {
     daysToPush.push(
       <Day
         key={i.day}
@@ -62,13 +67,15 @@ const Main = () => {
         />
       );
     });
-  }, [days]);
+    console.log("дэйс (ту пуш) в юзэффект");
+    console.table(days);
+  }, []);
 
   function handleSignOut() {
     dispatch(removeUser());
     navigate("/");
   }
-  console.table(days);
+
   return isAuth ? (
     <div className={"main-page-container"}>
       <MyBtn
