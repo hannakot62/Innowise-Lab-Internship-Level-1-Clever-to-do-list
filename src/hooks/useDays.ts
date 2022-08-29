@@ -32,6 +32,7 @@ export function useDays() {
   const tasksCollection = query(
     collection(db, "tasks"),
     where("userEmail", "==", email)
+    // where("date", "in", "")
   );
 
   useEffect(() => {

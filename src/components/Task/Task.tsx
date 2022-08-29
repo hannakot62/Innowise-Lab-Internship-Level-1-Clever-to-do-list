@@ -24,6 +24,12 @@ const Task = ({
   const [done, setDone] = useState(doneT);
   useEffect(() => {
     dispatch(taskDoneUndone(id));
+    {
+      if (doneT) {
+        // @ts-ignore
+        document.getElementById(id.toString()).click();
+      }
+    }
   }, [done]);
   return (
     <div className={style.mainContainer}>
