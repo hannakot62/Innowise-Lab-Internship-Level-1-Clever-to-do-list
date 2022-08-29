@@ -27,7 +27,8 @@ export function useDays() {
   const email = useSelector((state: any) => state.user.email);
   const dispatch = useDispatch();
 
-  //добавіть условіе по месяцу
+  //TODO: добавіть условіе по месяцу
+
   const tasksCollection = query(
     collection(db, "tasks"),
     where("userEmail", "==", email)
@@ -50,7 +51,7 @@ export function useDays() {
       });
       dispatch(setTasks(tasksTemp));
     };
-    //добавить лоадер??? обработка ошибок???
+    //TODO: добавить лоадер??? обработка ошибок???
     getTasks();
   }, []);
 

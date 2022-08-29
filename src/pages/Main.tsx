@@ -21,7 +21,6 @@ const Main = () => {
   const theme = useSelector((state: any) => state.theme.theme);
   const isAuth = !!useSelector((state: any) => state.user.id);
   const email = useSelector((state: any) => state.user.email);
-
   const [days, setDays] = useState(useDays());
   console.log("дні в мейне");
   console.table(days);
@@ -42,6 +41,7 @@ const Main = () => {
 
   let daysToPush: any = [];
   days.map((i) => {
+    console.log(Date.now());
     daysToPush.push(
       <Day
         key={i.day}
@@ -54,7 +54,7 @@ const Main = () => {
     );
   });
   useEffect(() => {
-    daysToPush = [];
+    console.log(Date.now());
     days.map((i: any) => {
       daysToPush.push(
         <Day

@@ -1,15 +1,26 @@
 import React from "react";
 import Task from "../Task/Task";
 import style from "./TasksList.module.css";
+import { useSelector } from "react-redux";
 
 const TasksList = ({ selectedDay }: { selectedDay: number }) => {
-  //надо забрать таскі, их кол-во, посчитать сделаные и нет
+  const tasks = useSelector((state: any) => state.tasks.tasks);
+  const tasksToRender = [];
+  for (let i = 0; i < tasks.length; i++) {
+    tasksToRender.push(
+      <Task
+        key={i}
+        id={i}
+        title={tasks[i].title}
+        description={tasks[i].description}
+        doneT={tasks[i].done}
+        time={tasks[i].time}
+      />
+    );
+  }
   return (
     <div className={style.tasks}>
-      {/*<h1>chill</h1>*/}
-      <Task id={1} />
-      <Task id={2} />
-      <Task id={3} />
+      {tasksToRender.length ? tasksToRender : <h1>chill :)</h1>}
     </div>
   );
 };

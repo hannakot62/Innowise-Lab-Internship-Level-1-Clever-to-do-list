@@ -1,14 +1,30 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import style from "./Task.module.css";
 import TaskButton from "../UI/buttons/ TaskButton/TaskButton";
 import Edit from "../UI/pics/Edit";
 import Delete from "../UI/pics/Delete";
 import { Link } from "react-router-dom";
-import Plus from "../UI/pics/Plus";
+import { useDispatch } from "react-redux";
+import { taskDoneUndone } from "../../store/slices/tasksSlice";
 
-const Task = ({ id }: { id: number }) => {
-  const [done, setDone] = useState(false);
-
+const Task = ({
+  id,
+  title,
+  description,
+  doneT,
+  time,
+}: {
+  id: number;
+  title: string;
+  description: string;
+  doneT: boolean;
+  time: string;
+}) => {
+  const dispatch = useDispatch();
+  const [done, setDone] = useState(doneT);
+  useEffect(() => {
+    dispatch(taskDoneUndone(id));
+  }, [done]);
   return (
     <div className={style.mainContainer}>
       <div className={style.subContainer}>
@@ -23,16 +39,16 @@ const Task = ({ id }: { id: number }) => {
             name="done"
           />
           <label htmlFor={id.toString()}></label>
-          <div className={style.time}>12:00 pm</div>
+          <div className={style.time}>{time.slice(0, 5)}</div>
         </div>
         <div
           className={
             done ? style.taskBody.concat(" " + style.done) : style.taskBody
           }
         >
-          <h3 className={style.title}>sg jsg ksdf dsfgsjhfg djs gju iopo[</h3>
+          <h3 className={style.title}>{title}</h3>
 
-          <p className={style.description}>jhuyu yuyd trd6 dd d ff</p>
+          <p className={style.description}>{description}</p>
         </div>
       </div>
       <div className={style.buttonsContainer}>
