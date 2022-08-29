@@ -3,7 +3,7 @@ import style from "./Task.module.css";
 import TaskButton from "../UI/buttons/ TaskButton/TaskButton";
 import Edit from "../UI/pics/Edit";
 import Delete from "../UI/pics/Delete";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { taskDoneUndone } from "../../store/slices/tasksSlice";
 
@@ -20,6 +20,7 @@ const Task = ({
   doneT: boolean;
   time: string;
 }) => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const [done, setDone] = useState(doneT);
   useEffect(() => {
@@ -31,6 +32,12 @@ const Task = ({
       }
     }
   }, [done]);
+
+  // function handleEdit(){
+  //   navigate('/edittask')
+  // }
+  //
+
   return (
     <div className={style.mainContainer}>
       <div className={style.subContainer}>
@@ -59,10 +66,9 @@ const Task = ({
       </div>
       <div className={style.buttonsContainer}>
         <TaskButton>
-          {" "}
           <Link className={"link"} to="/edittask">
             <Edit />
-          </Link>{" "}
+          </Link>
         </TaskButton>
         <TaskButton>
           <Delete />

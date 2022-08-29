@@ -21,7 +21,10 @@ const Main = () => {
   const theme = useSelector((state: any) => state.theme.theme);
   const isAuth = !!useSelector((state: any) => state.user.id);
   const email = useSelector((state: any) => state.user.email);
-  const [days, setDays] = useState(useDays());
+
+  const ddays = useDays();
+  const [days, setDays] = useState(ddays);
+
   console.log("дні в мейне");
   console.table(days);
 

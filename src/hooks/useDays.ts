@@ -29,10 +29,12 @@ export function useDays() {
 
   //TODO: добавіть условіе по месяцу
 
+  const currentDayStart = new Date("2022-08-31");
+
   const tasksCollection = query(
     collection(db, "tasks"),
     where("userEmail", "==", email)
-    // where("date", "in", "")
+    // where("date", "<=", currentDayStart)
   );
 
   useEffect(() => {
