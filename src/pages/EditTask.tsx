@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import TaskConfigButtons from "../components/UI/buttons/TaskConfigButtons/TaskConfigButtons";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import task from "../components/Task/Task";
 import { removeCurrentTask } from "../store/slices/currentTaskSlice";
 
 const EditTask = () => {

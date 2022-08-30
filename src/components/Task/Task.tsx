@@ -10,9 +10,14 @@ import {
   removeCurrentTask,
   setCurrentTask,
 } from "../../store/slices/currentTaskSlice";
-import { deleteDoc, doc } from "@firebase/firestore";
+import {
+  collection,
+  deleteDoc,
+  doc,
+  setDoc,
+  updateDoc,
+} from "@firebase/firestore";
 import { db } from "../../firebase";
-import { set } from "husky";
 
 const Task = ({
   id,
@@ -31,8 +36,16 @@ const Task = ({
   const dispatch = useDispatch();
   const allTasks = useSelector((state: any) => state.tasks.tasks);
   const [done, setDone] = useState(doneT);
+  const email = useSelector((state: any) => state.user.email);
+
   useEffect(() => {
     dispatch(taskDoneUndone(id));
+    const upd = async () => {
+      const taskRef = doc(db, "tasks", id);
+      await updateDoc(taskRef, { done: done });
+    };
+    upd();
+    //TODO: обработка???
     {
       if (doneT) {
         // @ts-ignore
