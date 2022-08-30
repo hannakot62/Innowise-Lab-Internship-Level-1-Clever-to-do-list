@@ -68,8 +68,6 @@ const Main = () => {
         />
       );
     });
-    console.log("дэйс (ту пуш) в юзэффект");
-    console.table(days);
   }, []);
 
   function handleSignOut() {

@@ -55,6 +55,9 @@ export function useDays() {
           originalDateSeconds: doc.data().date.seconds,
         });
       });
+      tasksTemp.sort(
+        (a: any, b: any) => a.originalDateSeconds - b.originalDateSeconds
+      );
       dispatch(setTasks(tasksTemp));
     };
 
