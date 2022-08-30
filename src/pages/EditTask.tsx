@@ -3,26 +3,50 @@ import TaskConfigButtons from "../components/UI/buttons/TaskConfigButtons/TaskCo
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { removeCurrentTask } from "../store/slices/currentTaskSlice";
+import { doc, setDoc, Timestamp } from "@firebase/firestore";
+import { db } from "../firebase";
+import newTask from "./NewTask";
 
 const EditTask = () => {
   const dispatch = useDispatch();
   const isAuth = !!useSelector((state: any) => state.user.id);
   const taskId = useSelector((state: any) => state.currentTask.currentTask);
   const tasks = useSelector((state: any) => state.tasks.tasks);
+  const email = useSelector((state: any) => state.user.email);
   const [task] = tasks.filter((task: any) => task.id === taskId);
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [time, setTime] = useState("");
+  const [currentTitle, setCurrentTitle] = useState("");
+  const [currentDescription, setCurrentDescription] = useState("");
+  const [currentTime, setCurrentTime] = useState("");
 
   useEffect(() => {
     if (task) {
-      setTitle(task.title);
-      setDescription(task.description);
-      setTime(task.time);
+      setCurrentTitle(task.title);
+      setCurrentDescription(task.description);
+      setCurrentTime(task.time);
     }
   }, [task]);
-  //TODO:
-  function handleSave() {}
+
+  function handleSave() {
+    const upd = async () => {
+      const newDate = new Date(task.originalDateSeconds * 1000);
+      newDate.setHours(
+        +currentTime.slice(0, 2),
+        +currentTime.slice(3, 5),
+        +currentTime.slice(6),
+        0
+      );
+      await setDoc(doc(db, "tasks", taskId), {
+        description: currentDescription,
+        title: currentTitle,
+        userEmail: email,
+        done: task.done,
+        date: Timestamp.fromDate(newDate),
+      });
+    };
+    upd();
+    //TODO: обработка???
+  }
+
   function handleCancel() {
     dispatch(removeCurrentTask());
   }
@@ -33,16 +57,16 @@ const EditTask = () => {
       <input
         className={"title"}
         type={"text"}
-        placeholder={title}
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
+        placeholder={currentTitle}
+        value={currentTitle}
+        onChange={(e) => setCurrentTitle(e.target.value)}
       />
       <hr />
       <textarea
         className={"description"}
-        placeholder={description}
-        value={description}
-        onChange={(e) => setDescription(e.target.value)}
+        placeholder={currentDescription}
+        value={currentDescription}
+        onChange={(e) => setCurrentDescription(e.target.value)}
       ></textarea>
       <hr />
       <div className={"time-container"}>
@@ -50,8 +74,8 @@ const EditTask = () => {
         <input
           className={"input-time"}
           type={"time"}
-          value={time}
-          onChange={(e) => setTime(e.target.value)}
+          value={currentTime}
+          onChange={(e) => setCurrentTime(e.target.value)}
         />
       </div>
       <div className={"buttons-task-config-container"}>

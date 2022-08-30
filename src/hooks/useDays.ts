@@ -20,6 +20,7 @@ export interface Task {
   done: boolean;
   title: string;
   userEmail: string;
+  originalDateSeconds: number;
 }
 
 export function useDays() {
@@ -51,6 +52,7 @@ export function useDays() {
           done: doc.data().done,
           description: doc.data().description,
           title: doc.data().title,
+          originalDateSeconds: doc.data().date.seconds,
         });
       });
       dispatch(setTasks(tasksTemp));
