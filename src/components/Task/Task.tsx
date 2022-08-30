@@ -58,7 +58,7 @@ const Task = ({
         if (allTasks[i].id === id) continue;
         newTasks.push(allTasks[i]);
       }
-      allTasks.dispatch(setTasks(newTasks));
+      dispatch(setTasks(newTasks));
     });
   }
 

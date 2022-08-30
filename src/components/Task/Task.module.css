@@ -95,24 +95,24 @@
     align-self: baseline;
     margin: 0.5rem;
 }
-/*.title{*/
-/*    text-align: left;*/
-/*    margin-bottom: 0.5rem;*/
-/*    height: 1.6rem;*/
-/*    width: 50vw;*/
-/*    white-space: nowrap;*/
-/*    overflow: hidden;*/
-/*    text-overflow: ellipsis;*/
-/*}*/
-/*.description{*/
-/*    text-align: left;*/
-/*    margin-bottom: 0.5rem;*/
-/*    height: 1rem;*/
-/*    width: 50vw;*/
-/*    white-space: nowrap;*/
-/*    overflow: hidden;*/
-/*    text-overflow: ellipsis;*/
-/*}*/
+.title{
+    text-align: left;
+    margin-bottom: 0.5rem;
+    height: 1.6rem;
+    width: 50vw;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.description{
+    text-align: left;
+    margin-bottom: 0.5rem;
+    height: 1.5rem;
+    width: 50vw;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 
 @media (max-width:380px) {
     .checkboxAndTimeContainer {
