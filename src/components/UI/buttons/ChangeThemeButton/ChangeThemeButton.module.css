@@ -1,4 +1,4 @@
-.ChangeThemeButton{
+.ChangeThemeButtonlight{
     color: #10006e;
     background: transparent;
     border: none;
@@ -6,7 +6,21 @@
     margin-top: 0.3rem;
     font-size: 1rem;
 }
-.ChangeThemeButton:hover{
+.ChangeThemeButtonlight:hover{
     text-shadow:0 0 7px #221b50;
+    transition: ease 0.3s;
+}
+
+
+.ChangeThemeButtondark{
+    color: #7c6585;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    margin-top: 0.3rem;
+    font-size: 1rem;
+}
+.ChangeThemeButtondark:hover{
+    text-shadow:0 0 7px #7c6585;
     transition: ease 0.3s;
 }

@@ -1,15 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  theme: getThemeFromLS() ? deleteThemeFromLS() : "light",
+  theme: getThemeFromLS() ? getThemeFromLS() : "light",
 };
 const themeSlice = createSlice({
   name: "theme",
   initialState,
   reducers: {
     changeTheme(state) {
+      let theme = document.getElementsByTagName("html")[0];
       deleteThemeFromLS();
+      // @ts-ignore
+      theme.classList.toggle(state.theme, false);
       state.theme = state.theme == "light" ? "dark" : "light";
+      theme.classList.toggle(state.theme, true);
       setThemeToLS(state.theme);
     },
   },
@@ -22,9 +26,9 @@ export function setThemeToLS(theme: string) {
   localStorage.setItem("todoTheme", theme);
 }
 export function getThemeFromLS() {
-  if (localStorage.getItem("todoUser")) {
+  if (localStorage.getItem("todoTheme")) {
     return localStorage.getItem("todoTheme");
-  }
+  } else return null;
 }
 
 export function deleteThemeFromLS() {

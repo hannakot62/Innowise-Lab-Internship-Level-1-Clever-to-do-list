@@ -3,9 +3,20 @@ body{
     justify-content: center;
     align-items: center;
     font-family: 'Raleway', sans-serif;
+
+}
+
+html.light body{
     background: #fff4e9;
     color: #231203;
 }
+
+html.dark body{
+    background: #110515;
+    color: #959595;
+}
+
+
 button{
     font-family: 'Raleway', sans-serif;
 }
@@ -23,10 +34,17 @@ button{
 .buttons-input-container{
     display: flex;
     flex-direction: column;
-    background: #e0eefe;
     border-radius: 2rem;
+}
+html.light .buttons-input-container{
+    background: #e0eefe;
     border: 0.1rem solid #231203;
 }
+
+html.dark .buttons-input-container{
+    border: 0.1rem solid #7c6585;
+}
+
 .buttons-input-container:first-child{
     padding-top: 1.5rem;
 }
@@ -38,6 +56,10 @@ button{
     align-self: center;
     margin-top: 85vh;
     font-size: 1rem;
+}
+
+html.dark .author{
+color: #ffeedc;
 }
 
 .days-container{
@@ -108,23 +130,43 @@ button{
 .title{
     padding: 2vh 1rem;
     width: 80%;
-    border: 0.15rem solid #231203;
     border-radius: 1rem;
-    color: #231203;
     font-family: 'Raleway', sans-serif;
     font-size: 1.2rem;
-
+    margin-bottom: 1rem;
 }
+
+html.light .title{
+    border: 0.15rem solid #231203;
+    color: #231203;
+}
+
+html.dark .title{
+border: 0.15rem solid #959595;
+    color: #959595;
+    background: #170b17;
+}
+
 .description{
-margin: 0;
+    margin: 0;
     padding: 2vh 1rem;
     height: 18vh;
     width: 80%;
-    border: 0.15rem solid #231203;
     border-radius: 1rem;
-    color: #231203;
     font-family: 'Raleway', sans-serif;
     font-size: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+html.light .description{
+    border: 0.15rem solid #231203;
+    color: #231203;
+}
+
+html.dark .description{
+    border: 0.15rem solid #959595;
+    color: #959595;
+    background: #170b17;
 }
 
 .time-container{
@@ -136,12 +178,22 @@ margin: 0;
 }
 .input-time{
     padding: 1vh;
-    border: 0.15rem solid #231203;
     border-radius: 0.5rem;
-    color: #231203;
     font-family: 'Raleway', sans-serif;
     font-size: 0.8rem;
     margin-left: 3vh;
+}
+
+html.light .input-time{
+    border: 0.15rem solid #231203;
+    color: #231203;
+}
+
+html.dark .input-time{
+    border: 0.15rem solid #959595;
+    color: #959595;
+    background: #170b17;
+
 }
 
 #sign-out-btn{

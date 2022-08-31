@@ -1,4 +1,4 @@
-.btn{
+.btnlight{
     padding: 0.5rem 3rem;
     color: #231203;
     font-size: 1rem;
@@ -9,8 +9,24 @@
     margin: 0 1rem 1.5rem 1rem;
 }
 
-.btn:hover{
+.btnlight:hover{
 transition: ease 0.3s;
-    background: #93b0d5;
+    background: #7092b9;
+
+}
+.btndark{
+    padding: 0.5rem 3rem;
+    color: #110515;
+    font-size: 1rem;
+    border-radius: 3rem;
+    background: #b47ccb;
+    border: 0.1rem solid #110515;
+    cursor: pointer;
+    margin: 0 1rem 1.5rem 1rem;
+}
+
+.btndark:hover{
+    transition: ease 0.3s;
+    background: #5c3a6c;
 
 }

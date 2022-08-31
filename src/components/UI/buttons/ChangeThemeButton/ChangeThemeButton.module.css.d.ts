@@ -1,1 +1,2 @@
-export const ChangeThemeButton:string;
+export const ChangeThemeButtonlight: string;
+export const ChangeThemeButtondark: string;

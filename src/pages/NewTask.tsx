@@ -36,14 +36,13 @@ const NewTask = () => {
         value={currentTitle}
         onChange={(e) => setCurrentTitle(e.target.value)}
       />
-      <hr />
+
       <textarea
         className={"description"}
         placeholder={"Description"}
         value={currentDescription}
         onChange={(e) => setCurrentDescription(e.target.value)}
       ></textarea>
-      <hr />
 
       <div className={"time-container"}>
         <h4>Date & Time</h4>

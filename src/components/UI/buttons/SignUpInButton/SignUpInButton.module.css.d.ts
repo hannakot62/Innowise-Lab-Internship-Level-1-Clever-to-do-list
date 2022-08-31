@@ -1,1 +1,2 @@
-export const sBtn:string;
+export const sBtnlight: string;
+export const sBtndark: string;

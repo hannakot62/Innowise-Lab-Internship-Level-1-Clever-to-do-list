@@ -1,4 +1,4 @@
-.btn{
+.btnlight{
 border-radius: 50%;
     width: 9vh;
     height: 9vh;
@@ -14,15 +14,44 @@ border-radius: 50%;
     box-shadow: 0 0 31px 12px rgba(64, 51, 30, 0.46);
 }
 
-.btn:hover{
+.btnlight:hover{
     transition: ease 0.3s;
     width: 8vh;
     height: 8vh;
     cursor: pointer;
 }
 
-.changeTheme{
+
+.btndark{
+    border-radius: 50%;
+    width: 9vh;
+    height: 9vh;
+    background: #dc3d00;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0.2rem solid #110515;
+    color: #110515;
+
+    -webkit-box-shadow: 0 0 31px 12px rgba(41, 31, 36, 0.58);
+    -moz-box-shadow: 0 0 31px 12px rgba(41, 31, 36, 0.58);
+    box-shadow: 0 0 31px 12px rgba(41, 31, 36, 0.58);
+}
+
+.btndark:hover{
+    transition: ease 0.3s;
+    width: 8vh;
+    height: 8vh;
+    cursor: pointer;
+}
+
+.changeThemelight{
    background: #231203;
    color: #fff4e9;
    border: 0.2rem solid #231203;
+}
+.changeThemedark{
+    background: #34253a;
+    color: #959595;
+    border: 0.2rem solid #190e1c;
 }

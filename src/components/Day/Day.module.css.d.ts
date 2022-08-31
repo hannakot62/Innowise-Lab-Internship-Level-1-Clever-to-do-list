@@ -1,3 +1,5 @@
-export const mainContainer:string;
-export const today:string;
-export const selected:string;
+export const mainContainerlight: string;
+export const mainContainerdark: string;
+export const today: string;
+export const selectedlight: string;
+export const selecteddark: string;

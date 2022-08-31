@@ -1,4 +1,4 @@
-.btn{
+.btnlight{
 padding: 0.2rem;
     border-radius: 30%;
     border: 0.2rem solid #231203;
@@ -6,8 +6,22 @@ padding: 0.2rem;
     color: #231203;
     margin: 0.1rem;
 }
-.btn:hover{
+.btnlight:hover{
     transition: ease 0.3s;
     background: #8f5922;
 cursor: pointer;
+}
+
+.btndark{
+    padding: 0.2rem;
+    border-radius: 30%;
+    border: 0.2rem solid #959595;
+    background:#34253a;
+    color: #959595;
+    margin: 0.1rem;
+}
+.btndark:hover{
+    transition: ease 0.3s;
+    background: #19121c;
+    cursor: pointer;
 }

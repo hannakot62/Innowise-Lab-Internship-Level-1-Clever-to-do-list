@@ -10,13 +10,7 @@ import {
   removeCurrentTask,
   setCurrentTask,
 } from "../../store/slices/currentTaskSlice";
-import {
-  collection,
-  deleteDoc,
-  doc,
-  setDoc,
-  updateDoc,
-} from "@firebase/firestore";
+import { deleteDoc, doc, updateDoc } from "@firebase/firestore";
 import { db } from "../../firebase";
 
 const Task = ({
@@ -37,7 +31,7 @@ const Task = ({
   const allTasks = useSelector((state: any) => state.tasks.tasks);
   const [done, setDone] = useState(doneT);
   const email = useSelector((state: any) => state.user.email);
-
+  const theme = useSelector((state: any) => state.theme.theme);
   useEffect(() => {
     dispatch(taskDoneUndone(id));
     const upd = async () => {
@@ -76,20 +70,28 @@ const Task = ({
   }
 
   return (
-    <div className={style.mainContainer}>
+    <div
+      className={
+        theme == "light" ? style.mainContainerlight : style.mainContainerdark
+      }
+    >
       <div className={style.subContainer}>
         <div className={style.checkboxAndTimeContainer}>
           <input
             onClick={() => {
               setDone(!done);
             }}
-            className={style.myCheckbox}
+            className={
+              theme == "light" ? style.myCheckboxlight : style.myCheckboxdark
+            }
             type="checkbox"
             id={id}
             name="done"
           />
           <label htmlFor={id}></label>
-          <div className={style.time}>{time.slice(0, 5)}</div>
+          <div className={theme == "light" ? style.timelight : style.timedark}>
+            {time.slice(0, 5)}
+          </div>
         </div>
         <div
           className={

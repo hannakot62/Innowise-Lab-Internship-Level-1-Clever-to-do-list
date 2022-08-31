@@ -1,1 +1,2 @@
-export const entryInput:string;
+export const entryInputlight: string;
+export const entryInputdark: string;

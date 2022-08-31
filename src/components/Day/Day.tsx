@@ -1,6 +1,7 @@
 import React, { FunctionComponent, useEffect, useRef, useState } from "react";
 import style from "./Day.module.css";
 import TaskRounds from "../TaskRounds/TaskRounds";
+import { useSelector } from "react-redux";
 
 interface Day {
   slctd: number;
@@ -19,6 +20,7 @@ const Day: FunctionComponent<Day> = ({
 }) => {
   let currentDate = new Date();
   const [selected, setSelected] = useState(slctd === currentDate.getDate());
+  const theme = useSelector((state: any) => state.theme.theme);
   useEffect(() => {
     setSelected(slctd === day);
   }, [slctd]);
@@ -26,13 +28,23 @@ const Day: FunctionComponent<Day> = ({
   function handleClick(e: any) {
     unselectAll(day);
     setSelected(true);
-    e.currentTarget.classList.add(style.selected);
+    e.currentTarget.classList.add(
+      theme == "light" ? style.selectedlight : style.selecteddark
+    );
   }
 
   return (
     <span>
       <div
-        className={selected ? style.selected : style.mainContainer}
+        className={
+          selected
+            ? theme == "light"
+              ? style.selectedlight
+              : style.selecteddark
+            : theme == "light"
+            ? style.mainContainerlight
+            : style.mainContainerdark
+        }
         onClick={handleClick}
       >
         <h1>{day}</h1>

@@ -90,7 +90,11 @@ const Main = () => {
     <div className={"main-page-container"}>
       <MyBtn
         id="sign-out-btn"
-        className={SignOutStyle.ChangeThemeButton}
+        className={
+          theme == "light"
+            ? SignOutStyle.ChangeThemeButtonlight
+            : SignOutStyle.ChangeThemeButtondark
+        }
         onClick={handleSignOut}
       >
         Sign Out
@@ -101,7 +105,7 @@ const Main = () => {
 
       <h1 className={"tasks-header"}>Tasks:</h1>
       <div className={"buttons-task-container"}>
-        <MainBottomButtons theme={theme} onClick={handleChangeTheme}>
+        <MainBottomButtons theme={1} onClick={handleChangeTheme}>
           {theme === "light" ? <Moon /> : <Sun />}
         </MainBottomButtons>
 

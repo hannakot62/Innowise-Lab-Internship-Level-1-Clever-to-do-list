@@ -1,33 +1,65 @@
-.mainContainer {
+.mainContainerlight {
     width: 20vh;
     height: 20vh;
-    color: #231203;
-    border: 0.2rem solid #231203;
-    background: #ffeedc;
     border-radius: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin: 1vh;
+    color: #231203;
+    border: 0.2rem solid #231203;
+    background: #ffeedc;
 }
+
+.mainContainerdark {
+    width: 20vh;
+    height: 20vh;
+    border-radius: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 1vh;
+    color: #863c05;
+    border: 0.2rem solid #863c05;
+    background: #110515;
+}
+
+
 .today{
     margin: 0;
     height: 5vh;
 }
-.selected{
+.selectedlight{
     width: 20vh;
     height: 20vh;
-    background: #231203;
-    color: #ffeedc;
     border-radius: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin: 1vh;
+    background: #231203;
+    color: #ffeedc;
     border: 0.2rem solid #231203;
 }
+.selecteddark {
+    width: 20vh;
+    height: 20vh;
+    border-radius: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 1vh;
+    background: #863c05;
+    color: #110515;
+    border: 0.2rem solid #863c05;
+}
+
+
+
 .mainContainer:hover{
     cursor: pointer;
 

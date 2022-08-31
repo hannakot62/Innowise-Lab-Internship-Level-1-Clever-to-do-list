@@ -1,4 +1,4 @@
-.entryInput{
+.entryInputlight{
     padding: 0.5rem 1rem;
     color: #231203;
     font-size: 1rem;
@@ -8,6 +8,21 @@
     cursor: pointer;
     margin: 0 1rem 1.5rem 1rem;
 }
-.entryInput:hover{
+.entryInputlight:hover{
     background: #ffeedc;
+}
+
+.entryInputdark{
+    padding: 0.5rem 1rem;
+    color: #110515;
+    font-size: 1rem;
+    border-radius: 3rem;
+    background: #f2e7f7;
+    border: 0.1rem solid #110515;
+    cursor: pointer;
+    margin: 0 1rem 1.5rem 1rem;
+}
+.entryInputdark:hover{
+    background: #d9c0ea;
+    transition: 0.3s ease;
 }

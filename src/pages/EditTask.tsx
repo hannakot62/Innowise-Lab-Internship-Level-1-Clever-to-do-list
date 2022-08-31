@@ -61,14 +61,12 @@ const EditTask = () => {
         value={currentTitle}
         onChange={(e) => setCurrentTitle(e.target.value)}
       />
-      <hr />
       <textarea
         className={"description"}
         placeholder={currentDescription}
         value={currentDescription}
         onChange={(e) => setCurrentDescription(e.target.value)}
       ></textarea>
-      <hr />
       <div className={"time-container"}>
         <h4>Time:</h4>
         <input

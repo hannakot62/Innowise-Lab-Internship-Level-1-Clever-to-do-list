@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from "react";
 import style from "./TaskRounds.module.css";
+import { useSelector } from "react-redux";
 
 interface OwnProps {
   tasksDoneQuantity: number;
@@ -12,15 +13,30 @@ const TaskRounds: FunctionComponent<OwnProps> = ({
   tasksUndoneQuantity,
   selected,
 }) => {
+  const theme = useSelector((state: any) => state.theme.theme);
   return (
     <div className={style.roundsContainer}>
       {selected ? (
         <></>
       ) : (
         <>
-          {tasksDoneQuantity ? <div className={style.roundDone}></div> : <></>}
+          {tasksDoneQuantity ? (
+            <div
+              className={
+                theme == "light" ? style.roundDonelight : style.roundDonedark
+              }
+            ></div>
+          ) : (
+            <></>
+          )}
           {tasksUndoneQuantity ? (
-            <div className={style.roundUndone}></div>
+            <div
+              className={
+                theme == "light"
+                  ? style.roundUndonelight
+                  : style.roundUndonedark
+              }
+            ></div>
           ) : (
             <></>
           )}
