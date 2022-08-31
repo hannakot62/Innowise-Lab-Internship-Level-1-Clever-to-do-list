@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import Task from "../Task/Task";
 import style from "./TasksList.module.css";
 import { useSelector } from "react-redux";
+import Lottie from "lottie-react";
+import skaterLight from "../../assets/skater/skater-light.json";
 
 const TasksList = ({ selectedDay }: { selectedDay: number }) => {
   const tasks = useSelector((state: any) => state.tasks.tasks);
@@ -35,9 +37,17 @@ const TasksList = ({ selectedDay }: { selectedDay: number }) => {
     }
   }, [tasks]);
 
+  // @ts-ignore
   return (
     <div className={style.tasks}>
-      {tasksToRender.length ? tasksToRender : <h1>chill :)</h1>}
+      {tasksToRender.length ? (
+        tasksToRender
+      ) : (
+        <div className={style.skaterContainer}>
+          <h1 className={style.chill}>no tasks this day, chill :)</h1>
+          <Lottie animationData={skaterLight} loop={true} />{" "}
+        </div>
+      )}
     </div>
   );
 };

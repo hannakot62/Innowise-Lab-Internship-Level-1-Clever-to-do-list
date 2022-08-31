@@ -10,7 +10,7 @@ import NewTask from "./pages/NewTask";
 import EditTask from "./pages/EditTask";
 import Lottie from "lottie-web";
 // @ts-ignore
-import icon from "./logo/todo.png";
+import icon from "./assets/todo.png";
 import { Provider, useSelector } from "react-redux";
 import { store } from "./store";
 import "./firebase";
