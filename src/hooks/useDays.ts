@@ -33,9 +33,13 @@ export function useDays() {
   const days: Array<DayInterface> = [];
   const email = useSelector((state: any) => state.user.email);
   const dispatch = useDispatch();
+  const tasks = useSelector((state: any) => state.tasks.tasks);
 
   //TODO: добавіть условіе по месяцу
-  const currentDateStart = new Date(new Date().setHours(0, 0, 0));
+  // вернуть потом надо этот месяц
+  const currentDateStart = new Date(
+    new Date(new Date().setHours(0, 0, 0)).setMonth(8, 1)
+  );
   const nextMonthStart = new Date(
     new Date().setMonth(currentDateStart.getMonth() + 1, 1)
   );
@@ -48,7 +52,6 @@ export function useDays() {
     where("date", ">=", Timestamp.fromDate(currentDateStart)),
     where("date", "<=", Timestamp.fromDate(nextMonthStart))
   );
-  const tasks = useSelector((state: any) => state.tasks.tasks);
 
   useEffect(() => {
     const getTasks = async () => {

@@ -22,11 +22,18 @@ const Main = () => {
   const isAuth = !!useSelector((state: any) => state.user.id);
   const email = useSelector((state: any) => state.user.email);
 
-  const ddays = useDays();
+  let ddays: Array<DayInterface> = [];
+  ddays = useDays();
+
   const [days, setDays] = useState(ddays);
+  //setDays(useDays());
+  console.log("yyyyyyyyyyyyyy");
+  console.log(useDays());
+  //setDays(ddays);
 
   console.log("дні в мейне");
   console.table(days);
+  console.table(ddays);
 
   function unselectAll(selectedDay: number) {
     let a: Array<DayInterface> = [];
@@ -87,6 +94,7 @@ const Main = () => {
       </MyBtn>
 
       <div className={"days-container"}>{daysToPush}</div>
+
       <h1 className={"tasks-header"}>Tasks:</h1>
       <div className={"buttons-task-container"}>
         <MainBottomButtons theme={1}>

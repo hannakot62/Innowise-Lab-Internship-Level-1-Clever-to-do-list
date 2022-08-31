@@ -7,16 +7,19 @@ const TasksList = ({ selectedDay }: { selectedDay: number }) => {
   const tasks = useSelector((state: any) => state.tasks.tasks);
   const tasksToRender: any = [];
   for (let i = 0; i < tasks.length; i++) {
-    tasksToRender.push(
-      <Task
-        key={tasks[i].id}
-        id={tasks[i].id}
-        title={tasks[i].title}
-        description={tasks[i].description}
-        doneT={tasks[i].done}
-        time={tasks[i].time}
-      />
-    );
+    console.log(+tasks[i].date.slice(0, 2));
+    if (+tasks[i].date.slice(0, 2) === selectedDay) {
+      tasksToRender.push(
+        <Task
+          key={tasks[i].id}
+          id={tasks[i].id}
+          title={tasks[i].title}
+          description={tasks[i].description}
+          doneT={tasks[i].done}
+          time={tasks[i].time}
+        />
+      );
+    }
   }
   useEffect(() => {
     for (let i = 0; i < tasks.length; i++) {
