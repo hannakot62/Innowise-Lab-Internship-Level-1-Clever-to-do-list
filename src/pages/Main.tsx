@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useMemo, useState } from "react";
 import Day from "../components/Day/Day";
 import MainBottomButtons from "../components/UI/buttons/MainBottomButtons/MainBottomButtons";
 import Sun from "../components/UI/pics/Sun";
@@ -13,27 +13,28 @@ import { removeUser } from "../store/slices/userSlice";
 import TasksList from "../components/TasksList/TasksList";
 import { useDays } from "../hooks/useDays";
 import { DayInterface } from "../hooks/useDays";
+import { changeTheme } from "../store/slices/themeSlice";
+import AllDays from "../components/AllDays/AllDays";
 
 const Main = () => {
   const [selectedDay, setSelectedDay] = useState(new Date().getDate());
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const theme = useSelector((state: any) => state.theme.theme);
-  const isAuth = !!useSelector((state: any) => state.user.id);
+  const isAuth = useSelector((state: any) => state.user.id);
   const email = useSelector((state: any) => state.user.email);
-
+  const tasks = useSelector((state: any) => state.tasks.tasks);
   let ddays: Array<DayInterface> = [];
   ddays = useDays();
-
   const [days, setDays] = useState(ddays);
   //setDays(useDays());
-  console.log("yyyyyyyyyyyyyy");
-  console.log(useDays());
-  //setDays(ddays);
-
-  console.log("дні в мейне");
-  console.table(days);
-  console.table(ddays);
+  // console.log("yyyyyyyyyyyyyy");
+  // console.log(useDays());
+  // //setDays(ddays);
+  //
+  // console.log("дні в мейне");
+  // console.table(days);
+  // console.table(ddays);
 
   function unselectAll(selectedDay: number) {
     let a: Array<DayInterface> = [];
@@ -81,6 +82,9 @@ const Main = () => {
     dispatch(removeUser());
     navigate("/");
   }
+  function handleChangeTheme() {
+    dispatch(changeTheme());
+  }
 
   return isAuth ? (
     <div className={"main-page-container"}>
@@ -97,7 +101,7 @@ const Main = () => {
 
       <h1 className={"tasks-header"}>Tasks:</h1>
       <div className={"buttons-task-container"}>
-        <MainBottomButtons theme={1}>
+        <MainBottomButtons theme={theme} onClick={handleChangeTheme}>
           {theme === "light" ? <Moon /> : <Sun />}
         </MainBottomButtons>
 

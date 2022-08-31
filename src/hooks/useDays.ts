@@ -79,6 +79,7 @@ export function useDays() {
     //TODO: добавить лоадер??? обработка ошибок???
     getTasks();
   }, []);
+
   const myTasks = useSelector((state: any) => state.tasks.tasks);
   for (
     let iterDay = currentDay;
@@ -101,7 +102,7 @@ export function useDays() {
       tasksUndoneQuantity: undone,
     });
   }
-  console.log("дни в юздейс");
-  console.table(days);
+  // console.log("дни в юздейс");
+  // console.table(days);
   return days;
 }

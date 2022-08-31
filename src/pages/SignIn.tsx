@@ -3,7 +3,7 @@ import EntryButton from "../components/UI/buttons/EntryButton/EntryButton";
 import ChangeThemeButton from "../components/UI/buttons/ChangeThemeButton/ChangeThemeButton";
 import EntryInput from "../components/UI/inputs/EntryInput/EntryInput";
 import SignUpInButton from "../components/UI/buttons/SignUpInButton/SignUpInButton";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setUser } from "../store/slices/userSlice";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";

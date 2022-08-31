@@ -7,7 +7,6 @@ const TasksList = ({ selectedDay }: { selectedDay: number }) => {
   const tasks = useSelector((state: any) => state.tasks.tasks);
   const tasksToRender: any = [];
   for (let i = 0; i < tasks.length; i++) {
-    console.log(+tasks[i].date.slice(0, 2));
     if (+tasks[i].date.slice(0, 2) === selectedDay) {
       tasksToRender.push(
         <Task
