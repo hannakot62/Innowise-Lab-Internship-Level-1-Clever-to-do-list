@@ -1,7 +1,13 @@
 import { useDispatch, useSelector } from "react-redux";
 import { daysInCurrentMonth } from "../logic/dateOperations";
 import { useEffect, useState } from "react";
-import { collection, getDocs, query, where } from "@firebase/firestore";
+import {
+  collection,
+  getDocs,
+  query,
+  Timestamp,
+  where,
+} from "@firebase/firestore";
 import { db } from "../firebase";
 import { setTasks } from "../store/slices/tasksSlice";
 
@@ -29,13 +35,18 @@ export function useDays() {
   const dispatch = useDispatch();
 
   //TODO: добавіть условіе по месяцу
-
-  const currentDayStart = new Date("2022-08-31");
+  const currentDateStart = new Date(new Date().setHours(0, 0, 0));
+  const nextMonthStart = new Date(
+    new Date().setMonth(currentDateStart.getMonth() + 1, 1)
+  );
+  const currentDay = currentDateStart.getDate();
+  const daysInCurrentMonthQuantity = daysInCurrentMonth();
 
   const tasksCollection = query(
     collection(db, "tasks"),
-    where("userEmail", "==", email)
-    // where("date", "<=", currentDayStart)
+    where("userEmail", "==", email),
+    where("date", ">=", Timestamp.fromDate(currentDateStart)),
+    where("date", "<=", Timestamp.fromDate(nextMonthStart))
   );
   const tasks = useSelector((state: any) => state.tasks.tasks);
 
@@ -58,14 +69,13 @@ export function useDays() {
       tasksTemp.sort(
         (a: any, b: any) => a.originalDateSeconds - b.originalDateSeconds
       );
+      console.log(tasksTemp);
       dispatch(setTasks(tasksTemp));
     };
 
     //TODO: добавить лоадер??? обработка ошибок???
     getTasks();
   }, []);
-  const daysInCurrentMonthQuantity = daysInCurrentMonth();
-  const currentDay = new Date().getDate();
   const myTasks = useSelector((state: any) => state.tasks.tasks);
   for (
     let iterDay = currentDay;
