@@ -9,6 +9,7 @@ import { setUser } from "../store/slices/userSlice";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import Notification from "../components/UI/notification/Notification";
 import { removeError, setError } from "../store/slices/errorSlice";
+import { changeTheme } from "../store/slices/themeSlice";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
@@ -37,6 +38,10 @@ const SignIn = () => {
       });
   };
 
+  function handleChangeTheme() {
+    dispatch(changeTheme());
+  }
+
   return (
     <div className={"main"}>
       <Notification e={err} hidden={err === ""} />
@@ -59,7 +64,9 @@ const SignIn = () => {
             Sign In!
           </SignUpInButton>
         </div>
-        <ChangeThemeButton>Change Theme</ChangeThemeButton>
+        <ChangeThemeButton onClick={handleChangeTheme}>
+          Change Theme
+        </ChangeThemeButton>
       </div>
       <footer className={"author"}>made by @hannakot62</footer>
     </div>

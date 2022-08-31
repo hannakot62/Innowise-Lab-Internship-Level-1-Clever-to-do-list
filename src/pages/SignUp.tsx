@@ -13,6 +13,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setUser } from "../store/slices/userSlice";
 import Notification from "../components/UI/notification/Notification";
 import { removeError, setError } from "../store/slices/errorSlice";
+import { changeTheme } from "../store/slices/themeSlice";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
@@ -21,6 +22,10 @@ const SignUp = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const err = useSelector((state: any) => state.error.error);
+
+  function handleChangeTheme() {
+    dispatch(changeTheme());
+  }
 
   const handleSignUp = (email: string, password: string) => {
     const auth = getAuth();
@@ -83,7 +88,9 @@ const SignUp = () => {
             Sign Up!
           </SignUpInButton>
         </div>
-        <ChangeThemeButton>Change Theme</ChangeThemeButton>
+        <ChangeThemeButton onClick={handleChangeTheme}>
+          Change Theme
+        </ChangeThemeButton>
       </div>
       <footer className={"author"}>made by @hannakot62</footer>
     </div>

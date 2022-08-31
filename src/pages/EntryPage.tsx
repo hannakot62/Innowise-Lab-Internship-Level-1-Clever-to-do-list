@@ -1,12 +1,16 @@
-import React, { useLayoutEffect } from "react";
+import React from "react";
 import EntryButton from "../components/UI/buttons/EntryButton/EntryButton";
 import ChangeThemeButton from "../components/UI/buttons/ChangeThemeButton/ChangeThemeButton";
-import { Link, useNavigate } from "react-router-dom";
-import Lottie from "lottie-web";
-import { useSelector } from "react-redux";
-import { getUserFromLS } from "../store/slices/userSlice";
+import { Link } from "react-router-dom";
+import { changeTheme } from "../store/slices/themeSlice";
+import { useDispatch } from "react-redux";
 
 const EntryPage = () => {
+  const dispatch = useDispatch();
+  function handleChangeTheme() {
+    dispatch(changeTheme());
+  }
+
   return (
     <div>
       <div className={"entry-container"}>
@@ -23,7 +27,9 @@ const EntryPage = () => {
             </Link>
           </EntryButton>
         </div>
-        <ChangeThemeButton>Change Theme</ChangeThemeButton>
+        <ChangeThemeButton onClick={handleChangeTheme}>
+          Change Theme
+        </ChangeThemeButton>
       </div>
       <footer className={"author"}>made by @hannakot62</footer>
     </div>
