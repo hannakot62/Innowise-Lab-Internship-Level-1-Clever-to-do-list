@@ -79,8 +79,8 @@ export function useDays(selectedDay: number) {
         dispatch(removeIsLoading());
       })
       .catch((error) => {
-        dispatch(setError(error.message));
-        setTimeout(() => dispatch(removeError()), 2000);
+        // dispatch(setError(error.message));
+        // setTimeout(() => dispatch(removeError()), 2000);
       });
   }, []);
 

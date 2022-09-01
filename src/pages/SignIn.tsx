@@ -36,34 +36,6 @@ const SignIn = () => {
         navigate("/todos");
       })
       .catch((error) => {
-        dispatch(setError(error.message));
-        setTimeout(() => {
-          dispatch(removeError());
-        }, 2000);
-      });
-  };
-
-  function handleContinueWithGoogle() {
-    const provider = new GoogleAuthProvider();
-
-    const auth = getAuth();
-    signInWithPopup(auth, provider)
-      .then((result) => {
-        // This gives you a Google Access Token. You can use it to access the Google API.
-        const credential = GoogleAuthProvider.credentialFromResult(result);
-        const token = credential?.accessToken;
-        // The signed-in user info.
-        const user = result.user;
-        dispatch(
-          setUser({
-            email: user.email,
-            id: user.uid,
-          })
-        );
-        navigate("/todos");
-      })
-      // Handle Errors here.
-      .catch((error) => {
         switch (error.message) {
           case "Firebase: Error (auth/invalid-email).": {
             dispatch(setError("Некорректный адрес электронной почты"));
@@ -98,6 +70,34 @@ const SignIn = () => {
             break;
           }
         }
+        setTimeout(() => {
+          dispatch(removeError());
+        }, 2000);
+      });
+  };
+
+  function handleContinueWithGoogle() {
+    const provider = new GoogleAuthProvider();
+
+    const auth = getAuth();
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = credential?.accessToken;
+        // The signed-in user info.
+        const user = result.user;
+        dispatch(
+          setUser({
+            email: user.email,
+            id: user.uid,
+          })
+        );
+        navigate("/todos");
+      })
+      // Handle Errors here.
+      .catch((error) => {
+        dispatch(setError(error.message));
         setTimeout(() => {
           dispatch(removeError());
         }, 2000);
