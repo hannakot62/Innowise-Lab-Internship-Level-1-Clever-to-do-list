@@ -70,7 +70,6 @@ export function useDays(selectedDay: number) {
       tasksTemp.sort(
         (a: any, b: any) => a.originalDateSeconds - b.originalDateSeconds
       );
-      console.log(tasksTemp);
     };
     getTasks().then(() => {
       dispatch(setTasks(tasksTemp));

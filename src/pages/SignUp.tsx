@@ -8,6 +8,8 @@ import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  signInWithPopup,
+  GoogleAuthProvider,
 } from "firebase/auth";
 import { useDispatch, useSelector } from "react-redux";
 import { setUser } from "../store/slices/userSlice";
@@ -57,6 +59,34 @@ const SignUp = () => {
       });
   };
 
+  function handleContinueWithGoogle() {
+    const provider = new GoogleAuthProvider();
+
+    const auth = getAuth();
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = credential?.accessToken;
+        // The signed-in user info.
+        const user = result.user;
+        dispatch(
+          setUser({
+            email: user.email,
+            id: user.uid,
+          })
+        );
+        navigate("/todos");
+      })
+      .catch((error) => {
+        // Handle Errors here.
+        dispatch(setError(error.message));
+        setTimeout(() => {
+          dispatch(removeError());
+        }, 2000);
+      });
+  }
+
   return (
     <div className={"main"}>
       <Notification e={err} hidden={err === ""} />
@@ -83,7 +113,9 @@ const SignUp = () => {
             value={repeatPassword}
             onChange={(e: any) => setRepeatPassword(e.target.value)}
           ></EntryInput>
-          <EntryButton>Continue with Google</EntryButton>
+          <EntryButton onClick={handleContinueWithGoogle}>
+            Continue with Google
+          </EntryButton>
           <SignUpInButton onClick={() => handleSignUp(email, password)}>
             Sign Up!
           </SignUpInButton>

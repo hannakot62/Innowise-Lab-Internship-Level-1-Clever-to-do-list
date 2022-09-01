@@ -6,7 +6,12 @@ import SignUpInButton from "../components/UI/buttons/SignUpInButton/SignUpInButt
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setUser } from "../store/slices/userSlice";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import {
+  getAuth,
+  GoogleAuthProvider,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+} from "firebase/auth";
 import Notification from "../components/UI/notification/Notification";
 import { removeError, setError } from "../store/slices/errorSlice";
 import { changeTheme } from "../store/slices/themeSlice";
@@ -38,6 +43,34 @@ const SignIn = () => {
       });
   };
 
+  function handleContinueWithGoogle() {
+    const provider = new GoogleAuthProvider();
+
+    const auth = getAuth();
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = credential?.accessToken;
+        // The signed-in user info.
+        const user = result.user;
+        dispatch(
+          setUser({
+            email: user.email,
+            id: user.uid,
+          })
+        );
+        navigate("/todos");
+      })
+      .catch((error) => {
+        // Handle Errors here.
+        dispatch(setError(error.message));
+        setTimeout(() => {
+          dispatch(removeError());
+        }, 2000);
+      });
+  }
+
   function handleChangeTheme() {
     dispatch(changeTheme());
   }
@@ -59,7 +92,9 @@ const SignIn = () => {
             value={password}
             onChange={(e: any) => setPassword(e.target.value)}
           ></EntryInput>
-          <EntryButton>Continue with Google</EntryButton>
+          <EntryButton onClick={handleContinueWithGoogle}>
+            Continue with Google
+          </EntryButton>
           <SignUpInButton onClick={() => handleLogin(email, password)}>
             Sign In!
           </SignUpInButton>

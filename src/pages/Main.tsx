@@ -49,7 +49,6 @@ const Main = () => {
       });
     });
     setDays(a);
-    console.table(days);
   }
 
   let daysToRender: any = [];
