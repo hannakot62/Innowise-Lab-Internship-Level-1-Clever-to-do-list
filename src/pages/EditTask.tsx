@@ -13,10 +13,10 @@ import {
   where,
 } from "@firebase/firestore";
 import { db } from "../firebase";
-import newTask from "./NewTask";
 import { removeIsLoading, setIsLoading } from "../store/slices/loadingSlice";
 import { setTasks } from "../store/slices/tasksSlice";
 import { Task } from "../hooks/useDays";
+import { removeError, setError } from "../store/slices/errorSlice";
 
 const EditTask = () => {
   const dispatch = useDispatch();
@@ -54,7 +54,10 @@ const EditTask = () => {
         date: Timestamp.fromDate(newDate),
       });
     };
-    upd();
+    upd().catch((error) => {
+      dispatch(setError(error.message));
+      setTimeout(() => dispatch(removeError()), 2000);
+    });
     const currentDateStart = new Date(new Date().setHours(0, 0, 0));
     const nextMonthStart = new Date(
       new Date().setMonth(currentDateStart.getMonth() + 1, 1)
@@ -85,12 +88,15 @@ const EditTask = () => {
         (a: any, b: any) => a.originalDateSeconds - b.originalDateSeconds
       );
     };
-    getTasks().then(() => {
-      dispatch(setTasks(tasksTemp));
-      dispatch(removeIsLoading());
-    });
-
-    //TODO: обработка???
+    getTasks()
+      .then(() => {
+        dispatch(setTasks(tasksTemp));
+        dispatch(removeIsLoading());
+      })
+      .catch((error) => {
+        dispatch(setError(error.message));
+        setTimeout(() => dispatch(removeError()), 2000);
+      });
   }
 
   function handleCancel() {

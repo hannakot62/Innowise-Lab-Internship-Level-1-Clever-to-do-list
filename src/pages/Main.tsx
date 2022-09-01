@@ -14,7 +14,6 @@ import TasksList from "../components/TasksList/TasksList";
 import { useDays } from "../hooks/useDays";
 import { DayInterface } from "../hooks/useDays";
 import { changeTheme } from "../store/slices/themeSlice";
-import AllDays from "../components/AllDays/AllDays";
 import Lottie from "lottie-react";
 import loaderLight from "../assets/loader/loaderLight.json";
 import loaderDark from "../assets/loader/loaderDark.json";

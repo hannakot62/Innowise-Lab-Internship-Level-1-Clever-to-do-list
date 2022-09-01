@@ -12,7 +12,7 @@ import {
 } from "../../store/slices/currentTaskSlice";
 import { deleteDoc, doc, updateDoc } from "@firebase/firestore";
 import { db } from "../../firebase";
-import { removeIsLoading, setIsLoading } from "../../store/slices/loadingSlice";
+import { removeError, setError } from "../../store/slices/errorSlice";
 
 const Task = ({
   id,
@@ -27,7 +27,6 @@ const Task = ({
   doneT: boolean;
   time: string;
 }) => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const allTasks = useSelector((state: any) => state.tasks.tasks);
   const [done, setDone] = useState(doneT);
@@ -37,14 +36,15 @@ const Task = ({
   useEffect(() => {
     dispatch(taskDoneUndone(id));
     const upd = async () => {
-      // dispatch(setIsLoading());
       const taskRef = doc(db, "tasks", id);
       await updateDoc(taskRef, { done: done });
     };
-    upd().then(() => {
-      // dispatch(removeIsLoading());
+    upd().catch((error) => {
+      dispatch(setError(error.message));
+      setTimeout(() => {
+        dispatch(removeError());
+      }, 2000);
     });
-    //TODO: обработка???
     {
       if (doneT) {
         // @ts-ignore
@@ -64,14 +64,21 @@ const Task = ({
     const del = async () => {
       await deleteDoc(doc(db, "tasks", id));
     };
-    del().then((response) => {
-      const newTasks = [];
-      for (let i = 0; i < allTasks.length; i++) {
-        if (allTasks[i].id === id) continue;
-        newTasks.push(allTasks[i]);
-      }
-      dispatch(setTasks(newTasks));
-    });
+    del()
+      .then((response) => {
+        const newTasks = [];
+        for (let i = 0; i < allTasks.length; i++) {
+          if (allTasks[i].id === id) continue;
+          newTasks.push(allTasks[i]);
+        }
+        dispatch(setTasks(newTasks));
+      })
+      .catch((error) => {
+        dispatch(setError(error.message));
+        setTimeout(() => {
+          dispatch(removeError());
+        }, 2000);
+      });
   }
 
   return (

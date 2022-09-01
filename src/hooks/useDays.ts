@@ -11,6 +11,7 @@ import {
 import { db } from "../firebase";
 import { setTasks } from "../store/slices/tasksSlice";
 import { removeIsLoading, setIsLoading } from "../store/slices/loadingSlice";
+import { removeError, setError } from "../store/slices/errorSlice";
 
 export interface DayInterface {
   selected: number;
@@ -72,10 +73,15 @@ export function useDays(selectedDay: number) {
         (a: any, b: any) => a.originalDateSeconds - b.originalDateSeconds
       );
     };
-    getTasks().then(() => {
-      dispatch(setTasks(tasksTemp));
-      dispatch(removeIsLoading());
-    });
+    getTasks()
+      .then(() => {
+        dispatch(setTasks(tasksTemp));
+        dispatch(removeIsLoading());
+      })
+      .catch((error) => {
+        dispatch(setError(error.message));
+        setTimeout(() => dispatch(removeError()), 2000);
+      });
   }, []);
 
   const myTasks = useSelector((state: any) => state.tasks.tasks);

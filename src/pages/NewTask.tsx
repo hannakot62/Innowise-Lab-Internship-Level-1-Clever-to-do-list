@@ -14,6 +14,7 @@ import { db } from "../firebase";
 import { Task } from "../hooks/useDays";
 import { removeIsLoading, setIsLoading } from "../store/slices/loadingSlice";
 import { setTasks } from "../store/slices/tasksSlice";
+import { removeError, setError } from "../store/slices/errorSlice";
 
 const NewTask = () => {
   const [currentTitle, setCurrentTitle] = useState("");
@@ -32,7 +33,10 @@ const NewTask = () => {
         date: Timestamp.fromDate(new Date(currentTime)),
       });
     };
-    add();
+    add().catch((error) => {
+      dispatch(setError(error.message));
+      setTimeout(() => dispatch(removeError()), 2000);
+    });
 
     const currentDateStart = new Date(new Date().setHours(0, 0, 0));
     const nextMonthStart = new Date(
@@ -64,12 +68,15 @@ const NewTask = () => {
         (a: any, b: any) => a.originalDateSeconds - b.originalDateSeconds
       );
     };
-    getTasks().then(() => {
-      dispatch(setTasks(tasksTemp));
-      dispatch(removeIsLoading());
-    });
-
-    //TODO: обраюотка?????
+    getTasks()
+      .then(() => {
+        dispatch(setTasks(tasksTemp));
+        dispatch(removeIsLoading());
+      })
+      .catch((error) => {
+        dispatch(setError(error.message));
+        setTimeout(() => dispatch(removeError()), 2000);
+      });
   }
 
   return isAuth ? (

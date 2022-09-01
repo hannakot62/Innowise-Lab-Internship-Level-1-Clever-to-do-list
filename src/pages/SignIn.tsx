@@ -62,9 +62,42 @@ const SignIn = () => {
         );
         navigate("/todos");
       })
+      // Handle Errors here.
       .catch((error) => {
-        // Handle Errors here.
-        dispatch(setError(error.message));
+        switch (error.message) {
+          case "Firebase: Error (auth/invalid-email).": {
+            dispatch(setError("Некорректный адрес электронной почты"));
+            break;
+          }
+          case "Firebase: Error (auth/internal-error).": {
+            dispatch(setError("Не оставляйте пустые поля"));
+            break;
+          }
+          case "Firebase: Error (auth/wrong-password).": {
+            dispatch(setError("Неправильный пароль"));
+            break;
+          }
+          case "Firebase: Error (auth/user-not-found).": {
+            dispatch(
+              setError(
+                "Пользователь с такой электронной почтой не зарегистрирован"
+              )
+            );
+            break;
+          }
+          case "Firebase: Error (auth/email-already-in-use).": {
+            dispatch(setError("Пользователь уже зарегистрирован"));
+            break;
+          }
+          case "Firebase: Password should be at least 6 characters (auth/weak-password).": {
+            dispatch(setError("Пароль должен содержать хотя бы 6 символов"));
+            break;
+          }
+          default: {
+            dispatch(setError(error.message));
+            break;
+          }
+        }
         setTimeout(() => {
           dispatch(removeError());
         }, 2000);
@@ -81,7 +114,7 @@ const SignIn = () => {
       <div className={"entry-container"}>
         <div className={"buttons-input-container"}>
           <EntryInput
-            type={"text"}
+            type={"email"}
             placeholder={"Login"}
             value={email}
             onChange={(e: any) => setEmail(e.target.value)}
