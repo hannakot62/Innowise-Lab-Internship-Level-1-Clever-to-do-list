@@ -12,6 +12,7 @@ import {
 } from "../../store/slices/currentTaskSlice";
 import { deleteDoc, doc, updateDoc } from "@firebase/firestore";
 import { db } from "../../firebase";
+import { removeIsLoading, setIsLoading } from "../../store/slices/loadingSlice";
 
 const Task = ({
   id,
@@ -32,13 +33,17 @@ const Task = ({
   const [done, setDone] = useState(doneT);
   const email = useSelector((state: any) => state.user.email);
   const theme = useSelector((state: any) => state.theme.theme);
+
   useEffect(() => {
     dispatch(taskDoneUndone(id));
     const upd = async () => {
+      // dispatch(setIsLoading());
       const taskRef = doc(db, "tasks", id);
       await updateDoc(taskRef, { done: done });
     };
-    upd();
+    upd().then(() => {
+      // dispatch(removeIsLoading());
+    });
     //TODO: обработка???
     {
       if (doneT) {

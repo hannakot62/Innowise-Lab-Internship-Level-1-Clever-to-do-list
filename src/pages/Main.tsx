@@ -15,6 +15,9 @@ import { useDays } from "../hooks/useDays";
 import { DayInterface } from "../hooks/useDays";
 import { changeTheme } from "../store/slices/themeSlice";
 import AllDays from "../components/AllDays/AllDays";
+import Lottie from "lottie-react";
+import loaderLight from "../assets/loader/loaderLight.json";
+import loaderDark from "../assets/loader/loaderDark.json";
 
 const Main = () => {
   const [selectedDay, setSelectedDay] = useState(new Date().getDate());
@@ -24,6 +27,8 @@ const Main = () => {
   const isAuth = useSelector((state: any) => state.user.id);
   const email = useSelector((state: any) => state.user.email);
   const tasks = useSelector((state: any) => state.tasks.tasks);
+  const isLoading = useSelector((state: any) => state.loading.isLoading);
+
   let ddays: Array<DayInterface> = [];
   ddays = useDays();
   const [days, setDays] = useState(ddays);
@@ -50,9 +55,9 @@ const Main = () => {
     setDays(a);
   }
 
-  let daysToPush: any = [];
+  let daysToRender: any = [];
   days.map((i) => {
-    daysToPush.push(
+    daysToRender.push(
       <Day
         key={i.day}
         slctd={i.selected}
@@ -65,7 +70,7 @@ const Main = () => {
   });
   useEffect(() => {
     days.map((i: any) => {
-      daysToPush.push(
+      daysToRender.push(
         <Day
           key={i.day}
           slctd={i.selected}
@@ -101,7 +106,7 @@ const Main = () => {
         <DoorOpen />
       </MyBtn>
 
-      <div className={"days-container"}>{daysToPush}</div>
+      <div className={"days-container"}>{daysToRender}</div>
 
       <h1 className={"tasks-header"}>Tasks:</h1>
       <div className={"buttons-task-container"}>
@@ -115,7 +120,16 @@ const Main = () => {
           </Link>
         </MainBottomButtons>
       </div>
-      <TasksList selectedDay={selectedDay} />
+
+      {isLoading ? (
+        <Lottie
+          className={"loader"}
+          animationData={theme == "light" ? loaderLight : loaderDark}
+          loop={true}
+        />
+      ) : (
+        <TasksList selectedDay={selectedDay} />
+      )}
     </div>
   ) : (
     <h1>What are you looking for? :)</h1>

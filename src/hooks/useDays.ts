@@ -10,6 +10,7 @@ import {
 } from "@firebase/firestore";
 import { db } from "../firebase";
 import { setTasks } from "../store/slices/tasksSlice";
+import { removeIsLoading, setIsLoading } from "../store/slices/loadingSlice";
 
 export interface DayInterface {
   selected: number;
@@ -35,8 +36,6 @@ export function useDays() {
   const dispatch = useDispatch();
   const tasks = useSelector((state: any) => state.tasks.tasks);
 
-  //TODO: добавіть условіе по месяцу
-  // вернуть потом надо этот месяц
   const currentDateStart = new Date(new Date().setHours(0, 0, 0));
   const nextMonthStart = new Date(
     new Date().setMonth(currentDateStart.getMonth() + 1, 1)
@@ -50,11 +49,12 @@ export function useDays() {
     where("date", ">=", Timestamp.fromDate(currentDateStart)),
     where("date", "<=", Timestamp.fromDate(nextMonthStart))
   );
+  let tasksTemp: Array<Task> = [];
 
   useEffect(() => {
     const getTasks = async () => {
+      dispatch(setIsLoading());
       const tasksDocuments = await getDocs(tasksCollection);
-      let tasksTemp: Array<Task> = [];
       tasksDocuments.forEach((doc) => {
         tasksTemp.push({
           id: doc.id,
@@ -71,11 +71,13 @@ export function useDays() {
         (a: any, b: any) => a.originalDateSeconds - b.originalDateSeconds
       );
       console.log(tasksTemp);
-      dispatch(setTasks(tasksTemp));
     };
+    getTasks().then(() => {
+      dispatch(setTasks(tasksTemp));
+      setTimeout(() => dispatch(removeIsLoading()), 10000);
+    });
 
     //TODO: добавить лоадер??? обработка ошибок???
-    getTasks();
   }, []);
 
   const myTasks = useSelector((state: any) => state.tasks.tasks);

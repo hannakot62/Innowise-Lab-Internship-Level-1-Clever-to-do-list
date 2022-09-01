@@ -192,14 +192,24 @@
     .checkboxAndTimeContainer {
         margin: 1rem 0.2rem;
     }
-.taskBody{
-    margin: 0;
+
+    .taskBody {
+        margin: 0;
+    }
+
+    .buttonsContainer {
+        flex-direction: column;
+        margin: 0;
+    }
 }
-.buttonsContainer{
-    flex-direction: column;
-    margin: 0;
+
+@media (max-width:557px) {
+    .buttonsContainer {
+        flex-direction: column;
+        margin: 0;
+    }
 }
-}
+
 
 .done{
     text-decoration: line-through;

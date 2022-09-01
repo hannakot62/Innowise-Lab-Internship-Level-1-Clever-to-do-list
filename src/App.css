@@ -211,4 +211,14 @@ html.dark .input-time{
 
 .tasks-header{
     width: 100%;
+    margin-left: 10vw;
+}
+
+.loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+    width: 40vh;
+    margin-bottom: 0;
 }
