@@ -37,7 +37,6 @@ const TasksList = ({ selectedDay }: { selectedDay: number }) => {
     }
   }, [tasks]);
 
-  // @ts-ignore
   return (
     <div className={style.tasks}>
       {tasksToRender.length ? (

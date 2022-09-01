@@ -30,7 +30,7 @@ export interface Task {
   originalDateSeconds: number;
 }
 
-export function useDays() {
+export function useDays(selectedDay: number) {
   const days: Array<DayInterface> = [];
   const email = useSelector((state: any) => state.user.email);
   const dispatch = useDispatch();
@@ -74,10 +74,8 @@ export function useDays() {
     };
     getTasks().then(() => {
       dispatch(setTasks(tasksTemp));
-      setTimeout(() => dispatch(removeIsLoading()), 10000);
+      dispatch(removeIsLoading());
     });
-
-    //TODO: добавить лоадер??? обработка ошибок???
   }, []);
 
   const myTasks = useSelector((state: any) => state.tasks.tasks);
@@ -96,13 +94,12 @@ export function useDays() {
       ? tasksForDay.filter((task: any) => !task.done).length
       : 0;
     days.push({
-      selected: currentDay,
+      selected: selectedDay,
       day: iterDay,
       tasksDoneQuantity: done,
       tasksUndoneQuantity: undone,
     });
   }
-  // console.log("дни в юздейс");
-  // console.table(days);
+
   return days;
 }

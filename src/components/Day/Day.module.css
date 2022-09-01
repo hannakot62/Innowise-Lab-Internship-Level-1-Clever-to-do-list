@@ -60,10 +60,15 @@
 
 
 
-.mainContainer:hover{
+.mainContainerlight:hover{
     cursor: pointer;
-
 }
-.selected:hover{
+.mainContainerdark:hover{
+    cursor: pointer;
+}
+.selectedlight:hover{
+    cursor: pointer;
+}
+.selecteddark:hover{
     cursor: pointer;
 }

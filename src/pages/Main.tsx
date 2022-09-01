@@ -29,20 +29,17 @@ const Main = () => {
   const tasks = useSelector((state: any) => state.tasks.tasks);
   const isLoading = useSelector((state: any) => state.loading.isLoading);
 
-  let ddays: Array<DayInterface> = [];
-  ddays = useDays();
-  const [days, setDays] = useState(ddays);
-  //setDays(useDays());
-  // console.log("yyyyyyyyyyyyyy");
-  // console.log(useDays());
-  // //setDays(ddays);
-  //
-  // console.log("дні в мейне");
-  // console.table(days);
-  // console.table(ddays);
+  let daysLoaded: Array<DayInterface> = [];
+  daysLoaded = useDays(selectedDay);
+  const [days, setDays] = useState(useDays(selectedDay));
+
+  useEffect(() => {
+    setDays(daysLoaded);
+  }, [tasks]);
 
   function unselectAll(selectedDay: number) {
     let a: Array<DayInterface> = [];
+    setSelectedDay(selectedDay);
     days.forEach((i) => {
       a.push({
         selected: selectedDay,
@@ -51,8 +48,8 @@ const Main = () => {
         tasksUndoneQuantity: i.tasksUndoneQuantity,
       });
     });
-    setSelectedDay(selectedDay);
     setDays(a);
+    console.table(days);
   }
 
   let daysToRender: any = [];
@@ -69,6 +66,7 @@ const Main = () => {
     );
   });
   useEffect(() => {
+    daysToRender = [];
     days.map((i: any) => {
       daysToRender.push(
         <Day
@@ -81,7 +79,7 @@ const Main = () => {
         />
       );
     });
-  }, []);
+  }, [tasks, days]);
 
   function handleSignOut() {
     dispatch(removeUser());

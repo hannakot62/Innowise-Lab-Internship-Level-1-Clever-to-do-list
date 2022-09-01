@@ -19,7 +19,7 @@ const Day: FunctionComponent<Day> = ({
   unselectAll,
 }) => {
   let currentDate = new Date();
-  const [selected, setSelected] = useState(slctd === currentDate.getDate());
+  const [selected, setSelected] = useState(slctd === day);
   const theme = useSelector((state: any) => state.theme.theme);
   useEffect(() => {
     setSelected(slctd === day);
