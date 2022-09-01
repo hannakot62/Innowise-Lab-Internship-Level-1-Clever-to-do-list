@@ -37,9 +37,7 @@ export function useDays() {
 
   //TODO: добавіть условіе по месяцу
   // вернуть потом надо этот месяц
-  const currentDateStart = new Date(
-    new Date(new Date().setHours(0, 0, 0)).setMonth(8, 1)
-  );
+  const currentDateStart = new Date(new Date().setHours(0, 0, 0));
   const nextMonthStart = new Date(
     new Date().setMonth(currentDateStart.getMonth() + 1, 1)
   );

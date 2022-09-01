@@ -4,6 +4,7 @@ import errorReducer from "./slices/errorSlice";
 import tasksReducer from "./slices/tasksSlice";
 import themeReducer from "./slices/themeSlice";
 import currentTaskReducer from "./slices/currentTaskSlice";
+import loadingReducer from "./slices/loadingSlice";
 
 export const store = configureStore({
   reducer: {
@@ -12,5 +13,6 @@ export const store = configureStore({
     tasks: tasksReducer,
     theme: themeReducer,
     currentTask: currentTaskReducer,
+    loading: loadingReducer,
   },
 });
