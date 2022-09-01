@@ -37,10 +37,11 @@ export function useDays(selectedDay: number) {
   const tasks = useSelector((state: any) => state.tasks.tasks);
 
   const currentDateStart = new Date(new Date().setHours(0, 0, 0));
+
+  const currentDay = currentDateStart.getDate();
   const nextMonthStart = new Date(
     new Date().setMonth(currentDateStart.getMonth() + 1, 1)
   );
-  const currentDay = currentDateStart.getDate();
   const daysInCurrentMonthQuantity = daysInCurrentMonth();
 
   const tasksCollection = query(
