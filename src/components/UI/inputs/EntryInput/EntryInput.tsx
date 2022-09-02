@@ -8,7 +8,11 @@ const EntryInput = ({ ...props }: any) => {
     <input
       {...props}
       className={
-        theme == "light" ? style.entryInputlight : style.entryInputdark
+        props.error
+          ? style.entryInputError
+          : theme == "light"
+          ? style.entryInputlight
+          : style.entryInputdark
       }
     ></input>
   );

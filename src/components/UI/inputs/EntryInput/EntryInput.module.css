@@ -6,7 +6,7 @@
     background: #fff4e8;
     border: 0.1rem solid #231203;
     cursor: pointer;
-    margin: 0 1rem 1.5rem 1rem;
+    margin: 0 1rem 0 1rem;
 }
 .entryInputlight:hover{
     background: #ffeedc;
@@ -20,9 +20,19 @@
     background: #f2e7f7;
     border: 0.1rem solid #110515;
     cursor: pointer;
-    margin: 0 1rem 1.5rem 1rem;
+    margin: 0 1rem 0 1rem;
 }
 .entryInputdark:hover{
     background: #d9c0ea;
     transition: 0.3s ease;
+}
+.entryInputError{
+    padding: 0.5rem 1rem;
+    color: red;
+    font-size: 1rem;
+    border-radius: 3rem;
+    background: #fce7e7;
+    border: 0.1rem solid red;
+    cursor: pointer;
+    margin: 0 1rem 0 1rem;
 }

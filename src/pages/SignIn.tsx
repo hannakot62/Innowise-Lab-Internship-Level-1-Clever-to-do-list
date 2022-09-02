@@ -22,8 +22,32 @@ const SignIn = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const err = useSelector((state: any) => state.error.error);
+  const [firstError, setFirstError] = useState("");
+  const [secondError, setSecondError] = useState("");
+
+  const EMAIL_REGEXP =
+    /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
+
+  function isEmailValid(email: string) {
+    return EMAIL_REGEXP.test(email);
+  }
+
+  function isPasswordValid(password: string) {
+    return password.length >= 6;
+  }
 
   const handleLogin = (email: string, password: string) => {
+    if (email === "") {
+      setFirstError("Введите почту");
+    } else if (!isEmailValid(email)) {
+      setFirstError("Некорректный адрес почты");
+    }
+
+    if (password === "") {
+      setSecondError("Введите пароль");
+    } else if (!isPasswordValid(password)) {
+      setSecondError("Слишком короткий пароль");
+    }
     const auth = getAuth();
     signInWithEmailAndPassword(auth, email, password)
       .then(({ user }) => {
@@ -38,23 +62,25 @@ const SignIn = () => {
       .catch((error) => {
         switch (error.message) {
           case "Firebase: Error (auth/invalid-email).": {
-            dispatch(setError("Некорректный адрес электронной почты"));
+            //dispatch(setError("Некорректный адрес электронной почты"));
             break;
           }
           case "Firebase: Error (auth/internal-error).": {
-            dispatch(setError("Не оставляйте пустые поля"));
+            //dispatch(setError("Не оставляйте пустые поля"));
             break;
           }
           case "Firebase: Error (auth/wrong-password).": {
-            dispatch(setError("Неправильный пароль"));
+            //dispatch(setError("Неправильный пароль"));
+            setSecondError("Неправильный пароль");
             break;
           }
           case "Firebase: Error (auth/user-not-found).": {
-            dispatch(
-              setError(
-                "Пользователь с такой электронной почтой не зарегистрирован"
-              )
-            );
+            // dispatch(
+            //   setError(
+            //     "Пользователь с такой электронной почтой не зарегистрирован"
+            //   )
+            // );
+            setFirstError("Этот пользователь не зарегистрирован");
             break;
           }
           case "Firebase: Error (auth/email-already-in-use).": {
@@ -62,7 +88,7 @@ const SignIn = () => {
             break;
           }
           case "Firebase: Password should be at least 6 characters (auth/weak-password).": {
-            dispatch(setError("Пароль должен содержать хотя бы 6 символов"));
+            // dispatch(setError("Пароль должен содержать хотя бы 6 символов"));
             break;
           }
           default: {
@@ -117,14 +143,24 @@ const SignIn = () => {
             type={"email"}
             placeholder={"Login"}
             value={email}
-            onChange={(e: any) => setEmail(e.target.value)}
+            error={firstError}
+            onChange={(e: any) => {
+              setEmail(e.target.value);
+              setFirstError("");
+            }}
           ></EntryInput>
+          <div className={"input-error"}>{firstError}</div>
           <EntryInput
             type={"password"}
             placeholder={"Password"}
             value={password}
-            onChange={(e: any) => setPassword(e.target.value)}
+            error={secondError}
+            onChange={(e: any) => {
+              setPassword(e.target.value);
+              setSecondError("");
+            }}
           ></EntryInput>
+          <div className={"input-error"}>{secondError}</div>
           <EntryButton onClick={handleContinueWithGoogle}>
             Continue with Google
           </EntryButton>

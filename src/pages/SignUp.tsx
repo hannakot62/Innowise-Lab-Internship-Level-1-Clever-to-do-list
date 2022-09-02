@@ -24,20 +24,52 @@ const SignUp = () => {
   const navigate = useNavigate();
   const err = useSelector((state: any) => state.error.error);
 
+  const [firstError, setFirstError] = useState("");
+  const [secondError, setSecondError] = useState("");
+  const [thirdError, setThirdError] = useState("");
+
+  const EMAIL_REGEXP =
+    /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
+
+  function isEmailValid(email: string) {
+    return EMAIL_REGEXP.test(email);
+  }
+
+  function isPasswordValid(password: string) {
+    return password.length >= 6;
+  }
+
+  function arePasswordsTheSame(pass1: string, pass2: string) {
+    return pass1 === pass2;
+  }
+
   function handleChangeTheme() {
     dispatch(changeTheme());
   }
 
   const handleSignUp = (email: string, password: string) => {
+    if (email === "") {
+      setFirstError("Введите почту");
+    }
+    if (password === "") {
+      setSecondError("Введите пароль");
+    }
+    if (repeatPassword === "") {
+      setThirdError("Повторите пароль");
+    }
+    if (!arePasswordsTheSame(password, repeatPassword)) {
+      setThirdError("Пароли не совпадают");
+    }
+
     const auth = getAuth();
 
-    if (password != repeatPassword) {
-      dispatch(setError("Пароли не совпадают!"));
-      setTimeout(() => {
-        dispatch(removeError());
-      }, 2000);
-      return;
-    }
+    // if (password != repeatPassword) {
+    //   dispatch(setError("Пароли не совпадают!"));
+    //   setTimeout(() => {
+    //     dispatch(removeError());
+    //   }, 2000);
+    //   return;
+    // }
 
     createUserWithEmailAndPassword(auth, email, password)
       .then(({ user }) => {
@@ -52,11 +84,12 @@ const SignUp = () => {
       .catch((error) => {
         switch (error.message) {
           case "Firebase: Error (auth/invalid-email).": {
-            dispatch(setError("Некорректный адрес электронной почты"));
+            //  dispatch(setError("Некорректный адрес электронной почты"));
+            setFirstError("Некорректный адрес почты");
             break;
           }
           case "Firebase: Error (auth/internal-error).": {
-            dispatch(setError("Не оставляйте пустые поля"));
+            //  dispatch(setError("Не оставляйте пустые поля"));
             break;
           }
           case "Firebase: Error (auth/wrong-password).": {
@@ -64,19 +97,17 @@ const SignUp = () => {
             break;
           }
           case "Firebase: Error (auth/user-not-found).": {
-            dispatch(
-              setError(
-                "Пользователь с такой электронной почтой не зарегистрирован"
-              )
-            );
+            dispatch(setError("Пользователь не зарегистрирован"));
             break;
           }
           case "Firebase: Error (auth/email-already-in-use).": {
-            dispatch(setError("Пользователь уже зарегистрирован"));
+            // dispatch(setError("Пользователь уже зарегистрирован"));
+            setFirstError("Пользователь уже зарегистрирован");
             break;
           }
           case "Firebase: Password should be at least 6 characters (auth/weak-password).": {
-            dispatch(setError("Пароль должен содержать хотя бы 6 символов"));
+            //dispatch(setError("Пароль должен содержать хотя бы 6 символов"));
+            setSecondError("Слишком короткий пароль");
             break;
           }
           default: {
@@ -127,22 +158,36 @@ const SignUp = () => {
             type={"email"}
             placeholder={"Login"}
             value={email}
-            onChange={(e: any) => setEmail(e.target.value)}
+            onChange={(e: any) => {
+              setEmail(e.target.value);
+              setFirstError("");
+            }}
           ></EntryInput>
+          <div className="input-error">{firstError}</div>
           <EntryInput
             required
             type={"password"}
             placeholder={"Password"}
             value={password}
-            onChange={(e: any) => setPassword(e.target.value)}
+            onChange={(e: any) => {
+              setPassword(e.target.value);
+              setSecondError("");
+            }}
           ></EntryInput>
+          <div className="input-error">{secondError}</div>
+
           <EntryInput
             required
             type={"password"}
             placeholder={"Repeat password"}
             value={repeatPassword}
-            onChange={(e: any) => setRepeatPassword(e.target.value)}
+            onChange={(e: any) => {
+              setRepeatPassword(e.target.value);
+              setThirdError("");
+            }}
           ></EntryInput>
+          <div className="input-error">{thirdError}</div>
+
           <EntryButton onClick={handleContinueWithGoogle}>
             Continue with Google
           </EntryButton>
