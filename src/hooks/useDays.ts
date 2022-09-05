@@ -58,7 +58,6 @@ export function useDays(selectedDay: number) {
         dispatch(setIsLoading());
         await getDocs(tasksCollection)
           .then((tasksDocuments) => {
-            console.log("okkkkkk", tasksDocuments);
             tasksDocuments.docs.forEach((doc) => {
               tasksTemp.push({
                 id: doc.id,
