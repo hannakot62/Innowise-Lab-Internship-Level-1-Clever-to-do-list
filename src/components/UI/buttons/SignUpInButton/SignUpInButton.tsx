@@ -1,6 +1,6 @@
 import React from "react";
-import style from "./SignUpInButton.module.css";
-import MyBtn from "../MyBtn";
+import style from "@/components/UI/buttons/SignUpInButton/SignUpInButton.module.css";
+import MyBtn from "@/components/UI/buttons/MyBtn";
 import { useSelector } from "react-redux";
 
 const SignUpInButton = ({ children, ...props }: any) => {

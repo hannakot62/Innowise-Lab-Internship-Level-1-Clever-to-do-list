@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from "react";
 import style from "./Task.module.css";
-import TaskButton from "../UI/buttons/ TaskButton/TaskButton";
-import Edit from "../UI/pics/Edit";
-import Delete from "../UI/pics/Delete";
-import { Link, useNavigate } from "react-router-dom";
+import TaskButton from "@/components/UI/buttons/ TaskButton/TaskButton";
+import Edit from "@/components/UI/pics/Edit";
+import Delete from "@/components/UI/pics/Delete";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { setTasks, taskDoneUndone } from "../../store/slices/tasksSlice";
+import { setTasks, taskDoneUndone } from "@/store/slices/tasksSlice";
 import {
   removeCurrentTask,
   setCurrentTask,
-} from "../../store/slices/currentTaskSlice";
+} from "@/store/slices/currentTaskSlice";
 import { deleteDoc, doc, updateDoc } from "@firebase/firestore";
-import { db } from "../../firebase";
-import { removeError, setError } from "../../store/slices/errorSlice";
+import { db } from "@/firebase";
+import { removeError, setError } from "@/store/slices/errorSlice";
 
 const Task = ({
   id,

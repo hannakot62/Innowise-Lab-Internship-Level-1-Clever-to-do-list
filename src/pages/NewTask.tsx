@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import TaskConfigButtons from "../components/UI/buttons/TaskConfigButtons/TaskConfigButtons";
+import TaskConfigButtons from "@/components/UI/buttons/TaskConfigButtons/TaskConfigButtons";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -10,11 +10,11 @@ import {
   Timestamp,
   where,
 } from "@firebase/firestore";
-import { db } from "../firebase";
-import { Task } from "../hooks/useDays";
-import { removeIsLoading, setIsLoading } from "../store/slices/loadingSlice";
-import { setTasks } from "../store/slices/tasksSlice";
-import { removeError, setError } from "../store/slices/errorSlice";
+import { db } from "@/firebase";
+import { Task } from "@/hooks/useDays";
+import { removeIsLoading, setIsLoading } from "@/store/slices/loadingSlice";
+import { setTasks } from "@/store/slices/tasksSlice";
+import { removeError, setError } from "@/store/slices/errorSlice";
 
 const NewTask = () => {
   const [currentTitle, setCurrentTitle] = useState("");

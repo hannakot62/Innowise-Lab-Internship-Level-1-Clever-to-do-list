@@ -1,10 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-import userReducer from "./slices/userSlice";
-import errorReducer from "./slices/errorSlice";
-import tasksReducer from "./slices/tasksSlice";
-import themeReducer from "./slices/themeSlice";
-import currentTaskReducer from "./slices/currentTaskSlice";
-import loadingReducer from "./slices/loadingSlice";
+import userReducer from "@/store/slices/userSlice";
+import errorReducer from "@/store/slices/errorSlice";
+import tasksReducer from "@/store/slices/tasksSlice";
+import themeReducer from "@/store/slices/themeSlice";
+import currentTaskReducer from "@/store/slices/currentTaskSlice";
+import loadingReducer from "@/store/slices/loadingSlice";
 
 export const store = configureStore({
   reducer: {

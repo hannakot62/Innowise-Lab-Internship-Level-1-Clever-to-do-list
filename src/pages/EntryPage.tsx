@@ -1,8 +1,8 @@
 import React from "react";
-import EntryButton from "../components/UI/buttons/EntryButton/EntryButton";
-import ChangeThemeButton from "../components/UI/buttons/ChangeThemeButton/ChangeThemeButton";
+import EntryButton from "@/components/UI/buttons/EntryButton/EntryButton";
+import ChangeThemeButton from "@/components/UI/buttons/ChangeThemeButton/ChangeThemeButton";
 import { Link } from "react-router-dom";
-import { changeTheme } from "../store/slices/themeSlice";
+import { changeTheme } from "@/store/slices/themeSlice";
 import { useDispatch } from "react-redux";
 
 const EntryPage = () => {

@@ -1,19 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
-import App from "./App";
-import EntryPage from "./pages/EntryPage";
-import SignIn from "./pages/SignIn";
-import SignUp from "./pages/SignUp";
-import Main from "./pages/Main";
-import NewTask from "./pages/NewTask";
-import EditTask from "./pages/EditTask";
-import Lottie from "lottie-web";
+import "@/index.css";
+import App from "@/App";
+import SignIn from "@/pages/SignIn";
+import SignUp from "@/pages/SignUp";
+import Main from "@/pages/Main";
+import NewTask from "@/pages/NewTask";
+import EditTask from "@/pages/EditTask";
 // @ts-ignore
-import icon from "./assets/todo.png";
-import { Provider, useSelector } from "react-redux";
-import { store } from "./store";
-import "./firebase";
+import icon from "@/assets/todo.png";
+import { Provider } from "react-redux";
+import { store } from "@/store";
+import "@/firebase";
 // @ts-ignore
 todoIcon.href = icon;
 

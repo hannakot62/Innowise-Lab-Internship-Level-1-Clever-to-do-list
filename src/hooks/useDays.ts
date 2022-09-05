@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { daysInCurrentMonth } from "../logic/dateOperations";
+import { daysInCurrentMonth } from "@/logic/dateOperations";
 import { useEffect, useState } from "react";
 import {
   collection,
@@ -8,10 +8,10 @@ import {
   Timestamp,
   where,
 } from "@firebase/firestore";
-import { db } from "../firebase";
-import { setTasks } from "../store/slices/tasksSlice";
-import { removeIsLoading, setIsLoading } from "../store/slices/loadingSlice";
-import { removeError, setError } from "../store/slices/errorSlice";
+import { db } from "@/firebase";
+import { setTasks } from "@/store/slices/tasksSlice";
+import { removeIsLoading, setIsLoading } from "@/store/slices/loadingSlice";
+import { removeError, setError } from "@/store/slices/errorSlice";
 
 export interface DayInterface {
   selected: number;

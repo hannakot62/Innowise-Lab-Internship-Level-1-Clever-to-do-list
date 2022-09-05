@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import style from "./TaskRounds.module.css";
+import style from "@/components/TaskRounds/TaskRounds.module.css";
 import { useSelector } from "react-redux";
 
 interface OwnProps {

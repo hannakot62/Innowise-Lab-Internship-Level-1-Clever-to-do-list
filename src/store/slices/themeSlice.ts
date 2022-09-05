@@ -12,7 +12,7 @@ const themeSlice = createSlice({
       deleteThemeFromLS();
       // @ts-ignore
       theme.classList.toggle(state.theme, false);
-      state.theme = state.theme == "light" ? "dark" : "light";
+      state.theme = state.theme === "light" ? "dark" : "light";
       theme.classList.toggle(state.theme, true);
       setThemeToLS(state.theme);
     },

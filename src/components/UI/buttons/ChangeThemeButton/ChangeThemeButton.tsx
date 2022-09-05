@@ -1,6 +1,6 @@
 import React from "react";
-import style from "./ChangeThemeButton.module.css";
-import MyBtn from "../MyBtn";
+import style from "@/components/UI/buttons/ChangeThemeButton/ChangeThemeButton.module.css";
+import MyBtn from "@/components/UI/buttons/MyBtn";
 import { useSelector } from "react-redux";
 const ChangeThemeButton = ({ children, ...props }: any) => {
   const theme = useSelector((state: any) => state.theme.theme);

@@ -1,9 +1,9 @@
-import React, { useEffect, useLayoutEffect } from "react";
+import React, { useEffect } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
-import { myRoutes } from "../index";
-import EntryPage from "../pages/EntryPage";
+import { myRoutes } from "@/index";
+import EntryPage from "@/pages/EntryPage";
 import { useSelector } from "react-redux";
-import { getUserFromLS } from "../store/slices/userSlice";
+import { getUserFromLS } from "@/store/slices/userSlice";
 
 const AppRouter = () => {
   const navigate = useNavigate();

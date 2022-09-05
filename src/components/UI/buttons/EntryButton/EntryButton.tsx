@@ -1,6 +1,6 @@
 import React from "react";
-import style from "./EntryButton.module.css";
-import MyBtn from "../MyBtn";
+import style from "@/components/UI/buttons/EntryButton/EntryButton.module.css";
+import MyBtn from "@/components/UI/buttons/MyBtn";
 import { useSelector } from "react-redux";
 
 const EntryButton = ({ children, ...props }: any) => {

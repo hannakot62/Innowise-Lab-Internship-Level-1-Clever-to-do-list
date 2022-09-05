@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import EntryInput from "../components/UI/inputs/EntryInput/EntryInput";
-import EntryButton from "../components/UI/buttons/EntryButton/EntryButton";
-import ChangeThemeButton from "../components/UI/buttons/ChangeThemeButton/ChangeThemeButton";
-import SignUpInButton from "../components/UI/buttons/SignUpInButton/SignUpInButton";
-import { Link, useNavigate } from "react-router-dom";
+import EntryInput from "@/components/UI/inputs/EntryInput/EntryInput";
+import EntryButton from "@/components/UI/buttons/EntryButton/EntryButton";
+import ChangeThemeButton from "@/components/UI/buttons/ChangeThemeButton/ChangeThemeButton";
+import SignUpInButton from "@/components/UI/buttons/SignUpInButton/SignUpInButton";
+import { useNavigate } from "react-router-dom";
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -11,10 +11,11 @@ import {
   GoogleAuthProvider,
 } from "firebase/auth";
 import { useDispatch, useSelector } from "react-redux";
-import { setUser } from "../store/slices/userSlice";
-import Notification from "../components/UI/notification/Notification";
-import { removeError, setError } from "../store/slices/errorSlice";
-import { changeTheme } from "../store/slices/themeSlice";
+import { setUser } from "@/store/slices/userSlice";
+import Notification from "@/components/UI/notification/Notification";
+import { removeError, setError } from "@/store/slices/errorSlice";
+import { changeTheme } from "@/store/slices/themeSlice";
+import { Alert } from "@mui/material";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
@@ -150,7 +151,7 @@ const SignUp = () => {
 
   return (
     <div className={"main"}>
-      <Notification e={err} hidden={err === ""} />
+      {/*<Notification e={err} hidden={err === ""} />*/}
       <div className={"entry-container"}>
         <div className={"buttons-input-container"}>
           <EntryInput
@@ -199,6 +200,11 @@ const SignUp = () => {
           Change Theme
         </ChangeThemeButton>
       </div>
+      {err && (
+        <Alert className={"my-alert"} variant="filled" severity="error">
+          Oops, something went wrong :(
+        </Alert>
+      )}
       <footer className={"author"}>made by @hannakot62</footer>
     </div>
   );

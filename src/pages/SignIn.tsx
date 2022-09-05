@@ -1,20 +1,19 @@
 import React, { useState } from "react";
-import EntryButton from "../components/UI/buttons/EntryButton/EntryButton";
-import ChangeThemeButton from "../components/UI/buttons/ChangeThemeButton/ChangeThemeButton";
-import EntryInput from "../components/UI/inputs/EntryInput/EntryInput";
-import SignUpInButton from "../components/UI/buttons/SignUpInButton/SignUpInButton";
+import EntryButton from "@/components/UI/buttons/EntryButton/EntryButton";
+import ChangeThemeButton from "@/components/UI/buttons/ChangeThemeButton/ChangeThemeButton";
+import EntryInput from "@/components/UI/inputs/EntryInput/EntryInput";
+import SignUpInButton from "@/components/UI/buttons/SignUpInButton/SignUpInButton";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { setUser } from "../store/slices/userSlice";
+import { setUser } from "@/store/slices/userSlice";
 import {
   getAuth,
   GoogleAuthProvider,
   signInWithEmailAndPassword,
   signInWithPopup,
 } from "firebase/auth";
-import Notification from "../components/UI/notification/Notification";
-import { removeError, setError } from "../store/slices/errorSlice";
-import { changeTheme } from "../store/slices/themeSlice";
+import { removeError, setError } from "@/store/slices/errorSlice";
+import { changeTheme } from "@/store/slices/themeSlice";
 import { Alert } from "@mui/material";
 
 const SignIn = () => {

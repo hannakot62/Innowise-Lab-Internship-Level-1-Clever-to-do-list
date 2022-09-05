@@ -1,5 +1,5 @@
 import React from "react";
-import style from "./Notification.module.css";
+import style from "@/components/UI/notification/Notification.module.css";
 
 const Notification = ({ e, hidden }: { e: string; hidden: boolean }) => {
   return hidden ? (

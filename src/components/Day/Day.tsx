@@ -1,6 +1,6 @@
-import React, { FunctionComponent, useEffect, useRef, useState } from "react";
-import style from "./Day.module.css";
-import TaskRounds from "../TaskRounds/TaskRounds";
+import React, { FunctionComponent, useEffect, useState } from "react";
+import style from "@/components/Day/Day.module.css";
+import TaskRounds from "@/components/TaskRounds/TaskRounds";
 import { useSelector } from "react-redux";
 
 interface Day {

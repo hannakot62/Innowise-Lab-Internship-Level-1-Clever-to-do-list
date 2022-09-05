@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
-import Task from "../Task/Task";
-import style from "./TasksList.module.css";
+import Task from "@/components/Task/Task";
+import style from "@/components/TasksList/TasksList.module.css";
 import { useSelector } from "react-redux";
 import Lottie from "lottie-react";
-import skaterLight from "../../assets/skater/skater-light.json";
+import skaterLight from "@/assets/skater/skater-light.json";
 
 const TasksList = ({ selectedDay }: { selectedDay: number }) => {
   const tasks = useSelector((state: any) => state.tasks.tasks);

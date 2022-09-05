@@ -1,22 +1,22 @@
 import React, { useEffect, useLayoutEffect, useMemo, useState } from "react";
-import Day from "../components/Day/Day";
-import MainBottomButtons from "../components/UI/buttons/MainBottomButtons/MainBottomButtons";
-import Sun from "../components/UI/pics/Sun";
-import Moon from "../components/UI/pics/Moon";
-import Plus from "../components/UI/pics/Plus";
-import MyBtn from "../components/UI/buttons/MyBtn";
-import SignOutStyle from "../components/UI/buttons/ChangeThemeButton/ChangeThemeButton.module.css";
+import Day from "@/components/Day/Day";
+import MainBottomButtons from "@/components/UI/buttons/MainBottomButtons/MainBottomButtons";
+import Sun from "@/components/UI/pics/Sun";
+import Moon from "@/components/UI/pics/Moon";
+import Plus from "@/components/UI/pics/Plus";
+import MyBtn from "@/components/UI/buttons/MyBtn";
+import SignOutStyle from "@/components/UI/buttons/ChangeThemeButton/ChangeThemeButton.module.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import DoorOpen from "../components/UI/pics/DoorOpen";
-import { removeUser } from "../store/slices/userSlice";
-import TasksList from "../components/TasksList/TasksList";
-import { useDays } from "../hooks/useDays";
-import { DayInterface } from "../hooks/useDays";
-import { changeTheme } from "../store/slices/themeSlice";
+import DoorOpen from "@/components/UI/pics/DoorOpen";
+import { removeUser } from "@/store/slices/userSlice";
+import TasksList from "@/components/TasksList/TasksList";
+import { useDays } from "@/hooks/useDays";
+import { DayInterface } from "@/hooks/useDays";
+import { changeTheme } from "@/store/slices/themeSlice";
 import Lottie from "lottie-react";
-import loaderLight from "../assets/loader/loaderLight.json";
-import loaderDark from "../assets/loader/loaderDark.json";
+import loaderLight from "@/assets/loader/loaderLight.json";
+import loaderDark from "@/assets/loader/loaderDark.json";
 import { Alert } from "@mui/material";
 
 const Main = () => {
