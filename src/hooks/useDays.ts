@@ -44,7 +44,6 @@ export function useDays(selectedDay: number) {
     new Date().setMonth(currentDateStart.getMonth() + 1, 1)
   );
   const daysInCurrentMonthQuantity = daysInCurrentMonth();
-
   const tasksCollection = query(
     collection(db, "tasks"),
     where("userEmail", "==", email),
@@ -55,23 +54,44 @@ export function useDays(selectedDay: number) {
 
   useEffect(() => {
     const getTasks = async () => {
-      dispatch(setIsLoading());
-      const tasksDocuments = await getDocs(tasksCollection);
-      tasksDocuments.forEach((doc) => {
-        tasksTemp.push({
-          id: doc.id,
-          userEmail: doc.data().userEmail,
-          date: new Date(doc.data().date.seconds * 1000).toLocaleDateString(),
-          time: new Date(doc.data().date.seconds * 1000).toLocaleTimeString(),
-          done: doc.data().done,
-          description: doc.data().description,
-          title: doc.data().title,
-          originalDateSeconds: doc.data().date.seconds,
-        });
-      });
-      tasksTemp.sort(
-        (a: any, b: any) => a.originalDateSeconds - b.originalDateSeconds
-      );
+      try {
+        dispatch(setIsLoading());
+        await getDocs(tasksCollection)
+          .then((tasksDocuments) => {
+            console.log("okkkkkk", tasksDocuments);
+            tasksDocuments.docs.forEach((doc) => {
+              tasksTemp.push({
+                id: doc.id,
+                userEmail: doc.data().userEmail,
+                date: new Date(
+                  doc.data().date.seconds * 1000
+                ).toLocaleDateString(),
+                time: new Date(
+                  doc.data().date.seconds * 1000
+                ).toLocaleTimeString(),
+                done: doc.data().done,
+                description: doc.data().description,
+                title: doc.data().title,
+                originalDateSeconds: doc.data().date.seconds,
+              });
+            });
+            tasksTemp.sort(
+              (a: Task, b: Task) =>
+                a.originalDateSeconds - b.originalDateSeconds
+            );
+          })
+          .catch((error: any) => {
+            if (error.message.includes("Cannot add property")) return;
+            dispatch(setError(error.message));
+            dispatch(removeIsLoading());
+            setTimeout(() => dispatch(removeError()), 2000);
+          });
+      } catch (error: any) {
+        if (error.message.includes("Cannot add property")) return;
+        dispatch(setError(error.message));
+        dispatch(removeIsLoading());
+        setTimeout(() => dispatch(removeError()), 2000);
+      }
     };
     getTasks()
       .then(() => {
@@ -79,11 +99,13 @@ export function useDays(selectedDay: number) {
         dispatch(removeIsLoading());
       })
       .catch((error) => {
-        // dispatch(setError(error.message));
-        // setTimeout(() => dispatch(removeError()), 2000);
+        //??????????????????????
+        if (error.message.includes("Cannot add property")) return;
+        dispatch(setError(error.message));
+        dispatch(removeIsLoading());
+        setTimeout(() => dispatch(removeError()), 2000);
       });
   }, []);
-
   const myTasks = useSelector((state: any) => state.tasks.tasks);
   for (
     let iterDay = currentDay;

@@ -15,6 +15,7 @@ import {
 import Notification from "../components/UI/notification/Notification";
 import { removeError, setError } from "../store/slices/errorSlice";
 import { changeTheme } from "../store/slices/themeSlice";
+import { Alert } from "@mui/material";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
@@ -38,15 +39,15 @@ const SignIn = () => {
 
   const handleLogin = (email: string, password: string) => {
     if (email === "") {
-      setFirstError("Введите почту");
+      setFirstError("Enter email");
     } else if (!isEmailValid(email)) {
-      setFirstError("Некорректный адрес почты");
+      setFirstError("Invalid email");
     }
 
     if (password === "") {
-      setSecondError("Введите пароль");
+      setSecondError("Enter password");
     } else if (!isPasswordValid(password)) {
-      setSecondError("Слишком короткий пароль");
+      setSecondError("Too short password");
     }
     const auth = getAuth();
     signInWithEmailAndPassword(auth, email, password)
@@ -71,7 +72,7 @@ const SignIn = () => {
           }
           case "Firebase: Error (auth/wrong-password).": {
             //dispatch(setError("Неправильный пароль"));
-            setSecondError("Неправильный пароль");
+            setSecondError("Invalid password");
             break;
           }
           case "Firebase: Error (auth/user-not-found).": {
@@ -80,11 +81,11 @@ const SignIn = () => {
             //     "Пользователь с такой электронной почтой не зарегистрирован"
             //   )
             // );
-            setFirstError("Этот пользователь не зарегистрирован");
+            setFirstError("This user doesn't have an account");
             break;
           }
           case "Firebase: Error (auth/email-already-in-use).": {
-            dispatch(setError("Пользователь уже зарегистрирован"));
+            dispatch(setError("This user already has an account"));
             break;
           }
           case "Firebase: Password should be at least 6 characters (auth/weak-password).": {
@@ -136,7 +137,7 @@ const SignIn = () => {
 
   return (
     <div className={"main"}>
-      <Notification e={err} hidden={err === ""} />
+      {/*<Notification e={err} hidden={err === ""} />*/}
       <div className={"entry-container"}>
         <div className={"buttons-input-container"}>
           <EntryInput
@@ -172,6 +173,11 @@ const SignIn = () => {
           Change Theme
         </ChangeThemeButton>
       </div>
+      {err && (
+        <Alert className={"my-alert"} variant="filled" severity="error">
+          Oops, something went wrong :(
+        </Alert>
+      )}
       <footer className={"author"}>made by @hannakot62</footer>
     </div>
   );

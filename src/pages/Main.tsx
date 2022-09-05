@@ -89,51 +89,51 @@ const Main = () => {
   }
 
   return isAuth ? (
-    error ? (
-      <Alert variant="filled" severity="error">
-        Oops, something went wrong :(
-      </Alert>
-    ) : (
-      <div className={"main-page-container"}>
-        <MyBtn
-          id="sign-out-btn"
-          className={
-            theme == "light"
-              ? SignOutStyle.ChangeThemeButtonlight
-              : SignOutStyle.ChangeThemeButtondark
-          }
-          onClick={handleSignOut}
-        >
-          Sign Out
-          <DoorOpen />
-        </MyBtn>
+    <div className={"main-page-container"}>
+      <MyBtn
+        id="sign-out-btn"
+        className={
+          theme == "light"
+            ? SignOutStyle.ChangeThemeButtonlight
+            : SignOutStyle.ChangeThemeButtondark
+        }
+        onClick={handleSignOut}
+      >
+        Sign Out
+        <DoorOpen />
+      </MyBtn>
 
-        <div className={"days-container"}>{daysToRender}</div>
+      <div className={"days-container"}>{daysToRender}</div>
 
-        <h1 className={"tasks-header"}>Tasks:</h1>
-        <div className={"buttons-task-container"}>
-          <MainBottomButtons theme={1} onClick={handleChangeTheme}>
-            {theme === "light" ? <Moon /> : <Sun />}
-          </MainBottomButtons>
+      <h1 className={"tasks-header"}>Tasks:</h1>
+      <div className={"buttons-task-container"}>
+        <MainBottomButtons theme={1} onClick={handleChangeTheme}>
+          {theme === "light" ? <Moon /> : <Sun />}
+        </MainBottomButtons>
 
-          <MainBottomButtons>
-            <Link className={"link"} to="/newtask">
-              <Plus />
-            </Link>
-          </MainBottomButtons>
-        </div>
-
-        {isLoading ? (
-          <Lottie
-            className={"loader"}
-            animationData={theme == "light" ? loaderLight : loaderDark}
-            loop={true}
-          />
-        ) : (
-          <TasksList selectedDay={selectedDay} />
-        )}
+        <MainBottomButtons>
+          <Link className={"link"} to="/newtask">
+            <Plus />
+          </Link>
+        </MainBottomButtons>
       </div>
-    )
+
+      {isLoading ? (
+        <Lottie
+          className={"loader"}
+          animationData={theme == "light" ? loaderLight : loaderDark}
+          loop={true}
+        />
+      ) : (
+        <TasksList selectedDay={selectedDay} />
+      )}
+
+      {error && (
+        <Alert className={"my-alert"} variant="filled" severity="error">
+          Oops, something went wrong :(
+        </Alert>
+      )}
+    </div>
   ) : (
     <h1>What are you looking for? :)</h1>
   );

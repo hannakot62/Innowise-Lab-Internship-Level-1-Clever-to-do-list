@@ -49,16 +49,16 @@ const SignUp = () => {
 
   const handleSignUp = (email: string, password: string) => {
     if (email === "") {
-      setFirstError("Введите почту");
+      setFirstError("Enter email");
     }
     if (password === "") {
-      setSecondError("Введите пароль");
+      setSecondError("Enter password");
     }
     if (repeatPassword === "") {
-      setThirdError("Повторите пароль");
+      setThirdError("Repeat password");
     }
     if (!arePasswordsTheSame(password, repeatPassword)) {
-      setThirdError("Пароли не совпадают");
+      setThirdError("Passwords are different");
     }
 
     const auth = getAuth();
@@ -85,7 +85,7 @@ const SignUp = () => {
         switch (error.message) {
           case "Firebase: Error (auth/invalid-email).": {
             //  dispatch(setError("Некорректный адрес электронной почты"));
-            setFirstError("Некорректный адрес почты");
+            setFirstError("Invalid email");
             break;
           }
           case "Firebase: Error (auth/internal-error).": {
@@ -93,16 +93,16 @@ const SignUp = () => {
             break;
           }
           case "Firebase: Error (auth/wrong-password).": {
-            dispatch(setError("Неправильный пароль"));
+            dispatch(setError("Invalid password"));
             break;
           }
           case "Firebase: Error (auth/user-not-found).": {
-            dispatch(setError("Пользователь не зарегистрирован"));
+            dispatch(setError("This user doesn't have an account"));
             break;
           }
           case "Firebase: Error (auth/email-already-in-use).": {
             // dispatch(setError("Пользователь уже зарегистрирован"));
-            setFirstError("Пользователь уже зарегистрирован");
+            setFirstError("This user already has an account");
             break;
           }
           case "Firebase: Password should be at least 6 characters (auth/weak-password).": {

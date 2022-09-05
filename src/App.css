@@ -229,3 +229,12 @@ html.dark .input-time{
     font-size: small;
     color: red;
 }
+
+.my-alert{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 11vh;
+}
