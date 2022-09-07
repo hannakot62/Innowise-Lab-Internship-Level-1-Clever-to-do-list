@@ -30,6 +30,7 @@
 .today{
     margin: 0;
     height: 5vh;
+    margin-top: 4vh;
 }
 .selectedlight{
     width: 20vh;
@@ -71,4 +72,11 @@
 }
 .selecteddark:hover{
     cursor: pointer;
+}
+.day{
+    margin-bottom: 0.5vh;
+}
+.month{
+    margin: 0;
+    margin-bottom: 2vh;
 }

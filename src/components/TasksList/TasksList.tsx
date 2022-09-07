@@ -9,7 +9,7 @@ const TasksList = ({ selectedDay }: { selectedDay: Date }) => {
   const tasks = useSelector((state: any) => state.tasks.tasks);
   const tasksToRender: any = [];
   for (let i = 0; i < tasks.length; i++) {
-    if (+tasks[i].date.slice(0, 2) === selectedDay.getDate()) {
+    if (tasks[i].date === selectedDay.toLocaleDateString()) {
       tasksToRender.push(
         <Task
           key={tasks[i].id}

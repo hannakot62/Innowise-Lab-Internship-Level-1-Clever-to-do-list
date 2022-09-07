@@ -9,11 +9,9 @@ const errorSlice = createSlice({
   reducers: {
     setError(state, action) {
       state.error = action.payload;
-      console.log(state.error, " set error");
     },
     removeError(state) {
       state.error = "";
-      console.log(state.error, " after removing");
     },
   },
 });

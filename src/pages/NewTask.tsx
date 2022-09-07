@@ -37,7 +37,6 @@ const NewTask = () => {
         });
       };
       add().catch((error) => {
-        console.log("err in add");
         dispatch(setError(error.message));
         setTimeout(() => dispatch(removeError()), 2000);
       });
@@ -74,7 +73,6 @@ const NewTask = () => {
       };
       getTasks()
         .then(() => {
-          console.log("added?");
           dispatch(setTasks(tasksTemp));
           dispatch(removeIsLoading());
         })

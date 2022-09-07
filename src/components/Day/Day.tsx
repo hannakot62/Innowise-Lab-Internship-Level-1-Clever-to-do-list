@@ -2,6 +2,7 @@ import React, { FunctionComponent, useEffect, useState } from "react";
 import style from "@/components/Day/Day.module.css";
 import TaskRounds from "@/components/TaskRounds/TaskRounds";
 import { useSelector } from "react-redux";
+import { showMonth } from "@/logic/showMonth";
 
 interface Day {
   slctd: Date;
@@ -55,17 +56,20 @@ const Day: FunctionComponent<Day> = ({
         }
         onClick={handleClick}
       >
-        <h1>{day.getDate()}</h1>
+        <h1 className={style.day}>{day.getDate()}</h1>
         {day.getDate() === currentDate.getDate() &&
         day.getMonth() === currentDate.getMonth() &&
         day.getFullYear() === currentDate.getFullYear() ? (
           <h4 className={style.today}>today</h4>
         ) : (
-          <TaskRounds
-            tasksDoneQuantity={tasksDoneQuantity}
-            tasksUndoneQuantity={tasksUndoneQuantity}
-            selected={selected}
-          />
+          <>
+            <h6 className={style.month}>{showMonth(day)}</h6>
+            <TaskRounds
+              tasksDoneQuantity={tasksDoneQuantity}
+              tasksUndoneQuantity={tasksUndoneQuantity}
+              selected={selected}
+            />{" "}
+          </>
         )}
       </div>
     </span>

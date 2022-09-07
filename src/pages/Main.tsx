@@ -39,7 +39,6 @@ const Main = () => {
 
   useEffect(() => {
     setDays(daysLoaded);
-    console.table(daysLoaded);
   }, [tasks, lastDay]);
 
   function handleScroll(e: any) {
@@ -47,7 +46,6 @@ const Main = () => {
       Math.ceil(e.target.scrollWidth) - Math.ceil(e.target.scrollLeft) ===
       Math.ceil(e.target.clientWidth);
     if (end) {
-      console.log("qwefdghfdsaSDFGRE");
       dispatch(
         setLastDay(
           new Date(nextMonthStart).setMonth(nextMonthStart.getMonth() + 1)

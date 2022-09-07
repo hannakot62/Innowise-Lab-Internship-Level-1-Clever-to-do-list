@@ -32,12 +32,11 @@ export interface Task {
 }
 
 export function useDays(selectedDay: Date, nextMonthStart: Date) {
-  console.log(nextMonthStart);
   const days: Array<DayInterface> = [];
   const email = useSelector((state: any) => state.user.email);
   const dispatch = useDispatch();
   const tasks = useSelector((state: any) => state.tasks.tasks);
-
+  const lastDay = useSelector((state: any) => state.lastDay.lastDay);
   const currentDateStart = new Date(new Date().setHours(0, 0, 0));
 
   // const currentDay = currentDateStart.getDate();
@@ -50,7 +49,6 @@ export function useDays(selectedDay: Date, nextMonthStart: Date) {
     where("date", "<", Timestamp.fromDate(nextMonthStart))
   );
   let tasksTemp: Array<Task> = [];
-
   useEffect(() => {
     const getTasks = async () => {
       try {
@@ -103,7 +101,7 @@ export function useDays(selectedDay: Date, nextMonthStart: Date) {
         dispatch(removeIsLoading());
         setTimeout(() => dispatch(removeError()), 2000);
       });
-  }, []);
+  }, [lastDay]);
 
   const myTasks = useSelector((state: any) => state.tasks.tasks);
   for (
@@ -111,8 +109,7 @@ export function useDays(selectedDay: Date, nextMonthStart: Date) {
     iterDay < nextMonthStart.setHours(0);
 
   ) {
-    console.log(new Date(iterDay));
-    let day = new Date(new Date(iterDay));
+    let day = new Date(iterDay);
     let tasksForDay = myTasks.filter(
       (task: Task) => task.date === day.toLocaleDateString()
     );
