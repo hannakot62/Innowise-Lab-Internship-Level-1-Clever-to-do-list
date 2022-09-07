@@ -4,8 +4,8 @@ import TaskRounds from "@/components/TaskRounds/TaskRounds";
 import { useSelector } from "react-redux";
 
 interface Day {
-  slctd: number;
-  day: number;
+  slctd: Date;
+  day: Date;
   tasksDoneQuantity: number;
   tasksUndoneQuantity: number;
   unselectAll: Function;
@@ -19,10 +19,18 @@ const Day: FunctionComponent<Day> = ({
   unselectAll,
 }) => {
   let currentDate = new Date();
-  const [selected, setSelected] = useState(slctd === day);
+  const [selected, setSelected] = useState(
+    slctd.getDate() === day.getDate() &&
+      slctd.getMonth() === day.getMonth() &&
+      slctd.getFullYear() === day.getFullYear()
+  );
   const theme = useSelector((state: any) => state.theme.theme);
   useEffect(() => {
-    setSelected(slctd === day);
+    setSelected(
+      slctd.getDate() === day.getDate() &&
+        slctd.getMonth() === day.getMonth() &&
+        slctd.getFullYear() === day.getFullYear()
+    );
   }, [slctd]);
 
   function handleClick(e: any) {
@@ -47,8 +55,10 @@ const Day: FunctionComponent<Day> = ({
         }
         onClick={handleClick}
       >
-        <h1>{day}</h1>
-        {day === currentDate.getDate() ? (
+        <h1>{day.getDate()}</h1>
+        {day.getDate() === currentDate.getDate() &&
+        day.getMonth() === currentDate.getMonth() &&
+        day.getFullYear() === currentDate.getFullYear() ? (
           <h4 className={style.today}>today</h4>
         ) : (
           <TaskRounds

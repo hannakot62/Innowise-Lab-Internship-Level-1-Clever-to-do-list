@@ -18,9 +18,10 @@ import Lottie from "lottie-react";
 import loaderLight from "@/assets/loader/loaderLight.json";
 import loaderDark from "@/assets/loader/loaderDark.json";
 import { Alert } from "@mui/material";
+import { setLastDay } from "@/store/slices/lastDaySlice";
 
 const Main = () => {
-  const [selectedDay, setSelectedDay] = useState(new Date().getDate());
+  const [selectedDay, setSelectedDay] = useState(new Date());
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const theme = useSelector((state: any) => state.theme.theme);
@@ -29,15 +30,32 @@ const Main = () => {
   const tasks = useSelector((state: any) => state.tasks.tasks);
   const isLoading = useSelector((state: any) => state.loading.isLoading);
   const error = useSelector((state: any) => state.error.error);
+  // const currentDateStart = new Date(new Date().setHours(0, 0, 0));
+  const lastDay = useSelector((state: any) => state.lastDay.lastDay);
+  const nextMonthStart = new Date(lastDay);
   let daysLoaded: Array<DayInterface> = [];
-  daysLoaded = useDays(selectedDay);
-  const [days, setDays] = useState(useDays(selectedDay));
+  daysLoaded = useDays(selectedDay, nextMonthStart);
+  const [days, setDays] = useState(useDays(selectedDay, nextMonthStart));
 
   useEffect(() => {
     setDays(daysLoaded);
-  }, [tasks]);
+    console.table(daysLoaded);
+  }, [tasks, lastDay]);
 
-  function unselectAll(selectedDay: number) {
+  function handleScroll(e: any) {
+    const end =
+      Math.ceil(e.target.scrollWidth) - Math.ceil(e.target.scrollLeft) ===
+      Math.ceil(e.target.clientWidth);
+    if (end) {
+      console.log("qwefdghfdsaSDFGRE");
+      dispatch(
+        setLastDay(
+          new Date(nextMonthStart).setMonth(nextMonthStart.getMonth() + 1)
+        )
+      );
+    }
+  }
+  function unselectAll(selectedDay: Date) {
     let a: Array<DayInterface> = [];
     setSelectedDay(selectedDay);
     days.forEach((i) => {
@@ -55,7 +73,7 @@ const Main = () => {
   days.map((i) => {
     daysToRender.push(
       <Day
-        key={i.day}
+        key={i.day.toLocaleDateString()}
         slctd={i.selected}
         day={i.day}
         tasksDoneQuantity={i.tasksDoneQuantity}
@@ -102,9 +120,9 @@ const Main = () => {
         Sign Out
         <DoorOpen />
       </MyBtn>
-
-      <div className={"days-container"}>{daysToRender}</div>
-
+      <div className={"days-container"} onScroll={(e) => handleScroll(e)}>
+        {daysToRender}
+      </div>
       <h1 className={"tasks-header"}>Tasks:</h1>
       <div className={"buttons-task-container"}>
         <MainBottomButtons theme={1} onClick={handleChangeTheme}>

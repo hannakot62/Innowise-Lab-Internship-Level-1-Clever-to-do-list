@@ -5,7 +5,7 @@ import tasksReducer from "@/store/slices/tasksSlice";
 import themeReducer from "@/store/slices/themeSlice";
 import currentTaskReducer from "@/store/slices/currentTaskSlice";
 import loadingReducer from "@/store/slices/loadingSlice";
-
+import lastDayReducer from "@/store/slices/lastDaySlice";
 export const store = configureStore({
   reducer: {
     user: userReducer,
@@ -14,5 +14,6 @@ export const store = configureStore({
     theme: themeReducer,
     currentTask: currentTaskReducer,
     loading: loadingReducer,
+    lastDay: lastDayReducer,
   },
 });

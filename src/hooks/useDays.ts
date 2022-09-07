@@ -14,8 +14,8 @@ import { removeIsLoading, setIsLoading } from "@/store/slices/loadingSlice";
 import { removeError, setError } from "@/store/slices/errorSlice";
 
 export interface DayInterface {
-  selected: number;
-  day: number;
+  selected: Date;
+  day: Date;
   tasksDoneQuantity: number;
   tasksUndoneQuantity: number;
 }
@@ -31,7 +31,8 @@ export interface Task {
   originalDateSeconds: number;
 }
 
-export function useDays(selectedDay: number) {
+export function useDays(selectedDay: Date, nextMonthStart: Date) {
+  console.log(nextMonthStart);
   const days: Array<DayInterface> = [];
   const email = useSelector((state: any) => state.user.email);
   const dispatch = useDispatch();
@@ -39,16 +40,14 @@ export function useDays(selectedDay: number) {
 
   const currentDateStart = new Date(new Date().setHours(0, 0, 0));
 
-  const currentDay = currentDateStart.getDate();
-  const nextMonthStart = new Date(
-    new Date().setMonth(currentDateStart.getMonth() + 1, 1)
-  );
+  // const currentDay = currentDateStart.getDate();
+
   const daysInCurrentMonthQuantity = daysInCurrentMonth();
   const tasksCollection = query(
     collection(db, "tasks"),
     where("userEmail", "==", email),
     where("date", ">=", Timestamp.fromDate(currentDateStart)),
-    where("date", "<=", Timestamp.fromDate(nextMonthStart))
+    where("date", "<", Timestamp.fromDate(nextMonthStart))
   );
   let tasksTemp: Array<Task> = [];
 
@@ -105,14 +104,17 @@ export function useDays(selectedDay: number) {
         setTimeout(() => dispatch(removeError()), 2000);
       });
   }, []);
+
   const myTasks = useSelector((state: any) => state.tasks.tasks);
   for (
-    let iterDay = currentDay;
-    iterDay <= daysInCurrentMonthQuantity;
-    iterDay++
+    let iterDay = currentDateStart.setHours(0);
+    iterDay < nextMonthStart.setHours(0);
+
   ) {
+    console.log(new Date(iterDay));
+    let day = new Date(new Date(iterDay));
     let tasksForDay = myTasks.filter(
-      (task: any) => +task.date.slice(0, 2) === iterDay
+      (task: Task) => task.date === day.toLocaleDateString()
     );
     let done = tasksForDay.length
       ? tasksForDay.filter((task: any) => task.done).length
@@ -122,11 +124,11 @@ export function useDays(selectedDay: number) {
       : 0;
     days.push({
       selected: selectedDay,
-      day: iterDay,
+      day: day,
       tasksDoneQuantity: done,
       tasksUndoneQuantity: undone,
     });
+    iterDay += 86400000;
   }
-
   return days;
 }
