@@ -1,18 +1,10 @@
-import React, { FunctionComponent, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import style from "@/components/Day/Day.module.css";
 import TaskRounds from "@/components/TaskRounds/TaskRounds";
 import { useSelector } from "react-redux";
 import { showMonth } from "@/logic/showMonth";
 
-interface Day {
-  slctd: Date;
-  day: Date;
-  tasksDoneQuantity: number;
-  tasksUndoneQuantity: number;
-  unselectAll: Function;
-}
-
-const Day: FunctionComponent<Day> = ({
+const Day: React.FC<Day> = ({
   slctd,
   day,
   tasksDoneQuantity,
@@ -68,7 +60,7 @@ const Day: FunctionComponent<Day> = ({
               tasksDoneQuantity={tasksDoneQuantity}
               tasksUndoneQuantity={tasksUndoneQuantity}
               selected={selected}
-            />{" "}
+            />
           </>
         )}
       </div>
