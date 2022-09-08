@@ -15,4 +15,4 @@ const EntryButton = ({ children, ...props }: any) => {
   );
 };
 
-export default EntryButton;
+export { EntryButton };

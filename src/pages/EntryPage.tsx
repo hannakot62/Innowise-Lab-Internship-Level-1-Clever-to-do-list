@@ -1,6 +1,5 @@
 import React from "react";
-import EntryButton from "@/components/UI/buttons/EntryButton/EntryButton";
-import ChangeThemeButton from "@/components/UI/buttons/ChangeThemeButton/ChangeThemeButton";
+import { EntryButton, ChangeThemeButton } from "@/components/UI";
 import { Link } from "react-router-dom";
 import { changeTheme } from "@/store/slices/themeSlice";
 import { useDispatch } from "react-redux";

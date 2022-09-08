@@ -18,4 +18,4 @@ const EntryInput = ({ ...props }: any) => {
   );
 };
 
-export default EntryInput;
+export { EntryInput };

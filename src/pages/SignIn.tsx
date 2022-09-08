@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import EntryButton from "@/components/UI/buttons/EntryButton/EntryButton";
-import ChangeThemeButton from "@/components/UI/buttons/ChangeThemeButton/ChangeThemeButton";
-import EntryInput from "@/components/UI/inputs/EntryInput/EntryInput";
-import SignUpInButton from "@/components/UI/buttons/SignUpInButton/SignUpInButton";
+import {
+  EntryButton,
+  ChangeThemeButton,
+  EntryInput,
+  SignUpInButton,
+} from "@/components/UI";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setUser } from "@/store/slices/userSlice";
@@ -151,7 +153,7 @@ const SignIn = () => {
           ></EntryInput>
           <div className={"input-error"}>{firstError}</div>
           <EntryInput
-            type={"password"}
+            type="password"
             placeholder={"Password"}
             value={password}
             error={secondError}

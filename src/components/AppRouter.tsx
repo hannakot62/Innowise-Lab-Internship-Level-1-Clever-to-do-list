@@ -4,6 +4,7 @@ import { myRoutes } from "@/index";
 import EntryPage from "@/pages/EntryPage";
 import { useSelector } from "react-redux";
 import { getUserFromLS } from "@/store/slices/userSlice";
+import { themeStart } from "@/logic/themeStart";
 
 const AppRouter = () => {
   const navigate = useNavigate();
@@ -14,6 +15,10 @@ const AppRouter = () => {
       navigate("/todos");
     }
   }, [useSelector((state: any) => state.user)]);
+
+  useEffect(() => {
+    themeStart();
+  }, []);
 
   return (
     <Routes>

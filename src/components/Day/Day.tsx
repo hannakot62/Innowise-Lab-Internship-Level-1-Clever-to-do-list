@@ -4,6 +4,14 @@ import TaskRounds from "@/components/TaskRounds/TaskRounds";
 import { useSelector } from "react-redux";
 import { showMonth } from "@/logic/showMonth";
 
+interface Day {
+  slctd: Date;
+  day: Date;
+  tasksDoneQuantity: number;
+  tasksUndoneQuantity: number;
+  unselectAll: Function;
+}
+
 const Day: React.FC<Day> = ({
   slctd,
   day,

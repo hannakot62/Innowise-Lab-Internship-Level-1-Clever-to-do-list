@@ -21,8 +21,6 @@ export const myRoutes = [
   { path: "/todos", component: Main },
   { path: "/newtask", component: NewTask },
   { path: "/edittask", component: EditTask },
-
-  // {path:'/posts/:id', component: PostIdPage},
 ];
 
 const root = ReactDOM.createRoot(
@@ -35,10 +33,3 @@ root.render(
     </Provider>
   </React.StrictMode>
 );
-
-let theme = localStorage.getItem("todoTheme")
-  ? localStorage.getItem("todoTheme")
-  : "light";
-let main = document.getElementsByTagName("html")[0];
-// @ts-ignore
-main.classList.toggle(theme);

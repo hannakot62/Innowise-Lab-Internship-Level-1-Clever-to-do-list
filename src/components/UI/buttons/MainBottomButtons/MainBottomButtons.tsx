@@ -23,4 +23,4 @@ const MainBottomButtons = ({ children, theme, ...props }: any) => {
   );
 };
 
-export default MainBottomButtons;
+export { MainBottomButtons };

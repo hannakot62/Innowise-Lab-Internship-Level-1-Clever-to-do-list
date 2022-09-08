@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import style from "./Task.module.css";
-import TaskButton from "@/components/UI/buttons/ TaskButton/TaskButton";
-import Edit from "@/components/UI/pics/Edit";
-import Delete from "@/components/UI/pics/Delete";
+import { TaskButton, Edit, Delete } from "@/components/UI";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setTasks, taskDoneUndone } from "@/store/slices/tasksSlice";

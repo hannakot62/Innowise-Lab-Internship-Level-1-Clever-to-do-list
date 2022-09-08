@@ -6,4 +6,4 @@ const DoorOpen = () => {
   );
 };
 
-export default DoorOpen;
+export { DoorOpen };

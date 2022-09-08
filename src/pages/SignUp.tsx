@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import EntryInput from "@/components/UI/inputs/EntryInput/EntryInput";
-import EntryButton from "@/components/UI/buttons/EntryButton/EntryButton";
-import ChangeThemeButton from "@/components/UI/buttons/ChangeThemeButton/ChangeThemeButton";
-import SignUpInButton from "@/components/UI/buttons/SignUpInButton/SignUpInButton";
+import {
+  EntryInput,
+  EntryButton,
+  ChangeThemeButton,
+  SignUpInButton,
+} from "@/components/UI";
 import { useNavigate } from "react-router-dom";
 import {
   getAuth,
@@ -12,7 +14,6 @@ import {
 } from "firebase/auth";
 import { useDispatch, useSelector } from "react-redux";
 import { setUser } from "@/store/slices/userSlice";
-import Notification from "@/components/UI/notification/Notification";
 import { removeError, setError } from "@/store/slices/errorSlice";
 import { changeTheme } from "@/store/slices/themeSlice";
 import { Alert } from "@mui/material";

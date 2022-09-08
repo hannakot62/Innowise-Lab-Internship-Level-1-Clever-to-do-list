@@ -15,4 +15,4 @@ const TaskConfigButtons = ({ children, ...props }: any) => {
   );
 };
 
-export default TaskConfigButtons;
+export { TaskConfigButtons };

@@ -16,20 +16,16 @@ const TaskRounds: FunctionComponent<OwnProps> = ({
   const theme = useSelector((state: any) => state.theme.theme);
   return (
     <div className={style.roundsContainer}>
-      {selected ? (
-        <></>
-      ) : (
+      {!selected && (
         <>
-          {tasksDoneQuantity ? (
+          {Boolean(tasksDoneQuantity) && (
             <div
               className={
                 theme == "light" ? style.roundDonelight : style.roundDonedark
               }
             ></div>
-          ) : (
-            <></>
           )}
-          {tasksUndoneQuantity ? (
+          {Boolean(tasksUndoneQuantity) && (
             <div
               className={
                 theme == "light"
@@ -37,8 +33,6 @@ const TaskRounds: FunctionComponent<OwnProps> = ({
                   : style.roundUndonedark
               }
             ></div>
-          ) : (
-            <></>
           )}
         </>
       )}

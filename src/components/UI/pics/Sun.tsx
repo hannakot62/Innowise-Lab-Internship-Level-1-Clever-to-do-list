@@ -72,4 +72,4 @@ const Sun = () => {
   );
 };
 
-export default Sun;
+export { Sun };
