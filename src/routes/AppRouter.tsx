@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
-import { myRoutes } from "@/index";
+import { myRoutes } from "@/routes/routes";
 import EntryPage from "@/pages/EntryPage";
 import { useSelector } from "react-redux";
 import { getUserFromLS } from "@/store/slices/userSlice";
