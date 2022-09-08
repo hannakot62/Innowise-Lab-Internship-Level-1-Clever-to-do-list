@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import React from "react";
 import style from "@/components/TaskRounds/TaskRounds.module.css";
 import { useSelector } from "react-redux";
 
@@ -8,7 +8,7 @@ interface OwnProps {
   selected: boolean;
 }
 
-const TaskRounds: FunctionComponent<OwnProps> = ({
+const TaskRounds: React.FC<OwnProps> = ({
   tasksDoneQuantity,
   tasksUndoneQuantity,
   selected,
@@ -16,20 +16,17 @@ const TaskRounds: FunctionComponent<OwnProps> = ({
   const theme = useSelector((state: any) => state.theme.theme);
   return (
     <div className={style.roundsContainer}>
-      {selected ? (
-        <></>
-      ) : (
+      {!selected && (
         <>
-          {tasksDoneQuantity ? (
+          {Boolean(tasksDoneQuantity) && (
             <div
               className={
                 theme == "light" ? style.roundDonelight : style.roundDonedark
               }
             ></div>
-          ) : (
-            <></>
           )}
-          {tasksUndoneQuantity ? (
+
+          {Boolean(tasksUndoneQuantity) && (
             <div
               className={
                 theme == "light"
@@ -37,8 +34,6 @@ const TaskRounds: FunctionComponent<OwnProps> = ({
                   : style.roundUndonedark
               }
             ></div>
-          ) : (
-            <></>
           )}
         </>
       )}
