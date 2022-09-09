@@ -3,6 +3,7 @@ import style from "@/components/Day/Day.module.css";
 import TaskRounds from "@/components/TaskRounds/TaskRounds";
 import { useSelector } from "react-redux";
 import { showMonth } from "@/logic/showMonth";
+import { dayStyle, isDayToday } from "@/components/Day/helpers";
 
 interface Day {
   slctd: Date;
@@ -19,7 +20,6 @@ const Day: React.FC<Day> = ({
   tasksUndoneQuantity,
   unselectAll,
 }) => {
-  let currentDate = new Date();
   const [selected, setSelected] = useState(
     slctd.getDate() === day.getDate() &&
       slctd.getMonth() === day.getMonth() &&
@@ -44,22 +44,9 @@ const Day: React.FC<Day> = ({
 
   return (
     <span>
-      <div
-        className={
-          selected
-            ? theme == "light"
-              ? style.selectedlight
-              : style.selecteddark
-            : theme == "light"
-            ? style.mainContainerlight
-            : style.mainContainerdark
-        }
-        onClick={handleClick}
-      >
+      <div className={dayStyle(selected, theme)} onClick={handleClick}>
         <h1 className={style.day}>{day.getDate()}</h1>
-        {day.getDate() === currentDate.getDate() &&
-        day.getMonth() === currentDate.getMonth() &&
-        day.getFullYear() === currentDate.getFullYear() ? (
+        {isDayToday(day) ? (
           <h4 className={style.today}>today</h4>
         ) : (
           <>
