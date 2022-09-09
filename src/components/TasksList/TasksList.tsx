@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import Task from "@/components/Task/Task";
-import style from "@/components/TasksList/TasksList.module.css";
+import style from "./TasksList.module.css";
 import { useSelector } from "react-redux";
 import Lottie from "lottie-react";
 import skaterLight from "@/assets/skater/skater-light.json";

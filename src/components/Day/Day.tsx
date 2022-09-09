@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import style from "@/components/Day/Day.module.css";
+import style from "./Day.module.css";
 import TaskRounds from "@/components/TaskRounds/TaskRounds";
 import { useSelector } from "react-redux";
 import { showMonth } from "@/logic/showMonth";

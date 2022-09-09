@@ -53,12 +53,10 @@
     ]
   },
   "devDependencies": {
+    "craco-alias": "^3.0.1",
     "eslint": "^8.22.0",
     "husky": "^8.0.1",
     "prettier": "2.7.1",
-    "typings-for-css-modules-loader": "^1.7.0"
-  },
-  "hooks": {
-    "pre-commit": "npm test git add ."
+    "typescript-plugin-css-modules": "^3.4.0"
   }
 }

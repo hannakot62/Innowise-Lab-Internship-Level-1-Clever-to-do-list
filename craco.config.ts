@@ -1,9 +1,15 @@
-// @ts-ignore
-const path = require("path");
+const path = require("path/posix");
+const CracoAlias = require("craco-alias");
+
 module.exports = {
-  webpack: {
-    alias: {
-      "@": path.resolve(__dirname, "src"),
+  plugins: [
+    {
+      plugin: CracoAlias,
+      options: {
+        source: "tsconfig",
+        baseUrl: "./",
+        tsConfigPath: "./tsconfig.paths.json",
+      },
     },
-  },
+  ],
 };
