@@ -14,19 +14,15 @@ import { deleteDoc, doc, updateDoc } from "@firebase/firestore";
 import { db } from "@/firebase";
 import { removeError, setError } from "@/store/slices/errorSlice";
 
-const Task = ({
-  id,
-  title,
-  description,
-  doneT,
-  time,
-}: {
+export type Task = {
   id: string;
   title: string;
   description: string;
   doneT: boolean;
   time: string;
-}) => {
+};
+
+const Task: React.FC<Task> = ({ id, title, description, doneT, time }) => {
   const dispatch = useDispatch();
   const allTasks = useSelector((state: any) => state.tasks.tasks);
   const [done, setDone] = useState(doneT);
