@@ -1,5 +1,5 @@
 import React from "react";
-import style from "@/components/UI/inputs/EntryInput/EntryInput.module.css";
+import style from "./EntryInput.module.css";
 import { useSelector } from "react-redux";
 
 const EntryInput = ({ ...props }: any) => {
@@ -14,7 +14,7 @@ const EntryInput = ({ ...props }: any) => {
           ? style.entryInputlight
           : style.entryInputdark
       }
-    ></input>
+    />
   );
 };
 

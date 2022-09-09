@@ -16,7 +16,6 @@ const EntryPage = () => {
       <div className={"entry-container"}>
         <div className={"buttons-input-container"}>
           <EntryButton>
-            {" "}
             <Link className={"link"} to="/signin">
               Sign In
             </Link>
