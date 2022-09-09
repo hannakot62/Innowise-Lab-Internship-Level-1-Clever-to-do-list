@@ -15,16 +15,6 @@ import "@/firebase";
 // @ts-ignore
 todoIcon.href = icon;
 
-export const myRoutes = [
-  { path: "/signin", component: SignIn },
-  { path: "/signup", component: SignUp },
-  { path: "/todos", component: Main },
-  { path: "/newtask", component: NewTask },
-  { path: "/edittask", component: EditTask },
-
-  // {path:'/posts/:id', component: PostIdPage},
-];
-
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
