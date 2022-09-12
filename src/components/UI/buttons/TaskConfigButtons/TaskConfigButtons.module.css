@@ -1,29 +1,29 @@
 .btnlight{
     padding: 0.3rem 0.8rem;
     border-radius: 0.8rem;
-    border: 0.15rem solid #231203;
-    background: #ffb872;
-    color: #231203;
+    border: 0.15rem solid var(--light-main-brown-text);
+    background: var(--light-task-config-button);
+    color: var(--light-main-brown-text);
     margin: 0.1rem;
     font-size: 1.3rem;
 }
 .btnlight:hover{
     transition: ease 0.3s;
-    background: #ee7901;
+    background: var(--light-task-config-button-hover);
     cursor: pointer;
 }
 
 .btndark{
     padding: 0.3rem 0.8rem;
     border-radius: 0.8rem;
-    border: 0.15rem solid #110515;
-    background: #b65923;
-    color: #110515;
+    border: 0.15rem solid var(--dark-main-background);
+    background: var(--dark-task-config-button);
+    color: var(--dark-main-background);
     margin: 0.1rem;
     font-size: 1.3rem;
 }
 .btndark:hover{
     transition: ease 0.3s;
-    background: #7a3b14;
+    background: var(--dark-task-config-button-hover);
     cursor: pointer;
 }

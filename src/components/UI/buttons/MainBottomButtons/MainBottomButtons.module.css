@@ -1,17 +1,17 @@
 .btnlight{
-border-radius: 50%;
+    border-radius: 50%;
     width: 9vh;
     height: 9vh;
-    background: #ff7f00;
+    background: var(--light-main-button);
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 0.2rem solid #231203;
-    color: #231203;
+    border: 0.2rem solid var(--light-main-brown-text);
+    color: var(--light-main-brown-text);
 
-    -webkit-box-shadow: 0 0 31px 12px rgba(64, 51, 30, 0.46);
-    -moz-box-shadow: 0 0 31px 12px rgba(64, 51, 30, 0.46);
-    box-shadow: 0 0 31px 12px rgba(64, 51, 30, 0.46);
+    -webkit-box-shadow: 0 0 31px 12px var(--light-main-button-shadow);
+    -moz-box-shadow: 0 0 31px 12px var(--light-main-button-shadow);
+    box-shadow: 0 0 31px 12px var(--light-main-button-shadow);
 }
 
 .btnlight:hover{
@@ -26,16 +26,16 @@ border-radius: 50%;
     border-radius: 50%;
     width: 9vh;
     height: 9vh;
-    background: #dc3d00;
+    background: var(--dark-main-button);
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 0.2rem solid #110515;
-    color: #110515;
+    border: 0.2rem solid var(--dark-main-background);
+    color: var(--dark-main-background);
 
-    -webkit-box-shadow: 0 0 31px 12px rgba(41, 31, 36, 0.58);
-    -moz-box-shadow: 0 0 31px 12px rgba(41, 31, 36, 0.58);
-    box-shadow: 0 0 31px 12px rgba(41, 31, 36, 0.58);
+    -webkit-box-shadow: 0 0 31px 12px var(--dark-main-button-shadow);
+    -moz-box-shadow: 0 0 31px 12px var(--dark-main-button-shadow);
+    box-shadow: 0 0 31px 12px var(--dark-main-button-shadow);
 }
 
 .btndark:hover{
@@ -46,12 +46,12 @@ border-radius: 50%;
 }
 
 .changeThemelight{
-   background: #231203;
-   color: #fff4e9;
-   border: 0.2rem solid #231203;
+   background: var(--light-main-brown-text);
+   color: var(--light-main-background);
+   border: 0.2rem solid var(--light-main-brown-text);
 }
 .changeThemedark{
-    background: #34253a;
-    color: #959595;
-    border: 0.2rem solid #190e1c;
+    background: var(--dark-task-button);
+    color: var(--dark-main-gray-text);
+    border: 0.2rem solid var(--dark-main-background);
 }

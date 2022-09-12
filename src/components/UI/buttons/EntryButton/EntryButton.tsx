@@ -6,7 +6,10 @@ import { useSelector } from "react-redux";
 const EntryButton = ({ children, ...props }: any) => {
   const theme = useSelector((state: any) => state.theme.theme);
   return (
-    <button {...props} className={style.btnlight}>
+    <button
+      {...props}
+      className={theme === "light" ? style.btnlight : style.btndark}
+    >
       {children}
     </button>
   );

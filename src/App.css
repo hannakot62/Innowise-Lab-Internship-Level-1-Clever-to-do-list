@@ -1,19 +1,64 @@
+:root {
+    --error-entry-input: #fce7e7;
+    --checkbox-disabled: #8d6842;
+
+
+    --light-main-brown-text: #231203;
+    --light-checkbox: #ff962d;
+    --light-main-background: #fff4e9;
+    --light-task-done-round: #ffd0a1;
+    --light-day-background: #ffeedc;
+    --light-entry-input-container: #e0eefe;
+    --light-task-time: #544942;
+    --light-task-button-hover: #8f5922;
+    --light-change-theme: #10006e;
+    --light-change-theme-hover: #221b50;
+    --light-entry-button-hover:#7092b9;
+    --light-main-button: #ff7f00;
+    --light-main-button-shadow: rgba(64, 51, 30, 0.46);
+    --light-sign-button: #ffc891;
+    --light-task-config-button: #ffb872;
+    --light-task-config-button-hover: #ee7901;
+
+
+    --dark-main-gray-text: #959595;
+    --dark-main-background: #110515;
+    --dark-checkbox: #63207d;
+    --dark-day-selected: #863c05;
+    --dark-task-done-round: #7c6585;
+    --dark-task-undone-round: #460f59;
+    --dark-input-task-background: #170b17;
+    --dark-task-time: #4d5250;
+    --dark-task-button: #34253a;
+    --dark-task-button-hover: #19121c;
+    --dark-entry-button: #b47ccb;
+    --dark-entry-button-hover: #5c3a6c;
+    --dark-main-button: #dc3d00;
+    --dark-main-button-shadow: rgba(41, 31, 36, 0.58);
+    --dark-sign-button: #c0864c;
+    --dark-task-config-button: #b65923;
+    --dark-task-config-button-hover: #7a3b14;
+    --dark-entry-input: #f2e7f7;
+    --dark-entry-input-hover: #d9c0ea;
+
+}
+
+
 body{
     display: flex;
     justify-content: center;
     align-items: center;
     font-family: 'Raleway', sans-serif;
-
 }
 
 html.light body{
-    background: #fff4e9;
-    color: #231203;
+    background: var(--light-main-background);
+    color: var(--light-main-brown-text);
 }
 
 html.dark body{
-    background: #110515;
-    color: #959595;
+    background: var(--dark-main-background);
+    color: var(--dark-main-gray-text);
 }
 
 
@@ -31,18 +76,20 @@ button{
     transform: translate(-50%, -50%)
 
 }
+
 .buttons-input-container{
     display: flex;
     flex-direction: column;
     border-radius: 2rem;
 }
+
 html.light .buttons-input-container{
-    background: #e0eefe;
-    border: 0.1rem solid #231203;
+    background: var(--light-entry-input-container);
+    border: 0.1rem solid var(--light-main-brown-text);
 }
 
 html.dark .buttons-input-container{
-    border: 0.1rem solid #7c6585;
+    border: 0.1rem solid var(--dark-task-done-round);
 }
 
 .buttons-input-container:first-child{
@@ -59,7 +106,7 @@ html.dark .buttons-input-container{
 }
 
 html.dark .author{
-color: #ffeedc;
+    color: var(--light-day-background);
 }
 
 .days-container{
@@ -137,14 +184,14 @@ color: #ffeedc;
 }
 
 html.light .title{
-    border: 0.15rem solid #231203;
-    color: #231203;
+    border: 0.15rem solid var(--light-main-brown-text);
+    color: var(--light-main-brown-text);
 }
 
 html.dark .title{
-border: 0.15rem solid #959595;
-    color: #959595;
-    background: #170b17;
+    border: 0.15rem solid var(--dark-main-gray-text);
+    color: var(--dark-main-gray-text);
+    background: var(--dark-input-task-background);
 }
 
 .description{
@@ -160,14 +207,14 @@ border: 0.15rem solid #959595;
 }
 
 html.light .description{
-    border: 0.15rem solid #231203;
-    color: #231203;
+    border: 0.15rem solid var(--light-main-brown-text);
+    color: var(--light-main-brown-text);
 }
 
 html.dark .description{
-    border: 0.15rem solid #959595;
-    color: #959595;
-    background: #170b17;
+    border: 0.15rem solid var(--dark-main-gray-text);
+    color: var(--dark-main-gray-text);
+    background: var(--dark-input-task-background);
 }
 
 .time-container{
@@ -186,14 +233,14 @@ html.dark .description{
 }
 
 html.light .input-time{
-    border: 0.15rem solid #231203;
-    color: #231203;
+    border: 0.15rem solid var(--light-main-brown-text);
+    color: var(--light-main-brown-text);
 }
 
 html.dark .input-time{
-    border: 0.15rem solid #959595;
-    color: #959595;
-    background: #170b17;
+    border: 0.15rem solid var(--dark-main-gray-text);
+    color: var(--dark-main-gray-text);
+    background: var(--dark-input-task-background);
 
 }
 

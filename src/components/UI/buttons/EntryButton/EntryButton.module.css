@@ -1,32 +1,32 @@
 .btnlight{
     padding: 0.5rem 3rem;
-    color: #231203;
+    color: var(--light-main-brown-text);
     font-size: 1rem;
     border-radius: 3rem;
-    background: #fff4e8;
-    border: 0.1rem solid #231203;
+    background: var(--light-main-background);
+    border: 0.1rem solid var(--light-main-brown-text);
     cursor: pointer;
     margin: 0 1rem 1.5rem 1rem;
 }
 
 .btnlight:hover{
-transition: ease 0.3s;
-    background: #7092b9;
+    transition: ease 0.3s;
+    background: var(--light-entry-button-hover);
 
 }
 .btndark{
     padding: 0.5rem 3rem;
-    color: #110515;
+    color: var(--dark-main-background);
     font-size: 1rem;
     border-radius: 3rem;
-    background: #b47ccb;
-    border: 0.1rem solid #110515;
+    background: var(--dark-entry-button);
+    border: 0.1rem solid var(--dark-main-background);
     cursor: pointer;
     margin: 0 1rem 1.5rem 1rem;
 }
 
 .btndark:hover{
     transition: ease 0.3s;
-    background: #5c3a6c;
+    background: var(--dark-entry-button-hover);
 
 }

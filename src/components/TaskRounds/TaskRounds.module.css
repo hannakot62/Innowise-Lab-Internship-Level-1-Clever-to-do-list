@@ -10,14 +10,14 @@
 .roundDonelight {
     width: 2vh;
     height: 2vh;
-    background: #ffd0a1;
+    background: var(--light-task-done-round);
     border-radius: 50%;
     margin: 0 0.5vw;
 }
 .roundUndonelight{
     width: 2vh;
     height: 2vh;
-    background: #231203;
+    background: var(--light-main-brown-text);
     border-radius: 50%;
     margin: 0 0.5vw;
 
@@ -26,14 +26,14 @@
 .roundDonedark {
     width: 2vh;
     height: 2vh;
-    background: #7c6585;
+    background: var(--dark-task-done-round);
     border-radius: 50%;
     margin: 0 0.5vw;
 }
 .roundUndonedark{
     width: 2vh;
     height: 2vh;
-    background: #460f59;
+    background: var(--dark-task-undone-round);
     border-radius: 50%;
     margin: 0 0.5vw;
 

@@ -12,7 +12,6 @@ import {
 } from "firebase/auth";
 import { useDispatch, useSelector } from "react-redux";
 import { setUser } from "@/store/slices/userSlice";
-import Notification from "@/components/UI/notification/Notification";
 import { removeError, setError } from "@/store/slices/errorSlice";
 import { changeTheme } from "@/store/slices/themeSlice";
 import { Alert } from "@mui/material";
@@ -63,14 +62,6 @@ const SignUp = () => {
     }
 
     const auth = getAuth();
-
-    // if (password != repeatPassword) {
-    //   dispatch(setError("Пароли не совпадают!"));
-    //   setTimeout(() => {
-    //     dispatch(removeError());
-    //   }, 2000);
-    //   return;
-    // }
 
     createUserWithEmailAndPassword(auth, email, password)
       .then(({ user }) => {
@@ -159,6 +150,7 @@ const SignUp = () => {
             type={"email"}
             placeholder={"Login"}
             value={email}
+            error={firstError}
             onChange={(e: any) => {
               setEmail(e.target.value);
               setFirstError("");
@@ -170,6 +162,7 @@ const SignUp = () => {
             type={"password"}
             placeholder={"Password"}
             value={password}
+            error={secondError}
             onChange={(e: any) => {
               setPassword(e.target.value);
               setSecondError("");
@@ -182,6 +175,7 @@ const SignUp = () => {
             type={"password"}
             placeholder={"Repeat password"}
             value={repeatPassword}
+            error={thirdError}
             onChange={(e: any) => {
               setRepeatPassword(e.target.value);
               setThirdError("");

@@ -7,9 +7,9 @@
     justify-content: center;
     align-items: center;
     margin: 1vh;
-    color: #231203;
-    border: 0.2rem solid #231203;
-    background: #ffeedc;
+    color: var(--light-main-brown-text);
+    border: 0.2rem solid var(--light-main-brown-text);
+    background: var(--light-day-background);
 }
 
 .mainContainerdark {
@@ -21,9 +21,9 @@
     justify-content: center;
     align-items: center;
     margin: 1vh;
-    color: #863c05;
-    border: 0.2rem solid #863c05;
-    background: #110515;
+    color: var(--dark-day-selected);
+    border: 0.2rem solid var(--dark-day-selected);
+    background: var(--dark-main-background);
 }
 
 
@@ -41,9 +41,9 @@
     justify-content: center;
     align-items: center;
     margin: 1vh;
-    background: #231203;
-    color: #ffeedc;
-    border: 0.2rem solid #231203;
+    background: var(--light-main-brown-text);
+    color: var(--light-day-background);
+    border: 0.2rem solid var(--light-main-brown-text);
 }
 .selecteddark {
     width: 20vh;
@@ -54,9 +54,9 @@
     justify-content: center;
     align-items: center;
     margin: 1vh;
-    background: #863c05;
-    color: #110515;
-    border: 0.2rem solid #863c05;
+    background: var(--dark-day-selected);
+    color: var(--dark-main-background);
+    border: 0.2rem solid var(--dark-day-selected);
 }
 
 
