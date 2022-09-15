@@ -2,11 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "@/index.css";
 import App from "@/App";
-import SignIn from "@/pages/SignIn";
-import SignUp from "@/pages/SignUp";
-import Main from "@/pages/Main";
-import NewTask from "@/pages/NewTask";
-import EditTask from "@/pages/EditTask";
 // @ts-ignore
 import icon from "@/assets/todo.png";
 import { Provider } from "react-redux";
@@ -18,6 +13,7 @@ todoIcon.href = icon;
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
+
 root.render(
   <React.StrictMode>
     <Provider store={store}>

@@ -7,33 +7,17 @@
     height: 5vh;
 }
 
-.roundDonelight {
+.roundDone {
     width: 2vh;
     height: 2vh;
-    background: var(--light-task-done-round);
+    background: var(--task-done-round);
     border-radius: 50%;
     margin: 0 0.5vw;
 }
-.roundUndonelight{
+.roundUndone{
     width: 2vh;
     height: 2vh;
-    background: var(--light-main-brown-text);
-    border-radius: 50%;
-    margin: 0 0.5vw;
-
-}
-
-.roundDonedark {
-    width: 2vh;
-    height: 2vh;
-    background: var(--dark-task-done-round);
-    border-radius: 50%;
-    margin: 0 0.5vw;
-}
-.roundUndonedark{
-    width: 2vh;
-    height: 2vh;
-    background: var(--dark-task-undone-round);
+    background: var(--task-undone-round);
     border-radius: 50%;
     margin: 0 0.5vw;
 

@@ -1,57 +1,28 @@
-.btnlight{
+.btn{
     border-radius: 50%;
     width: 9vh;
     height: 9vh;
-    background: var(--light-main-button);
+    background: var(--main-button);
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 0.2rem solid var(--light-main-brown-text);
-    color: var(--light-main-brown-text);
+    border: 0.2rem solid var(--main-button-color);
+    color: var(--main-button-color);
 
-    -webkit-box-shadow: 0 0 31px 12px var(--light-main-button-shadow);
-    -moz-box-shadow: 0 0 31px 12px var(--light-main-button-shadow);
-    box-shadow: 0 0 31px 12px var(--light-main-button-shadow);
+    -webkit-box-shadow: 0 0 31px 12px var(--main-button-shadow);
+    -moz-box-shadow: 0 0 31px 12px var(--main-button-shadow);
+    box-shadow: 0 0 31px 12px var(--main-button-shadow);
 }
 
-.btnlight:hover{
+.btn:hover{
     transition: ease 0.3s;
     width: 8vh;
     height: 8vh;
     cursor: pointer;
 }
 
-
-.btndark{
-    border-radius: 50%;
-    width: 9vh;
-    height: 9vh;
-    background: var(--dark-main-button);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 0.2rem solid var(--dark-main-background);
-    color: var(--dark-main-background);
-
-    -webkit-box-shadow: 0 0 31px 12px var(--dark-main-button-shadow);
-    -moz-box-shadow: 0 0 31px 12px var(--dark-main-button-shadow);
-    box-shadow: 0 0 31px 12px var(--dark-main-button-shadow);
-}
-
-.btndark:hover{
-    transition: ease 0.3s;
-    width: 8vh;
-    height: 8vh;
-    cursor: pointer;
-}
-
-.changeThemelight{
-   background: var(--light-main-brown-text);
-   color: var(--light-main-background);
-   border: 0.2rem solid var(--light-main-brown-text);
-}
-.changeThemedark{
-    background: var(--dark-task-button);
-    color: var(--dark-main-gray-text);
-    border: 0.2rem solid var(--dark-main-background);
+.changeTheme{
+   background: var(--main-change-theme-background);
+   color: var(--main-change-theme-color);
+   border: 0.2rem solid var(--main-change-theme-border);
 }

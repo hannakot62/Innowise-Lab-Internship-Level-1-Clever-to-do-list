@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import EntryInput from "@/components/UI/inputs/EntryInput/EntryInput";
 import EntryButton from "@/components/UI/buttons/EntryButton/EntryButton";
 import ChangeThemeButton from "@/components/UI/buttons/ChangeThemeButton/ChangeThemeButton";
@@ -13,8 +13,8 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { setUser } from "@/store/slices/userSlice";
 import { removeError, setError } from "@/store/slices/errorSlice";
-import { changeTheme } from "@/store/slices/themeSlice";
 import { Alert } from "@mui/material";
+import { ThemeContext } from "@/theme-context/context";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
@@ -23,6 +23,7 @@ const SignUp = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const err = useSelector((state: any) => state.error.error);
+  const { themeToggler } = useContext(ThemeContext);
 
   const [firstError, setFirstError] = useState("");
   const [secondError, setSecondError] = useState("");
@@ -44,7 +45,7 @@ const SignUp = () => {
   }
 
   function handleChangeTheme() {
-    dispatch(changeTheme());
+    themeToggler();
   }
 
   const handleSignUp = (email: string, password: string) => {

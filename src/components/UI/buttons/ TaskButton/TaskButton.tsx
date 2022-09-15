@@ -1,15 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import MyBtn from "@/components/UI/buttons/MyBtn";
 import style from "./TaskButton.module.css";
-import { useSelector } from "react-redux";
+import { ThemeContext } from "@/theme-context/context";
 
 const TaskButton = ({ children, ...props }: any) => {
-  const theme = useSelector((state: any) => state.theme.theme);
+  const theme = useContext(ThemeContext).theme;
   return (
-    <MyBtn
-      {...props}
-      className={theme == "light" ? style.btnlight : style.btndark}
-    >
+    <MyBtn {...props} className={style.btn}>
       {children}
     </MyBtn>
   );

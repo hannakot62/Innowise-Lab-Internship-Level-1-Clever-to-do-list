@@ -1,22 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import MyBtn from "@/components/UI/buttons/MyBtn";
 import style from "./MainBottomButtons.module.css";
-import { useSelector } from "react-redux";
 
 const MainBottomButtons = ({ children, theme, ...props }: any) => {
-  const AppTheme = useSelector((state: any) => state.theme.theme);
   return (
     <MyBtn
       {...props}
-      className={
-        theme
-          ? AppTheme == "light"
-            ? style.btnlight.concat(" ", style.changeThemelight)
-            : style.btndark.concat(" ", style.changeThemedark)
-          : AppTheme == "light"
-          ? style.btnlight
-          : style.btndark
-      }
+      className={theme ? style.btn.concat(" ", style.changeTheme) : style.btn}
     >
       {children}
     </MyBtn>

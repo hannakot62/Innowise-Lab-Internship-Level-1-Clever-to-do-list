@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import style from "./TaskRounds.module.css";
-import { useSelector } from "react-redux";
+import { ThemeContext } from "@/theme-context/context";
 
 interface OwnProps {
   tasksDoneQuantity: number;
@@ -13,27 +13,17 @@ const TaskRounds: React.FC<OwnProps> = ({
   tasksUndoneQuantity,
   selected,
 }) => {
-  const theme = useSelector((state: any) => state.theme.theme);
+  const theme = useContext(ThemeContext).theme;
   return (
     <div className={style.roundsContainer}>
       {!selected && (
         <>
           {Boolean(tasksDoneQuantity) && (
-            <div
-              className={
-                theme == "light" ? style.roundDonelight : style.roundDonedark
-              }
-            ></div>
+            <div className={style.roundDone}></div>
           )}
 
           {Boolean(tasksUndoneQuantity) && (
-            <div
-              className={
-                theme == "light"
-                  ? style.roundUndonelight
-                  : style.roundUndonedark
-              }
-            ></div>
+            <div className={style.roundUndone}></div>
           )}
         </>
       )}

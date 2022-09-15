@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import style from "./Task.module.css";
 import TaskButton from "@/components/UI/buttons/ TaskButton/TaskButton";
 import Edit from "@/components/UI/pics/Edit";
@@ -13,6 +13,7 @@ import {
 import { deleteDoc, doc, updateDoc } from "@firebase/firestore";
 import { db } from "@/firebase";
 import { removeError, setError } from "@/store/slices/errorSlice";
+import { ThemeContext } from "@/theme-context/context";
 
 const Task = ({
   id,
@@ -30,9 +31,7 @@ const Task = ({
   const dispatch = useDispatch();
   const allTasks = useSelector((state: any) => state.tasks.tasks);
   const [done, setDone] = useState(doneT);
-  const email = useSelector((state: any) => state.user.email);
-  const theme = useSelector((state: any) => state.theme.theme);
-
+  const theme = useContext(ThemeContext).theme;
   useEffect(() => {
     dispatch(taskDoneUndone(id));
     const upd = async () => {
@@ -82,28 +81,20 @@ const Task = ({
   }
 
   return (
-    <div
-      className={
-        theme == "light" ? style.mainContainerlight : style.mainContainerdark
-      }
-    >
+    <div className={style.mainContainer}>
       <div className={style.subContainer}>
         <div className={style.checkboxAndTimeContainer}>
           <input
             onClick={() => {
               setDone(!done);
             }}
-            className={
-              theme == "light" ? style.myCheckboxlight : style.myCheckboxdark
-            }
+            className={style.myCheckbox}
             type="checkbox"
             id={id}
             name="done"
           />
           <label htmlFor={id}></label>
-          <div className={theme == "light" ? style.timelight : style.timedark}>
-            {time.slice(0, 5)}
-          </div>
+          <div className={style.time}>{time.slice(0, 5)}</div>
         </div>
         <div
           className={

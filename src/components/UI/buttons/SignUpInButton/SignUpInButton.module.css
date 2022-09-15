@@ -1,28 +1,14 @@
-.sBtnlight{
+.sBtn{
     padding: 0.5rem 3rem;
-    color: var(--light-main-brown-text);
+    color: var(--sign-button-color);
     font-size: 1rem;
     border-radius: 3rem;
-    background: var(--light-sign-button);
-    border: 0.1rem solid var(--light-main-brown-text);
+    background: var(--sign-button-background);
+    border: 0.1rem solid var(--sign-button-color);
     cursor: pointer;
     margin: 0 1rem 1.5rem 1rem;
 }
-.sBtnlight:hover {
-    background:var(--light-checkbox);
-    transition: ease 0.3s;
-}
-.sBtndark{
-    padding: 0.5rem 3rem;
-    color:var(--dark-main-background);
-    font-size: 1rem;
-    border-radius: 3rem;
-    background: var(--dark-sign-button);
-    border: 0.1rem solid var(--dark-main-background);
-    cursor: pointer;
-    margin: 0 1rem 1.5rem 1rem;
-}
-.sBtndark:hover {
-    background: var(--light-checkbox);
+.sBtn:hover {
+    background:var(--sign-button-hover);
     transition: ease 0.3s;
 }

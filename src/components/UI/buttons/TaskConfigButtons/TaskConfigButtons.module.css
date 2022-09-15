@@ -1,29 +1,14 @@
-.btnlight{
+.btn{
     padding: 0.3rem 0.8rem;
     border-radius: 0.8rem;
-    border: 0.15rem solid var(--light-main-brown-text);
-    background: var(--light-task-config-button);
-    color: var(--light-main-brown-text);
+    border: 0.15rem solid var(--task-config-button-color);
+    background: var(--task-config-button);
+    color: var(--task-config-button-color);
     margin: 0.1rem;
     font-size: 1.3rem;
 }
-.btnlight:hover{
+.btn:hover{
     transition: ease 0.3s;
-    background: var(--light-task-config-button-hover);
-    cursor: pointer;
-}
-
-.btndark{
-    padding: 0.3rem 0.8rem;
-    border-radius: 0.8rem;
-    border: 0.15rem solid var(--dark-main-background);
-    background: var(--dark-task-config-button);
-    color: var(--dark-main-background);
-    margin: 0.1rem;
-    font-size: 1.3rem;
-}
-.btndark:hover{
-    transition: ease 0.3s;
-    background: var(--dark-task-config-button-hover);
+    background: var(--task-config-button-hover);
     cursor: pointer;
 }

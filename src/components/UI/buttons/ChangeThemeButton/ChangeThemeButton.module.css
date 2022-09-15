@@ -1,26 +1,12 @@
-.ChangeThemeButtonlight{
-    color: var(--light-change-theme);
+.ChangeThemeButton{
+    color: var(--change-theme);
     background: transparent;
     border: none;
     cursor: pointer;
     margin-top: 0.3rem;
     font-size: 1rem;
 }
-.ChangeThemeButtonlight:hover{
-    text-shadow:0 0 7px var(--light-change-theme-hover);
-    transition: ease 0.3s;
-}
-
-
-.ChangeThemeButtondark{
-    color: var(--dark-task-done-round);
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    margin-top: 0.3rem;
-    font-size: 1rem;
-}
-.ChangeThemeButtondark:hover{
-    text-shadow:0 0 7px var(--dark-task-done-round);
+.ChangeThemeButton:hover{
+    text-shadow:0 0 7px var(--change-theme-hover);
     transition: ease 0.3s;
 }

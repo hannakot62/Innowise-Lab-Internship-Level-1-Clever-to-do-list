@@ -1,48 +1,96 @@
 :root {
     --error-entry-input: #fce7e7;
     --checkbox-disabled: #8d6842;
-
-
-    --light-main-brown-text: #231203;
-    --light-checkbox: #ff962d;
     --light-main-background: #fff4e9;
-    --light-task-done-round: #ffd0a1;
-    --light-day-background: #ffeedc;
-    --light-entry-input-container: #e0eefe;
-    --light-task-time: #544942;
-    --light-task-button-hover: #8f5922;
-    --light-change-theme: #10006e;
-    --light-change-theme-hover: #221b50;
-    --light-entry-button-hover:#7092b9;
-    --light-main-button: #ff7f00;
-    --light-main-button-shadow: rgba(64, 51, 30, 0.46);
-    --light-sign-button: #ffc891;
-    --light-task-config-button: #ffb872;
-    --light-task-config-button-hover: #ee7901;
-
-
+    --light-main-brown-text: #231203;
     --dark-main-gray-text: #959595;
     --dark-main-background: #110515;
-    --dark-checkbox: #63207d;
-    --dark-day-selected: #863c05;
-    --dark-task-done-round: #7c6585;
-    --dark-task-undone-round: #460f59;
-    --dark-input-task-background: #170b17;
-    --dark-task-time: #4d5250;
-    --dark-task-button: #34253a;
-    --dark-task-button-hover: #19121c;
-    --dark-entry-button: #b47ccb;
-    --dark-entry-button-hover: #5c3a6c;
-    --dark-main-button: #dc3d00;
-    --dark-main-button-shadow: rgba(41, 31, 36, 0.58);
-    --dark-sign-button: #c0864c;
-    --dark-task-config-button: #b65923;
-    --dark-task-config-button-hover: #7a3b14;
-    --dark-entry-input: #f2e7f7;
-    --dark-entry-input-hover: #d9c0ea;
-
 }
 
+.dark{
+    --day-selected: #863c05;
+    --day-selected-text: #110515;
+    --day-container-color: #863c05;
+    --day-container-background: #110515 ;
+    --checkbox: #63207d;
+    --task-time: #4d5250;
+    --task-border: #959595;
+    --task-done-round: #7c6585;
+    --task-undone-round: #460f59;
+    --task-button-color:#959595;
+    --task-button-background: #34253a;
+    --task-button-hover: #1f0c25;
+    --change-theme: #7c6585;
+    --change-theme-hover: #7c6585;
+    --entry-button-color:  #110515;
+    --entry-button-background: #b47ccb;
+    --entry-button-hover: #5c3a6c;
+    --main-button: #dc3d00;
+    --main-button-color: #110515;
+    --main-button-shadow: rgba(41, 31, 36, 0.58);
+    --main-change-theme-color: #959595;
+    --main-change-theme-background: #34253a;
+    --main-change-theme-border: #110515;
+    --sign-button-color: #110515;
+    --sign-button-background: #c0864c;
+    --sign-button-hover: #ff962d;
+    --task-config-button: #b65923;
+    --task-config-button-hover: #7a3b14;
+    --task-config-button-color: #110515;
+    --entry-input-color: #110515;
+    --entry-input-background: #f2e7f7;
+    --entry-input-hover: #d9c0ea;
+    --buttons-input-container-border: #7c6585;
+    --buttons-input-container-background: inherit;
+    --input-time-color: #959595;
+    --input-time-background: #170b17 ;
+    --author: #ffeedc;
+    --title-color: #959595;
+    --title-background: #170b17;
+}
+
+
+.light{
+    --day-selected: #231203;
+    --day-selected-text: #ffeedc;
+    --day-container-color: #231203;
+    --day-container-background: #ffeedc;
+    --checkbox: #ff962d;
+    --task-time: #544942;
+    --task-border: #231203;
+    --task-done-round: #ffd0a1;
+    --task-undone-round: #231203;
+    --task-button-color:#231203;
+    --task-button-background: #ff962d;
+    --task-button-hover: #8c4f14;
+    --change-theme: #10006e;
+    --change-theme-hover: #221b50;
+    --entry-button-color: #231203;
+    --entry-button-background: #fff4e9;
+    --entry-button-hover:#7092b9;
+    --main-button: #ff7f00;
+    --main-button-color: #231203;
+    --main-button-shadow: rgba(64, 51, 30, 0.46);
+    --main-change-theme-color: #fff4e9;
+    --main-change-theme-background: #231203;
+    --main-change-theme-border: #231203;
+    --sign-button-color: #231203;
+    --sign-button-background: #ffc891;
+    --sign-button-hover: #ff962d;
+    --task-config-button: #ffb872;
+    --task-config-button-hover: #ee7901;
+    --task-config-button-color: #231203;
+    --entry-input-color: #231203;
+    --entry-input-background: #fff4e9;
+    --entry-input-hover: #ffeedc;
+    --buttons-input-container-border: #231203;
+    --buttons-input-container-background:  #e0eefe;
+    --input-time-color: #231203;
+    --input-time-background: white ;
+    --author: #231203;
+    --title-color: #231203;
+    --title-background: white;
+}
 
 body{
     display: flex;
@@ -74,23 +122,16 @@ button{
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%)
-
 }
 
 .buttons-input-container{
     display: flex;
     flex-direction: column;
     border-radius: 2rem;
+    background: var(--buttons-input-container-background);
+    border: 0.1rem solid var(--buttons-input-container-border);
 }
 
-html.light .buttons-input-container{
-    background: var(--light-entry-input-container);
-    border: 0.1rem solid var(--light-main-brown-text);
-}
-
-html.dark .buttons-input-container{
-    border: 0.1rem solid var(--dark-task-done-round);
-}
 
 .buttons-input-container:first-child{
     padding-top: 1.5rem;
@@ -103,10 +144,7 @@ html.dark .buttons-input-container{
     align-self: center;
     margin-top: 85vh;
     font-size: 1rem;
-}
-
-html.dark .author{
-    color: var(--light-day-background);
+    color: var(--author)
 }
 
 .days-container{
@@ -181,17 +219,9 @@ html.dark .author{
     font-family: 'Raleway', sans-serif;
     font-size: 1.2rem;
     margin-bottom: 1rem;
-}
-
-html.light .title{
-    border: 0.15rem solid var(--light-main-brown-text);
-    color: var(--light-main-brown-text);
-}
-
-html.dark .title{
-    border: 0.15rem solid var(--dark-main-gray-text);
-    color: var(--dark-main-gray-text);
-    background: var(--dark-input-task-background);
+    border: 0.15rem solid var(--title-color);
+    color: var(--title-color);
+    background: var(--title-background);
 }
 
 .description{
@@ -204,18 +234,12 @@ html.dark .title{
     font-size: 0.8rem;
     margin-bottom: 1rem;
     resize: none;
+    border: 0.15rem solid var(--title-color);
+    color: var(--title-color);
+    background: var(--title-background);
 }
 
-html.light .description{
-    border: 0.15rem solid var(--light-main-brown-text);
-    color: var(--light-main-brown-text);
-}
 
-html.dark .description{
-    border: 0.15rem solid var(--dark-main-gray-text);
-    color: var(--dark-main-gray-text);
-    background: var(--dark-input-task-background);
-}
 
 .time-container{
     display: flex;
@@ -230,18 +254,9 @@ html.dark .description{
     font-family: 'Raleway', sans-serif;
     font-size: 0.8rem;
     margin-left: 3vh;
-}
-
-html.light .input-time{
-    border: 0.15rem solid var(--light-main-brown-text);
-    color: var(--light-main-brown-text);
-}
-
-html.dark .input-time{
-    border: 0.15rem solid var(--dark-main-gray-text);
-    color: var(--dark-main-gray-text);
-    background: var(--dark-input-task-background);
-
+    border: 0.15rem solid var(--input-time-color);
+    color: var(--input-time-color);
+    background: var(--input-time-background);
 }
 
 #sign-out-btn{
