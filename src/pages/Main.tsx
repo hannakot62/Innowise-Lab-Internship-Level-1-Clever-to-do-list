@@ -34,11 +34,9 @@ const Main = () => {
   const { themeToggler } = useContext(ThemeContext);
 
   const isAuth = useSelector((state: any) => state.user.id);
-  const email = useSelector((state: any) => state.user.email);
   const tasks = useSelector((state: any) => state.tasks.tasks);
   const isLoading = useSelector((state: any) => state.loading.isLoading);
   const error = useSelector((state: any) => state.error.error);
-  // const currentDateStart = new Date(new Date().setHours(0, 0, 0));
   const lastDay = useSelector((state: any) => state.lastDay.lastDay);
   const nextMonthStart = new Date(lastDay);
   let daysLoaded: Array<DayInterface> = [];

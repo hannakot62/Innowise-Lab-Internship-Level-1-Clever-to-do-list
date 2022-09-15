@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import style from "./Task.module.css";
 import TaskButton from "@/components/UI/buttons/ TaskButton/TaskButton";
 import Edit from "@/components/UI/pics/Edit";
@@ -13,7 +13,6 @@ import {
 import { deleteDoc, doc, updateDoc } from "@firebase/firestore";
 import { db } from "@/firebase";
 import { removeError, setError } from "@/store/slices/errorSlice";
-import { ThemeContext } from "@/theme-context/context";
 
 const Task = ({
   id,
@@ -31,7 +30,6 @@ const Task = ({
   const dispatch = useDispatch();
   const allTasks = useSelector((state: any) => state.tasks.tasks);
   const [done, setDone] = useState(doneT);
-  const theme = useContext(ThemeContext).theme;
   useEffect(() => {
     dispatch(taskDoneUndone(id));
     const upd = async () => {

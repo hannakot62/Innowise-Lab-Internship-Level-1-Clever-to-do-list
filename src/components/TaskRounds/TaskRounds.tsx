@@ -1,6 +1,5 @@
-import React, { useContext } from "react";
+import React from "react";
 import style from "./TaskRounds.module.css";
-import { ThemeContext } from "@/theme-context/context";
 
 interface OwnProps {
   tasksDoneQuantity: number;
@@ -13,7 +12,6 @@ const TaskRounds: React.FC<OwnProps> = ({
   tasksUndoneQuantity,
   selected,
 }) => {
-  const theme = useContext(ThemeContext).theme;
   return (
     <div className={style.roundsContainer}>
       {!selected && (

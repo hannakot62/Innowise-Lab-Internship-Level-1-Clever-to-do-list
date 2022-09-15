@@ -1,9 +1,8 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import style from "./Day.module.css";
 import TaskRounds from "@/components/TaskRounds/TaskRounds";
 import { showMonth } from "@/logic/showMonth";
 import { dayStyle, isDayToday } from "@/components/Day/helpers";
-import { ThemeContext } from "@/theme-context/context";
 
 interface Day {
   slctd: Date;
@@ -25,7 +24,6 @@ const Day: React.FC<Day> = ({
       slctd.getMonth() === day.getMonth() &&
       slctd.getFullYear() === day.getFullYear()
   );
-  const theme = useContext(ThemeContext).theme;
 
   useEffect(() => {
     setSelected(
