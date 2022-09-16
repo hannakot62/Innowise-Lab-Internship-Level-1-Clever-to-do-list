@@ -28,15 +28,15 @@ const SignIn = () => {
   const EMAIL_REGEXP =
     /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
 
-  function isEmailValid(email: string) {
+  function isEmailValid(email: string): boolean {
     return EMAIL_REGEXP.test(email);
   }
 
-  function isPasswordValid(password: string) {
+  function isPasswordValid(password: string): boolean {
     return password.length >= 6;
   }
 
-  const handleLogin = (email: string, password: string) => {
+  const handleLogin = (email: string, password: string): void => {
     if (email === "") {
       setFirstError("Enter email");
     } else if (!isEmailValid(email)) {
@@ -102,7 +102,7 @@ const SignIn = () => {
       });
   };
 
-  function handleContinueWithGoogle() {
+  function handleContinueWithGoogle(): void {
     const provider = new GoogleAuthProvider();
 
     const auth = getAuth();
@@ -130,7 +130,7 @@ const SignIn = () => {
       });
   }
 
-  function handleChangeTheme() {
+  function handleChangeTheme(): void {
     dispatch(changeTheme());
   }
 

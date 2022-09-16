@@ -7,7 +7,8 @@ import { useDispatch } from "react-redux";
 
 const EntryPage = () => {
   const dispatch = useDispatch();
-  function handleChangeTheme() {
+
+  function handleChangeTheme(): void {
     dispatch(changeTheme());
   }
 

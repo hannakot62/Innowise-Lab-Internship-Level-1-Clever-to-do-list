@@ -23,7 +23,7 @@ const NewTask = () => {
   const isAuth = !!useSelector((state: any) => state.user.id);
   const email = useSelector((state: any) => state.user.email);
   const dispatch = useDispatch();
-  function handleAdd() {
+  function handleAdd(): void {
     try {
       if (currentTime === "") return;
 

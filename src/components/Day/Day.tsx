@@ -34,7 +34,7 @@ const Day: React.FC<Day> = ({
     );
   }, [slctd]);
 
-  function handleClick(e: any) {
+  function handleClick(e: React.MouseEvent) {
     unselectAll(day);
     setSelected(true);
     e.currentTarget.classList.add(

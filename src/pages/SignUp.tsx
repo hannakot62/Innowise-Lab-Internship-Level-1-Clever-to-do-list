@@ -32,23 +32,23 @@ const SignUp = () => {
   const EMAIL_REGEXP =
     /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
 
-  function isEmailValid(email: string) {
+  function isEmailValid(email: string): boolean {
     return EMAIL_REGEXP.test(email);
   }
 
-  function isPasswordValid(password: string) {
+  function isPasswordValid(password: string): boolean {
     return password.length >= 6;
   }
 
-  function arePasswordsTheSame(pass1: string, pass2: string) {
+  function arePasswordsTheSame(pass1: string, pass2: string): boolean {
     return pass1 === pass2;
   }
 
-  function handleChangeTheme() {
+  function handleChangeTheme(): void {
     dispatch(changeTheme());
   }
 
-  const handleSignUp = (email: string, password: string) => {
+  const handleSignUp = (email: string, password: string): void => {
     if (email === "") {
       setFirstError("Enter email");
     }
@@ -122,7 +122,7 @@ const SignUp = () => {
       });
   };
 
-  function handleContinueWithGoogle() {
+  function handleContinueWithGoogle(): void {
     const provider = new GoogleAuthProvider();
 
     const auth = getAuth();

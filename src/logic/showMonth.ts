@@ -1,4 +1,4 @@
-export function showMonth(day: Date) {
+export function showMonth(day: Date): string | undefined {
   const month = day.getMonth();
   switch (month) {
     case 0: {

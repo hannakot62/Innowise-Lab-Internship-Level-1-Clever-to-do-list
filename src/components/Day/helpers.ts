@@ -1,6 +1,6 @@
 import style from "@/components/Day/Day.module.css";
 
-export function dayStyle(selected: boolean, theme: string) {
+export function dayStyle(selected: boolean, theme: string): string {
   return selected
     ? theme == "light"
       ? style.selectedlight
@@ -9,7 +9,7 @@ export function dayStyle(selected: boolean, theme: string) {
     ? style.mainContainerlight
     : style.mainContainerdark;
 }
-export function isDayToday(day: Date) {
+export function isDayToday(day: Date): boolean {
   let currentDate = new Date();
   return (
     day.getDate() === currentDate.getDate() &&

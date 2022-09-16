@@ -24,7 +24,7 @@ const EditTask = () => {
   const taskId = useSelector((state: any) => state.currentTask.currentTask);
   const tasks = useSelector((state: any) => state.tasks.tasks);
   const email = useSelector((state: any) => state.user.email);
-  const [task] = tasks.filter((task: any) => task.id === taskId);
+  const [task] = tasks.filter((task: Task) => task.id === taskId);
   const [currentTitle, setCurrentTitle] = useState("");
   const [currentDescription, setCurrentDescription] = useState("");
   const [currentTime, setCurrentTime] = useState("");
@@ -37,7 +37,7 @@ const EditTask = () => {
     }
   }, [task]);
 
-  function handleSave() {
+  function handleSave(): void {
     const upd = async () => {
       const newDate = new Date(task.originalDateSeconds * 1000);
       newDate.setHours(
@@ -99,7 +99,7 @@ const EditTask = () => {
       });
   }
 
-  function handleCancel() {
+  function handleCancel(): void {
     dispatch(removeCurrentTask());
   }
 
