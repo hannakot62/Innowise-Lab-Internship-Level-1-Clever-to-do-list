@@ -5,23 +5,31 @@
     --light-main-brown-text: #231203;
     --dark-main-gray-text: #959595;
     --dark-main-background: #110515;
+
+
+    --dark-orange: #863c05;
+    --bright-orange: #ff962d;
+    --light-purple: #7c6585;
+    --dark-purple: #34253a;
+    --bright-purple: #63207d;
+    --second-light-background: #ffeedc;
 }
 
 .dark{
-    --day-selected: #863c05;
+    --day-selected: var(--dark-orange);
     --day-selected-text: var(--dark-main-background);
-    --day-container-color: var(--day-selected);
+    --day-container-color: var(--dark-orange);
     --day-container-background: var(--dark-main-background) ;
-    --checkbox: #63207d;
+    --checkbox: var(--bright-purple);
     --task-time: #4d5250;
     --task-border: var(--dark-main-gray-text);
-    --task-done-round: #7c6585;
+    --task-done-round: var(--light-purple);
     --task-undone-round: #460f59;
     --task-button-color:var(--dark-main-gray-text);
-    --task-button-background: #34253a;
+    --task-button-background: var(--dark-purple);
     --task-button-hover: #1f0c25;
-    --change-theme: var(--task-done-round);
-    --change-theme-hover: var(--task-done-round);
+    --change-theme: var(--light-purple);
+    --change-theme-hover: var(--light-purple);
     --entry-button-color:  var(--dark-main-background);
     --entry-button-background: #b47ccb;
     --entry-button-hover: #5c3a6c;
@@ -29,22 +37,22 @@
     --main-button-color: var(--dark-main-background);
     --main-button-shadow: rgba(41, 31, 36, 0.58);
     --main-change-theme-color: var(--dark-main-gray-text);
-    --main-change-theme-background: var(--task-button-background);
+    --main-change-theme-background: var(--dark-purple);
     --main-change-theme-border: var(--dark-main-background);
     --sign-button-color: var(--dark-main-background);
     --sign-button-background: #c0864c;
-    --sign-button-hover: var(--checkbox);
+    --sign-button-hover: var(--bright-purple);
     --task-config-button: #b65923;
     --task-config-button-hover: #7a3b14;
     --task-config-button-color: var(--dark-main-background);
     --entry-input-color: var(--dark-main-background);
     --entry-input-background: #f2e7f7;
     --entry-input-hover: #d9c0ea;
-    --buttons-input-container-border: var(--task-done-round);
+    --buttons-input-container-border: var(--light-purple);
     --buttons-input-container-background: inherit;
     --input-time-color: var(--dark-main-gray-text);
     --input-time-background: #170b17 ;
-    --author: #ffeedc;
+    --author: var(--second-light-background);
     --title-color: var(--dark-main-gray-text);
     --title-background: var(--input-time-background);
 }
@@ -52,16 +60,16 @@
 
 .light{
     --day-selected: var(--light-main-brown-text);
-    --day-selected-text: #ffeedc;
+    --day-selected-text: var(--second-light-background);
     --day-container-color: var(--light-main-brown-text);
-    --day-container-background: var(--day-selected-text);
-    --checkbox: #ff962d;
+    --day-container-background: var(--second-light-background);
+    --checkbox: var(--bright-orange);
     --task-time: #544942;
     --task-border: var(--light-main-brown-text);
     --task-done-round: #ffd0a1;
     --task-undone-round: var(--light-main-brown-text);
     --task-button-color: var(--light-main-brown-text);
-    --task-button-background: var(--checkbox);
+    --task-button-background: var(--bright-orange);
     --task-button-hover: #8c4f14;
     --change-theme: #10006e;
     --change-theme-hover: #221b50;
@@ -76,13 +84,13 @@
     --main-change-theme-border: var(--light-main-brown-text);
     --sign-button-color: var(--light-main-brown-text);
     --sign-button-background: #ffc891;
-    --sign-button-hover: var(--checkbox);
+    --sign-button-hover: var(--bright-orange);
     --task-config-button: #ffb872;
     --task-config-button-hover: #ee7901;
     --task-config-button-color: var(--light-main-brown-text);
     --entry-input-color: var(--light-main-brown-text);
     --entry-input-background: var(--light-main-background);
-    --entry-input-hover: var(--day-selected-text);
+    --entry-input-hover: var(--second-light-background);
     --buttons-input-container-border: var(--light-main-brown-text);
     --buttons-input-container-background:  #e0eefe;
     --input-time-color: var(--light-main-brown-text);
