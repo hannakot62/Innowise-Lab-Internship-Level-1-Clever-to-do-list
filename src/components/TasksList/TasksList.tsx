@@ -7,35 +7,19 @@ import skaterLight from "@/assets/skater/skater-light.json";
 
 const TasksList = ({ selectedDay }: { selectedDay: Date }) => {
   const tasks = useSelector((state: any) => state.tasks.tasks);
-  const tasksToRender: any = [];
-  for (let i = 0; i < tasks.length; i++) {
-    if (tasks[i].date === selectedDay.toLocaleDateString()) {
-      tasksToRender.push(
-        <Task
-          key={tasks[i].id}
-          id={tasks[i].id}
-          title={tasks[i].title}
-          description={tasks[i].description}
-          doneT={tasks[i].done}
-          time={tasks[i].time}
-        />
-      );
-    }
-  }
-  useEffect(() => {
-    for (let i = 0; i < tasks.length; i++) {
-      tasksToRender.push(
-        <Task
-          key={tasks[i].id}
-          id={tasks[i].id}
-          title={tasks[i].title}
-          description={tasks[i].description}
-          doneT={tasks[i].done}
-          time={tasks[i].time}
-        />
-      );
-    }
-  }, [tasks]);
+
+  const tasksToRender = tasks
+    .filter((task: any) => task.date === selectedDay.toLocaleDateString())
+    .map((task: any) => (
+      <Task
+        key={task.id}
+        id={task.id}
+        title={task.title}
+        description={task.description}
+        doneT={task.done}
+        time={task.time}
+      />
+    ));
 
   return (
     <div className={style.tasks}>
@@ -44,7 +28,7 @@ const TasksList = ({ selectedDay }: { selectedDay: Date }) => {
       ) : (
         <div className={style.skaterContainer}>
           <h1 className={style.chill}>no tasks this day, chill :)</h1>
-          <Lottie animationData={skaterLight} loop={true} />{" "}
+          <Lottie animationData={skaterLight} loop={true} />
         </div>
       )}
     </div>
