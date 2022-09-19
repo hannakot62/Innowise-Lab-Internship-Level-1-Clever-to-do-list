@@ -1,38 +1,29 @@
-.entryInputlight{
+.entryInput{
     padding: 0.5rem 1rem;
-    color: #231203;
+    color: var(--entry-input-color);
     font-size: 1rem;
     border-radius: 3rem;
-    background: #fff4e8;
-    border: 0.1rem solid #231203;
+    background: var(--entry-input-background);
+    border: 0.1rem solid var(--entry-input-color);
     cursor: pointer;
     margin: 0 1rem 0 1rem;
 }
-.entryInputlight:hover{
-    background: #ffeedc;
+.entryInput:hover{
+    background: var(--entry-input-hover);
+    transition: 0.3s ease;
+    cursor: pointer;
 }
 
-.entryInputdark{
-    padding: 0.5rem 1rem;
-    color: #110515;
-    font-size: 1rem;
-    border-radius: 3rem;
-    background: #f2e7f7;
-    border: 0.1rem solid #110515;
-    cursor: pointer;
-    margin: 0 1rem 0 1rem;
-}
-.entryInputdark:hover{
-    background: #d9c0ea;
-    transition: 0.3s ease;
-}
 .entryInputError{
     padding: 0.5rem 1rem;
     color: red;
     font-size: 1rem;
     border-radius: 3rem;
-    background: #fce7e7;
+    background: var(--error-entry-input);
     border: 0.1rem solid red;
     cursor: pointer;
     margin: 0 1rem 0 1rem;
+}
+.entryInputError:hover {
+    cursor: pointer;
 }

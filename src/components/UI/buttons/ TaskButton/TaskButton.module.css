@@ -1,27 +1,13 @@
-.btnlight{
-padding: 0.2rem;
-    border-radius: 30%;
-    border: 0.2rem solid #231203;
-    background: #ff962d;
-    color: #231203;
-    margin: 0.1rem;
-}
-.btnlight:hover{
-    transition: ease 0.3s;
-    background: #8f5922;
-cursor: pointer;
-}
-
-.btndark{
+.btn{
     padding: 0.2rem;
     border-radius: 30%;
-    border: 0.2rem solid #959595;
-    background:#34253a;
-    color: #959595;
+    border: 0.2rem solid var(--task-button-color);
+    background: var(--task-button-background);
+    color: var(--task-button-color);
     margin: 0.1rem;
 }
-.btndark:hover{
+.btn:hover{
     transition: ease 0.3s;
-    background: #19121c;
+    background: var(--task-button-hover);
     cursor: pointer;
 }

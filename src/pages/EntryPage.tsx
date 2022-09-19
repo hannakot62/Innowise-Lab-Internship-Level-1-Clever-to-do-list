@@ -1,14 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import EntryButton from "@/components/UI/buttons/EntryButton/EntryButton";
 import ChangeThemeButton from "@/components/UI/buttons/ChangeThemeButton/ChangeThemeButton";
 import { Link } from "react-router-dom";
-import { changeTheme } from "@/store/slices/themeSlice";
-import { useDispatch } from "react-redux";
+import { ThemeContext } from "@/theme-context/context";
 
 const EntryPage = () => {
-  const dispatch = useDispatch();
+  const { themeToggler } = useContext(ThemeContext);
+
   function handleChangeTheme() {
-    dispatch(changeTheme());
+    themeToggler();
   }
 
   return (
