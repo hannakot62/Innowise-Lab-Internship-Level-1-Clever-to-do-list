@@ -1,10 +1,4 @@
-import React, {
-  useContext,
-  useEffect,
-  useLayoutEffect,
-  useMemo,
-  useState,
-} from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Day from "@/components/Day/Day";
 import MainBottomButtons from "@/components/UI/buttons/MainBottomButtons/MainBottomButtons";
 import Sun from "@/components/UI/pics/Sun";
