@@ -32,7 +32,7 @@ Adding / Editing pages:
 ![edit](https://raw.githubusercontent.com/hannakot62/Innowise-Lab-Internship-Level-1-Clever-to-do-list/main/for_readme/edit.jpg "edit")
 ![new](https://raw.githubusercontent.com/hannakot62/Innowise-Lab-Internship-Level-1-Clever-to-do-list/main/for_readme/new.jpg "new")
 
-# How to run the app
+# How to Run the App
 
 To run the app you should prepare an IDE and write in the terminal `npm start`.
 
@@ -41,7 +41,7 @@ To build the app you can use `npm build` command.
 If you want to run eslint formatter you should use `npm test`. ??????
 
 
-# Database snapshot
+# Database Snapshot
 
 Firebase database manages server storage logic. 
 It provides the authentication ability via email and password or via Google account.
@@ -56,17 +56,29 @@ It contains fields describing the user's email, task title and description, the 
 Each record has its own unique id key.
 
 
-# Application stack
+# Application Stack
 This app is designed using following technologies:
 
-- **_TypeScript_** - a strongly typed programming language that builds on JavaScript.
-- **_React_**  - JavaScript library for creating user interfaces.
-- **_React Router_** - library that enables "client side routing".
-- **_Redux_** - JavaScript library for state management.
-- **_Craco_** - configuration layer for create-react-app.
-- **_Firebase_** - an app development platform backed by Google.
-- **_Lottie_** - a library that parses animations exported as json.
+:gem: **_TypeScript_** - a strongly typed programming language that builds on JavaScript.
+
+:gem: **_React_**  - JavaScript library for creating user interfaces.
+
+:gem: **_React Router_** - library that enables "client side routing".
+
+:gem: **_Redux_** - JavaScript library for state management.
+
+:gem: **_Craco_** - configuration layer for create-react-app.
+
+:gem: **_Firebase_** - an app development platform backed by Google.
+
+:gem: **_Lottie_** - a library that parses animations exported as json.
 
 
-# Files & folders description
-
+# Files & Folders Description
+ - **_for_readme_** folder is responsible for all the sources used in the documentation you are reading :)
+ - **_public_** folder contains main HTML file.
+ - **_src_** folder contains all the source code and animations used. More details [here]().
+ - **_craco.config.ts_** file is used for import aliases configuration.
+ - **_package.json_** and **_package-lock.json_** files describe all the side dependencies used in the project.
+ - **_.gitignore_** file contains folders' and files' names that shouldn't be pushed along with the other content.
+ - **_tsconfig.json_** and **_tsconfig.paths.json_** are configuration files that describe TypeScript project settings.
