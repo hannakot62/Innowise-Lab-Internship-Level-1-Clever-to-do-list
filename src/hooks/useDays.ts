@@ -27,6 +27,7 @@ export interface Task {
   description: string;
   done: boolean;
   title: string;
+
   userEmail: string;
   originalDateSeconds: number;
 }

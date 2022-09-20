@@ -34,11 +34,9 @@ Adding / Editing pages:
 
 # How to Run the App
 
-To run the app you should prepare an IDE and write in the terminal `npm start`.
+To run the app you should prepare an IDE and dependencies used writing `npm install`. Then write in the terminal `npm start`. It will create a localhost on your browser where the app is ready to be used.
 
 To build the app you can use `npm build` command.
-
-If you want to run eslint formatter you should use `npm test`. ??????
 
 
 # Database Snapshot
@@ -77,7 +75,7 @@ This app is designed using following technologies:
 # Files & Folders Description
  - **_for_readme_** folder is responsible for all the sources used in the documentation you are reading :)
  - **_public_** folder contains main HTML file.
- - **_src_** folder contains all the source code and animations used. More details [here]().
+ - **_src_** folder contains all the source code and animations used. More details [here](https://github.com/hannakot62/Innowise-Lab-Internship-Level-1-Clever-to-do-list/blob/main/src/README.md).
  - **_craco.config.ts_** file is used for import aliases configuration.
  - **_package.json_** and **_package-lock.json_** files describe all the side dependencies used in the project.
  - **_.gitignore_** file contains folders' and files' names that shouldn't be pushed along with the other content.
