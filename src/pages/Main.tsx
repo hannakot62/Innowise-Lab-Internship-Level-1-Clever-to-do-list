@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useMemo, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Day from "@/components/Day/Day";
 import MainBottomButtons from "@/components/UI/buttons/MainBottomButtons/MainBottomButtons";
 import Sun from "@/components/UI/pics/Sun";
@@ -13,24 +13,24 @@ import { removeUser } from "@/store/slices/userSlice";
 import TasksList from "@/components/TasksList/TasksList";
 import { useDays } from "@/hooks/useDays";
 import { DayInterface } from "@/hooks/useDays";
-import { changeTheme } from "@/store/slices/themeSlice";
 import Lottie from "lottie-react";
 import loaderLight from "@/assets/loader/loaderLight.json";
 import loaderDark from "@/assets/loader/loaderDark.json";
 import { Alert } from "@mui/material";
 import { setLastDay } from "@/store/slices/lastDaySlice";
+import { ThemeContext } from "@/theme-context/context";
 
 const Main = () => {
   const [selectedDay, setSelectedDay] = useState(new Date());
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const theme = useSelector((state: any) => state.theme.theme);
+  const { theme } = useContext(ThemeContext);
+  const { themeToggler } = useContext(ThemeContext);
+
   const isAuth = useSelector((state: any) => state.user.id);
-  const email = useSelector((state: any) => state.user.email);
   const tasks = useSelector((state: any) => state.tasks.tasks);
   const isLoading = useSelector((state: any) => state.loading.isLoading);
   const error = useSelector((state: any) => state.error.error);
-  // const currentDateStart = new Date(new Date().setHours(0, 0, 0));
   const lastDay = useSelector((state: any) => state.lastDay.lastDay);
   const nextMonthStart = new Date(lastDay);
   let daysLoaded: Array<DayInterface> = [];
@@ -102,18 +102,14 @@ const Main = () => {
     navigate("/");
   }
   function handleChangeTheme() {
-    dispatch(changeTheme());
+    themeToggler();
   }
 
   return isAuth ? (
     <div className={"main-page-container"}>
       <MyBtn
         id="sign-out-btn"
-        className={
-          theme == "light"
-            ? SignOutStyle.ChangeThemeButtonlight
-            : SignOutStyle.ChangeThemeButtondark
-        }
+        className={SignOutStyle.ChangeThemeButton}
         onClick={handleSignOut}
       >
         Sign Out

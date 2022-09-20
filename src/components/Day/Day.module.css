@@ -1,4 +1,4 @@
-.mainContainerlight {
+.mainContainer {
     width: 20vh;
     height: 20vh;
     border-radius: 2rem;
@@ -7,32 +7,17 @@
     justify-content: center;
     align-items: center;
     margin: 1vh;
-    color: #231203;
-    border: 0.2rem solid #231203;
-    background: #ffeedc;
+    color: var(--day-container-color);
+    border: 0.2rem solid var(--day-container-color);
+    background: var(--day-container-background);
 }
-
-.mainContainerdark {
-    width: 20vh;
-    height: 20vh;
-    border-radius: 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 1vh;
-    color: #863c05;
-    border: 0.2rem solid #863c05;
-    background: #110515;
-}
-
 
 .today{
     margin: 0;
     height: 5vh;
     margin-top: 4vh;
 }
-.selectedlight{
+.selected {
     width: 20vh;
     height: 20vh;
     border-radius: 2rem;
@@ -41,38 +26,19 @@
     justify-content: center;
     align-items: center;
     margin: 1vh;
-    background: #231203;
-    color: #ffeedc;
-    border: 0.2rem solid #231203;
-}
-.selecteddark {
-    width: 20vh;
-    height: 20vh;
-    border-radius: 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 1vh;
-    background: #863c05;
-    color: #110515;
-    border: 0.2rem solid #863c05;
+    background: var(--day-selected);
+    border: 0.2rem solid var(--day-selected);
+    color: var(--day-selected-text)
 }
 
 
+.mainContainer :hover{
+    cursor: pointer;
+}
+.selected:hover{
+    cursor: pointer;
+}
 
-.mainContainerlight:hover{
-    cursor: pointer;
-}
-.mainContainerdark:hover{
-    cursor: pointer;
-}
-.selectedlight:hover{
-    cursor: pointer;
-}
-.selecteddark:hover{
-    cursor: pointer;
-}
 .day{
     margin-bottom: 0.5vh;
 }

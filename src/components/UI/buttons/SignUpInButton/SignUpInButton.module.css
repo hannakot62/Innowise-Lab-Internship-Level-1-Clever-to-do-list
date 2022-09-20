@@ -1,28 +1,14 @@
-.sBtnlight{
+.sBtn{
     padding: 0.5rem 3rem;
-    color: #231203;
+    color: var(--sign-button-color);
     font-size: 1rem;
     border-radius: 3rem;
-    background: #ffc891;
-    border: 0.1rem solid #231203;
+    background: var(--sign-button-background);
+    border: 0.1rem solid var(--sign-button-color);
     cursor: pointer;
     margin: 0 1rem 1.5rem 1rem;
 }
-.sBtnlight:hover {
-    background: #ff962d;
-    transition: ease 0.3s;
-}
-.sBtndark{
-    padding: 0.5rem 3rem;
-    color:#110515;
-    font-size: 1rem;
-    border-radius: 3rem;
-    background: #c0864c;
-    border: 0.1rem solid #110515;
-    cursor: pointer;
-    margin: 0 1rem 1.5rem 1rem;
-}
-.sBtndark:hover {
-    background: #ff962d;
+.sBtn:hover {
+    background:var(--sign-button-hover);
     transition: ease 0.3s;
 }

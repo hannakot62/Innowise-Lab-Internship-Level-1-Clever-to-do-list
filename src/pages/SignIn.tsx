@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import EntryButton from "@/components/UI/buttons/EntryButton/EntryButton";
 import ChangeThemeButton from "@/components/UI/buttons/ChangeThemeButton/ChangeThemeButton";
 import EntryInput from "@/components/UI/inputs/EntryInput/EntryInput";
@@ -13,8 +13,8 @@ import {
   signInWithPopup,
 } from "firebase/auth";
 import { removeError, setError } from "@/store/slices/errorSlice";
-import { changeTheme } from "@/store/slices/themeSlice";
 import { Alert } from "@mui/material";
+import { ThemeContext } from "@/theme-context/context";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
@@ -24,6 +24,7 @@ const SignIn = () => {
   const err = useSelector((state: any) => state.error.error);
   const [firstError, setFirstError] = useState("");
   const [secondError, setSecondError] = useState("");
+  const { themeToggler } = useContext(ThemeContext);
 
   const EMAIL_REGEXP =
     /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
@@ -130,8 +131,8 @@ const SignIn = () => {
       });
   }
 
-  function handleChangeTheme(): void {
-    dispatch(changeTheme());
+  function handleChangeTheme() {
+    themeToggler();
   }
 
   return (
