@@ -21,4 +21,4 @@ const Moon = () => {
   );
 };
 
-export default Moon;
+export { Moon };

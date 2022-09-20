@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
-import EntryButton from "@/components/UI/buttons/EntryButton/EntryButton";
-import ChangeThemeButton from "@/components/UI/buttons/ChangeThemeButton/ChangeThemeButton";
+import { EntryButton, ChangeThemeButton } from "@/components/UI";
 import { Link } from "react-router-dom";
 import { ThemeContext } from "@/theme-context/context";
 

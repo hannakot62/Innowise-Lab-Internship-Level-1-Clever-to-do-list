@@ -9,4 +9,4 @@ const Notification = ({ e, hidden }: { e: string; hidden: boolean }) => {
   );
 };
 
-export default Notification;
+export { Notification };

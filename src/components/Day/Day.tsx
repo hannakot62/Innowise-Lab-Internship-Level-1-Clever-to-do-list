@@ -12,6 +12,14 @@ interface Day {
   unselectAll: Function;
 }
 
+type Day = {
+  slctd: Date;
+  day: Date;
+  tasksDoneQuantity: number;
+  tasksUndoneQuantity: number;
+  unselectAll: Function;
+};
+
 const Day: React.FC<Day> = ({
   slctd,
   day,

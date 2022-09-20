@@ -1,8 +1,10 @@
-import React, { useContext, useState } from "react";
-import EntryInput from "@/components/UI/inputs/EntryInput/EntryInput";
-import EntryButton from "@/components/UI/buttons/EntryButton/EntryButton";
-import ChangeThemeButton from "@/components/UI/buttons/ChangeThemeButton/ChangeThemeButton";
-import SignUpInButton from "@/components/UI/buttons/SignUpInButton/SignUpInButton";
+import React, {useContext, useState} from "react";
+import {
+  EntryInput,
+  EntryButton,
+  ChangeThemeButton,
+  SignUpInButton,
+} from "@/components/UI";
 import { useNavigate } from "react-router-dom";
 import {
   getAuth,

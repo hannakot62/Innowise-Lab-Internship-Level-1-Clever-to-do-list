@@ -21,10 +21,3 @@ root.render(
     </Provider>
   </React.StrictMode>
 );
-
-let theme = localStorage.getItem("todoTheme")
-  ? localStorage.getItem("todoTheme")
-  : "light";
-let main = document.getElementsByTagName("html")[0];
-// @ts-ignore
-main.classList.toggle(theme);

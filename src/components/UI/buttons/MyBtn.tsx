@@ -8,4 +8,4 @@ const MyBtn = ({children, ...props}:any) => {
     );
 };
 
-export default MyBtn;
+export { MyBtn };

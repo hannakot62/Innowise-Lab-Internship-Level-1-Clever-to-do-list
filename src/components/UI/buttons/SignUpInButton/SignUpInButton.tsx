@@ -10,4 +10,4 @@ const SignUpInButton = ({ children, ...props }: any) => {
   );
 };
 
-export default SignUpInButton;
+export { SignUpInButton };

@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { daysInCurrentMonth } from "@/logic/dateOperations";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import {
   collection,
   getDocs,

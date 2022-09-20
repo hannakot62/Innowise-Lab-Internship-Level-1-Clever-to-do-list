@@ -10,4 +10,4 @@ const ChangeThemeButton = ({ children, ...props }: any) => {
   );
 };
 
-export default ChangeThemeButton;
+export { ChangeThemeButton };

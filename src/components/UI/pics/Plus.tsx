@@ -21,4 +21,4 @@ const Plus = () => {
   );
 };
 
-export default Plus;
+export { Plus };
