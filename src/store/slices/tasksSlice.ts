@@ -19,14 +19,9 @@ const tasksSlice = createSlice({
       );
       // @ts-ignore
       state.tasks[taskIndex].done = !state.tasks[taskIndex].done;
-
-      //TODO: плюс надо менять в бд
     },
-    taskAdded() {},
-    editTask(state, action) {},
   },
 });
 
-export const { setTasks, removeTasks, taskDoneUndone, editTask } =
-  tasksSlice.actions;
+export const { setTasks, removeTasks, taskDoneUndone } = tasksSlice.actions;
 export default tasksSlice.reducer;
