@@ -1,5 +1,5 @@
 import React from "react";
-import MyBtn from "@/components/UI/buttons/MyBtn";
+import { MyBtn } from "@/components/UI";
 import style from "./TaskConfigButtons.module.css";
 
 const TaskConfigButtons = ({ children, ...props }: any) => {

@@ -1,6 +1,6 @@
 import React from "react";
 import style from "./ChangeThemeButton.module.css";
-import MyBtn from "@/components/UI/buttons/MyBtn";
+import { MyBtn } from "@/components/UI";
 
 const ChangeThemeButton = ({ children, ...props }: any) => {
   return (

@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import MyBtn from "@/components/UI/buttons/MyBtn";
+import { MyBtn } from "@/components/UI";
 import style from "./MainBottomButtons.module.css";
 
 const MainBottomButtons = ({ children, theme, ...props }: any) => {
