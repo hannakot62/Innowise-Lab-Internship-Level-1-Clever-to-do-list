@@ -63,6 +63,6 @@
     "typescript-plugin-css-modules": "^3.4.0"
   },
   "hooks": {
-    "pre-commit": "npm run test"
+    "pre-commit": "npm run lint-staged"
   }
 }
