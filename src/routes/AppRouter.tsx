@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import { myRoutes } from "@/routes/routes";
 import EntryPage from "@/pages/EntryPage";

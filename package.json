@@ -30,7 +30,10 @@
   "scripts": {
     "start": "craco start",
     "build": "craco build",
-    "eject": "craco eject"
+    "test": "craco test",
+    "eject": "craco eject",
+    "prepare": "husky install",
+    "lint-staged": "lint-staged --config lint-staged.js"
   },
   "eslintConfig": {
     "extends": [
