@@ -61,6 +61,6 @@
     "typescript-plugin-css-modules": "^3.4.0"
   },
   "hooks": {
-    "pre-commit": "npm run precommit"
+    "pre-commit": "npm run test"
   }
 }
