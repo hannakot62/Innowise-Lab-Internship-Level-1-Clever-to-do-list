@@ -83,4 +83,4 @@ The file describes firebase connection configuration.
 
 ### :bulb: index.tsx & index.css
 
-index.tsx is the start point of the app. index.css describes global style rules for the who;e project.
+index.tsx is the start point of the app. index.css describes global style rules for the whole project.
