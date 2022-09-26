@@ -1,6 +1,7 @@
-import React, { createContext } from "react";
+import React, { createContext } from 'react'
 
 export const ThemeContext = React.createContext({
-  theme: "",
-  themeToggler: () => {},
-});
+    theme: '',
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
+    themeToggler: () => {}
+})

@@ -105,6 +105,7 @@ body{
     justify-content: center;
     align-items: center;
     font-family: 'Raleway', sans-serif;
+    width: 100vw;
 }
 
 html.light body{
@@ -190,14 +191,15 @@ button{
     justify-content: space-between;
     align-items: center;
     position: fixed;
-    width: 96%;
-    bottom: 3vh;
+    width: 96vw;
+    bottom: 3vw;
 }
 .main-page-container{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 80vw;
 }
 .link{
     color:inherit;

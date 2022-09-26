@@ -1,13 +1,13 @@
-import style from "@/components/Day/Day.module.css";
+import style from '@/components/Day/Day.module.css'
 
 export function dayStyle(selected: boolean) {
-  return selected ? style.selected : style.mainContainer;
+    return selected ? style.selected : style.mainContainer
 }
 export function isDayToday(day: Date) {
-  let currentDate = new Date();
-  return (
-    day.getDate() === currentDate.getDate() &&
-    day.getMonth() === currentDate.getMonth() &&
-    day.getFullYear() === currentDate.getFullYear()
-  );
+    const currentDate = new Date()
+    return (
+        day.getDate() === currentDate.getDate() &&
+        day.getMonth() === currentDate.getMonth() &&
+        day.getFullYear() === currentDate.getFullYear()
+    )
 }
